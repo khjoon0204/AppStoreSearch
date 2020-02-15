@@ -46,14 +46,86 @@
                     <view key="view" contentMode="scaleToFill" id="qrv-gz-Np2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iux-MZ-RkS">
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="375" height="580.66666666666674"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iyl-Kl-sje">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="580.66666666666663"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Iyl-Kl-sje" secondAttribute="bottom" id="5M4-Ih-p1p"/>
+                                    <constraint firstItem="Iyl-Kl-sje" firstAttribute="top" secondItem="Iux-MZ-RkS" secondAttribute="top" id="EsX-kN-KHZ"/>
+                                    <constraint firstItem="Iyl-Kl-sje" firstAttribute="leading" secondItem="Iux-MZ-RkS" secondAttribute="leading" id="Id8-HN-h3T"/>
+                                    <constraint firstAttribute="trailing" secondItem="Iyl-Kl-sje" secondAttribute="trailing" id="hAN-zI-Bl9"/>
+                                </constraints>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vn3-17-NJI">
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="375" height="580.66666666666674"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tIA-bu-3Of">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="580.66666666666663"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="tIA-bu-3Of" firstAttribute="leading" secondItem="Vn3-17-NJI" secondAttribute="leading" id="7de-wi-CCl"/>
+                                    <constraint firstAttribute="bottom" secondItem="tIA-bu-3Of" secondAttribute="bottom" id="eay-FE-6eu"/>
+                                    <constraint firstAttribute="trailing" secondItem="tIA-bu-3Of" secondAttribute="trailing" id="nv3-Gj-Gs8"/>
+                                    <constraint firstItem="tIA-bu-3Of" firstAttribute="top" secondItem="Vn3-17-NJI" secondAttribute="top" id="rIT-lu-AWl"/>
+                                </constraints>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDo-8E-Hfi">
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="375" height="580.66666666666674"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X5y-p8-dtc">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="580.66666666666663"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="X5y-p8-dtc" secondAttribute="trailing" id="hVf-Y3-4lC"/>
+                                    <constraint firstAttribute="bottom" secondItem="X5y-p8-dtc" secondAttribute="bottom" id="oI1-TV-PFG"/>
+                                    <constraint firstItem="X5y-p8-dtc" firstAttribute="top" secondItem="UDo-8E-Hfi" secondAttribute="top" id="qCA-wi-dWp"/>
+                                    <constraint firstItem="X5y-p8-dtc" firstAttribute="leading" secondItem="UDo-8E-Hfi" secondAttribute="leading" id="x1C-Vj-JKr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="UDo-8E-Hfi" firstAttribute="leading" secondItem="c6g-6a-FFc" secondAttribute="leading" id="0zd-Xu-Jal"/>
+                            <constraint firstItem="Iux-MZ-RkS" firstAttribute="top" secondItem="c6g-6a-FFc" secondAttribute="top" id="56J-TK-AmT"/>
+                            <constraint firstItem="Vn3-17-NJI" firstAttribute="top" secondItem="c6g-6a-FFc" secondAttribute="top" id="5b0-ww-uNu"/>
+                            <constraint firstItem="UDo-8E-Hfi" firstAttribute="top" secondItem="c6g-6a-FFc" secondAttribute="top" id="Esh-lG-Lbe"/>
+                            <constraint firstItem="Vn3-17-NJI" firstAttribute="leading" secondItem="c6g-6a-FFc" secondAttribute="leading" id="JHj-w1-tdX"/>
+                            <constraint firstItem="UDo-8E-Hfi" firstAttribute="bottom" secondItem="c6g-6a-FFc" secondAttribute="bottom" id="NJz-Nb-YkO"/>
+                            <constraint firstItem="c6g-6a-FFc" firstAttribute="trailing" secondItem="Iux-MZ-RkS" secondAttribute="trailing" id="QaY-oQ-DYp"/>
+                            <constraint firstItem="Iux-MZ-RkS" firstAttribute="leading" secondItem="c6g-6a-FFc" secondAttribute="leading" id="Qcr-CH-JP4"/>
+                            <constraint firstItem="UDo-8E-Hfi" firstAttribute="trailing" secondItem="c6g-6a-FFc" secondAttribute="trailing" id="YcD-NM-DEq"/>
+                            <constraint firstItem="c6g-6a-FFc" firstAttribute="bottom" secondItem="Iux-MZ-RkS" secondAttribute="bottom" id="i1F-5X-sVp"/>
+                            <constraint firstItem="c6g-6a-FFc" firstAttribute="bottom" secondItem="Vn3-17-NJI" secondAttribute="bottom" id="nlU-kt-KlZ"/>
+                            <constraint firstItem="c6g-6a-FFc" firstAttribute="trailing" secondItem="Vn3-17-NJI" secondAttribute="trailing" id="yeW-17-BJK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="c6g-6a-FFc"/>
                     </view>
                     <navigationItem key="navigationItem" title="검색" id="NIB-cd-TBh"/>
+                    <connections>
+                        <outlet property="historyTV" destination="Iyl-Kl-sje" id="oIo-Cy-9Hk"/>
+                        <outlet property="historyV0" destination="Iux-MZ-RkS" id="7Oj-Dd-tpT"/>
+                        <outlet property="latestTV" destination="tIA-bu-3Of" id="GNa-PI-ofP"/>
+                        <outlet property="latestV0" destination="Vn3-17-NJI" id="4dr-di-vO8"/>
+                        <outlet property="listTV" destination="X5y-p8-dtc" id="a3G-Vg-4jV"/>
+                        <outlet property="listV0" destination="UDo-8E-Hfi" id="2dg-cB-swr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7fi-Wo-fbe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2699" y="137"/>
+            <point key="canvasLocation" x="2698.4000000000001" y="136.69950738916256"/>
         </scene>
         <!--Search-->
         <scene sceneID="zBB-J4-aae">

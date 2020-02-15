@@ -20,4 +20,28 @@ protocol SearchInputPresentableListener: class {
 final class SearchInputViewController: UIViewController, SearchInputPresentable, SearchInputViewControllable {
 
     weak var listener: SearchInputPresentableListener?
+    
+    @IBOutlet weak var latestV0: UIView!
+    @IBOutlet weak var latestTV: UITableView!
+    @IBOutlet weak var historyV0: UIView!
+    @IBOutlet weak var historyTV: UITableView!
+    @IBOutlet weak var listV0: UIView!
+    @IBOutlet weak var listTV: UITableView!
+    
+    
 }
+
+//extension SearchInputViewController: UICollectionViewDataSource{
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        <#code#>
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        <#code#>
+//    }
+//
+//
+//}
+//extension SearchInputViewController: UICollectionViewDelegate{
+//
+//}
