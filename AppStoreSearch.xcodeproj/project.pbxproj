@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		590C101ABF6AEBB71431F50E /* Pods_AppStoreSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADB8B0414B7AE57B1F36E4E /* Pods_AppStoreSearch.framework */; };
+		F41F636723F7FC31004CE89F /* LinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F636523F7FC31004CE89F /* LinkCell.swift */; };
+		F41F636823F7FC31004CE89F /* LinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F41F636623F7FC31004CE89F /* LinkCell.xib */; };
 		F4E8BFDE23F66AC700014F9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFDD23F66AC700014F9C /* AppDelegate.swift */; };
 		F4E8BFE023F66AC700014F9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFDF23F66AC700014F9C /* SceneDelegate.swift */; };
 		F4E8BFE223F66AC700014F9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFE123F66AC700014F9C /* ViewController.swift */; };
@@ -38,12 +40,8 @@
 		F4F6771423F787B500C724EF /* ViewControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6770223F787B500C724EF /* ViewControllable.swift */; };
 		F4F6771923F78E9000C724EF /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4F6771723F78E9000C724EF /* TitleCell.xib */; };
 		F4F6771A23F78E9000C724EF /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6771823F78E9000C724EF /* TitleCell.swift */; };
-		F4F6771D23F78E9800C724EF /* LinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6771B23F78E9700C724EF /* LinkCell.swift */; };
-		F4F6771E23F78E9800C724EF /* LinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4F6771C23F78E9700C724EF /* LinkCell.xib */; };
-		F4F6772423F790D400C724EF /* SearchListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6772023F790D400C724EF /* SearchListRouter.swift */; };
-		F4F6772523F790D400C724EF /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6772123F790D400C724EF /* SearchListViewController.swift */; };
-		F4F6772623F790D400C724EF /* SearchListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6772223F790D400C724EF /* SearchListBuilder.swift */; };
-		F4F6772723F790D400C724EF /* SearchListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6772323F790D400C724EF /* SearchListInteractor.swift */; };
+		F4F6771D23F78E9800C724EF /* InputTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6771B23F78E9700C724EF /* InputTextCell.swift */; };
+		F4F6771E23F78E9800C724EF /* InputTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4F6771C23F78E9700C724EF /* InputTextCell.xib */; };
 		F4F6772D23F790F800C724EF /* SearchDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6772923F790F800C724EF /* SearchDetailRouter.swift */; };
 		F4F6772E23F790F800C724EF /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6772A23F790F800C724EF /* SearchDetailViewController.swift */; };
 		F4F6772F23F790F800C724EF /* SearchDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6772B23F790F800C724EF /* SearchDetailBuilder.swift */; };
@@ -58,6 +56,8 @@
 		A9215DFEBCBC6E0E0DC5F4D1 /* Pods-AppStoreSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreSearch.release.xcconfig"; path = "Target Support Files/Pods-AppStoreSearch/Pods-AppStoreSearch.release.xcconfig"; sourceTree = "<group>"; };
 		AADB8B0414B7AE57B1F36E4E /* Pods_AppStoreSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStoreSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE143AA636C40EB184FB581 /* Pods-AppStoreSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreSearch.debug.xcconfig"; path = "Target Support Files/Pods-AppStoreSearch/Pods-AppStoreSearch.debug.xcconfig"; sourceTree = "<group>"; };
+		F41F636523F7FC31004CE89F /* LinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCell.swift; sourceTree = "<group>"; };
+		F41F636623F7FC31004CE89F /* LinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkCell.xib; sourceTree = "<group>"; };
 		F4E8BFDA23F66AC700014F9C /* AppStoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4E8BFDD23F66AC700014F9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4E8BFDF23F66AC700014F9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,12 +91,8 @@
 		F4F6770223F787B500C724EF /* ViewControllable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllable.swift; sourceTree = "<group>"; };
 		F4F6771723F78E9000C724EF /* TitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
 		F4F6771823F78E9000C724EF /* TitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
-		F4F6771B23F78E9700C724EF /* LinkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkCell.swift; sourceTree = "<group>"; };
-		F4F6771C23F78E9700C724EF /* LinkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LinkCell.xib; sourceTree = "<group>"; };
-		F4F6772023F790D400C724EF /* SearchListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListRouter.swift; sourceTree = "<group>"; };
-		F4F6772123F790D400C724EF /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
-		F4F6772223F790D400C724EF /* SearchListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListBuilder.swift; sourceTree = "<group>"; };
-		F4F6772323F790D400C724EF /* SearchListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListInteractor.swift; sourceTree = "<group>"; };
+		F4F6771B23F78E9700C724EF /* InputTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTextCell.swift; sourceTree = "<group>"; };
+		F4F6771C23F78E9700C724EF /* InputTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputTextCell.xib; sourceTree = "<group>"; };
 		F4F6772923F790F800C724EF /* SearchDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailRouter.swift; sourceTree = "<group>"; };
 		F4F6772A23F790F800C724EF /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		F4F6772B23F790F800C724EF /* SearchDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailBuilder.swift; sourceTree = "<group>"; };
@@ -159,7 +155,6 @@
 			children = (
 				F4F676BD23F785AF00C724EF /* Library */,
 				F4F6772823F790D900C724EF /* SearchDetail */,
-				F4F6771F23F790A500C724EF /* SearchList */,
 				F4E8BFF423F66B3500014F9C /* SearchInput */,
 				F4E8BFDD23F66AC700014F9C /* AppDelegate.swift */,
 				F4E8BFDF23F66AC700014F9C /* SceneDelegate.swift */,
@@ -269,24 +264,16 @@
 		F4F6771623F78E5800C724EF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				F4F6771B23F78E9700C724EF /* LinkCell.swift */,
-				F4F6771C23F78E9700C724EF /* LinkCell.xib */,
+				F4F6771B23F78E9700C724EF /* InputTextCell.swift */,
+				F4F6771C23F78E9700C724EF /* InputTextCell.xib */,
 				F4F6771823F78E9000C724EF /* TitleCell.swift */,
 				F4F6771723F78E9000C724EF /* TitleCell.xib */,
+				F41F636523F7FC31004CE89F /* LinkCell.swift */,
+				F41F636623F7FC31004CE89F /* LinkCell.xib */,
+				F4F6773223F7954400C724EF /* ItemCell.swift */,
+				F4F6773323F7954400C724EF /* ItemCell.xib */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		F4F6771F23F790A500C724EF /* SearchList */ = {
-			isa = PBXGroup;
-			children = (
-				F4F6773123F7949600C724EF /* Cell */,
-				F4F6772023F790D400C724EF /* SearchListRouter.swift */,
-				F4F6772123F790D400C724EF /* SearchListViewController.swift */,
-				F4F6772223F790D400C724EF /* SearchListBuilder.swift */,
-				F4F6772323F790D400C724EF /* SearchListInteractor.swift */,
-			);
-			path = SearchList;
 			sourceTree = "<group>";
 		};
 		F4F6772823F790D900C724EF /* SearchDetail */ = {
@@ -299,15 +286,6 @@
 				F4F6772C23F790F800C724EF /* SearchDetailInteractor.swift */,
 			);
 			path = SearchDetail;
-			sourceTree = "<group>";
-		};
-		F4F6773123F7949600C724EF /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				F4F6773223F7954400C724EF /* ItemCell.swift */,
-				F4F6773323F7954400C724EF /* ItemCell.xib */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		F4F6773623F7B88600C724EF /* Cell */ = {
@@ -382,10 +360,11 @@
 				F4F6771923F78E9000C724EF /* TitleCell.xib in Resources */,
 				F4E8BFED23F66AC800014F9C /* LaunchScreen.storyboard in Resources */,
 				F4F6773523F7954400C724EF /* ItemCell.xib in Resources */,
+				F41F636823F7FC31004CE89F /* LinkCell.xib in Resources */,
 				F4E8BFEA23F66AC800014F9C /* Assets.xcassets in Resources */,
 				F4F6773A23F7B8E900C724EF /* DescCell.xib in Resources */,
 				F4E8BFE523F66AC700014F9C /* Main.storyboard in Resources */,
-				F4F6771E23F78E9800C724EF /* LinkCell.xib in Resources */,
+				F4F6771E23F78E9800C724EF /* InputTextCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,7 +421,6 @@
 				F4F6771423F787B500C724EF /* ViewControllable.swift in Sources */,
 				F4F6771323F787B500C724EF /* Worker.swift in Sources */,
 				F4E8BFE223F66AC700014F9C /* ViewController.swift in Sources */,
-				F4F6772423F790D400C724EF /* SearchListRouter.swift in Sources */,
 				F4F6773923F7B8E900C724EF /* DescCell.swift in Sources */,
 				F4E8BFDE23F66AC700014F9C /* AppDelegate.swift in Sources */,
 				F4F6771023F787B500C724EF /* Workflow.swift in Sources */,
@@ -463,18 +441,16 @@
 				F4F6770A23F787B500C724EF /* Foundation+Extensions.swift in Sources */,
 				F4F6770F23F787B500C724EF /* Router.swift in Sources */,
 				F4F6770623F787B500C724EF /* PresentableInteractor.swift in Sources */,
-				F4F6772623F790D400C724EF /* SearchListBuilder.swift in Sources */,
+				F41F636723F7FC31004CE89F /* LinkCell.swift in Sources */,
 				F4E8BFF923F66B7400014F9C /* SearchInputRouter.swift in Sources */,
-				F4F6772723F790D400C724EF /* SearchListInteractor.swift in Sources */,
 				F4E8BFFC23F66B7400014F9C /* SearchInputInteractor.swift in Sources */,
 				F4F6772E23F790F800C724EF /* SearchDetailViewController.swift in Sources */,
 				F4F6770523F787B500C724EF /* Component.swift in Sources */,
-				F4F6771D23F78E9800C724EF /* LinkCell.swift in Sources */,
+				F4F6771D23F78E9800C724EF /* InputTextCell.swift in Sources */,
 				F4F6770923F787B500C724EF /* Interactor.swift in Sources */,
 				F4F6770E23F787B500C724EF /* LeakDetector.swift in Sources */,
 				F4F6772D23F790F800C724EF /* SearchDetailRouter.swift in Sources */,
 				F4F6770723F787B500C724EF /* Builder.swift in Sources */,
-				F4F6772523F790D400C724EF /* SearchListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

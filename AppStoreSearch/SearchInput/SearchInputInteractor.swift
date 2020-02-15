@@ -37,10 +37,13 @@ final class SearchInputInteractor: PresentableInteractor<SearchInputPresentable>
     override func didBecomeActive() {
         super.didBecomeActive()
         // TODO: Implement business logic here.
+        
     }
 
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
     }
+    
+    
 }
