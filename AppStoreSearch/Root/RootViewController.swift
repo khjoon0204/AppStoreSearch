@@ -22,6 +22,7 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
     
     
     weak var listener: RootPresentableListener?
+    
     override func viewDidLoad() {
         print(#function)
         

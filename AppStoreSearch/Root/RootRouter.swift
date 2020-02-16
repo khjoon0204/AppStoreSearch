@@ -35,7 +35,7 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     
     override func didLoad() {
         super.didLoad()
-        // routToSearchInput()
+        routToSearchInput()
     }
     
     func routToSearchInput() {
