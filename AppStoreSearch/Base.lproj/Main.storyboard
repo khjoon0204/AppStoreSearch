@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Root View Controller-->
         <scene sceneID="D4G-CD-7ec">
             <objects>
-                <tabBarController id="bA2-nP-ehx" sceneMemberID="viewController">
+                <tabBarController id="bA2-nP-ehx" customClass="RootViewController" customModule="AppStoreSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="PXd-8m-zqD">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -22,7 +22,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yet-3g-7Cf" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1035" y="137"/>
+            <point key="canvasLocation" x="1976.8" y="136.69950738916256"/>
         </scene>
         <!--검색-->
         <scene sceneID="dxx-FN-GxM">
@@ -110,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7fi-Wo-fbe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2698.4000000000001" y="136.69950738916256"/>
+            <point key="canvasLocation" x="3640.8000000000002" y="136.69950738916256"/>
         </scene>
         <!--Search-->
         <scene sceneID="zBB-J4-aae">
@@ -129,7 +129,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogH-ai-f3C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1925" y="138"/>
+            <point key="canvasLocation" x="2866.4000000000001" y="137.4384236453202"/>
         </scene>
     </scenes>
     <resources>

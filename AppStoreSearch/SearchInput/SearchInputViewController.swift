@@ -31,7 +31,6 @@ final class SearchInputViewController: UIViewController, SearchInputPresentable,
     override func viewDidLoad() {
         addSearchController()
         setupTableView()
-        
     }
     
     private func addSearchController(){
