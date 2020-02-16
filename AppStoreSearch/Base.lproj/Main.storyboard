@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="D4G-CD-7ec">
             <objects>
-                <tabBarController id="bA2-nP-ehx" customClass="RootViewController" customModule="AppStoreSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="bA2-nP-ehx" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="PXd-8m-zqD">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -119,7 +119,7 @@
                     <tabBarItem key="tabBarItem" title="Search" image="search" id="eRn-OC-TY4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="xOm-nr-ax1">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

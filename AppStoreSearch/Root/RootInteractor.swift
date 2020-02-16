@@ -11,6 +11,7 @@ import RxSwift
 
 protocol RootRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+
 }
 
 protocol RootPresentable: Presentable {
@@ -23,7 +24,7 @@ protocol RootListener: class {
 }
 
 final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteractable, RootPresentableListener {
-
+    
     weak var router: RootRouting?
     weak var listener: RootListener?
 
@@ -43,4 +44,6 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
         super.willResignActive()
         // TODO: Pause any business logic.
     }
+    
+    
 }

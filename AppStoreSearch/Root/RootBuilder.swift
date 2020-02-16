@@ -43,6 +43,9 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
         let viewController = RootViewController()
         let component = RootComponent(dependency: dependency, rootViewController: viewController)
         let interactor = RootInteractor(presenter: viewController)
-        return RootRouter(interactor: interactor, viewController: viewController)
+        let searchInputBuilder = SearchInputBuilder(dependency: component)
+        return RootRouter(interactor: interactor,
+                          viewController: viewController,
+                          searchInputBuilder: searchInputBuilder)
     }
 }

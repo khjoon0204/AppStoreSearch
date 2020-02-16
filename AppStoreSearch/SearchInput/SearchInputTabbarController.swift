@@ -24,7 +24,7 @@ protocol SearchInputPresentableListener: class {
     func fetchSearch(term: String, withSuccessHandler success: @escaping ([String:Any]) -> ())
 }
 
-final class SearchInputViewController: UIViewController, SearchInputPresentable, SearchInputViewControllable {
+final class SearchInputViewController: UITabBarController, SearchInputPresentable, SearchInputViewControllable {
 
     weak var listener: SearchInputPresentableListener?
     
@@ -42,9 +42,6 @@ final class SearchInputViewController: UIViewController, SearchInputPresentable,
     override func viewDidLoad() {
 //        addSearchController()
 //        setupTableView()
-        
-        
-        view.backgroundColor = UIColor.yellow
     }
     
     private func addSearchController(){

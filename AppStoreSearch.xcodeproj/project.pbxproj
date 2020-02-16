@@ -15,15 +15,17 @@
 		F470C03F23F8DC5B00AC7A18 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C03B23F8DC5B00AC7A18 /* RootBuilder.swift */; };
 		F470C04023F8DC5B00AC7A18 /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C03C23F8DC5B00AC7A18 /* RootInteractor.swift */; };
 		F470C04223F8E41000AC7A18 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C04123F8E41000AC7A18 /* AppComponent.swift */; };
+		F470C06823F92C0800AC7A18 /* RootComponent+SearchInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C06723F92C0800AC7A18 /* RootComponent+SearchInput.swift */; };
+		F470C06B23F93DB300AC7A18 /* UINavigationController+ViewControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C06A23F93DB300AC7A18 /* UINavigationController+ViewControllable.swift */; };
+		F470C06D23F93E3400AC7A18 /* UITabBarController+ViewControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C06C23F93E3400AC7A18 /* UITabBarController+ViewControllable.swift */; };
+		F470C07B23F950C000AC7A18 /* SearchInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFF623F66B7400014F9C /* SearchInputViewController.swift */; };
 		F4E8BFDE23F66AC700014F9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFDD23F66AC700014F9C /* AppDelegate.swift */; };
 		F4E8BFE023F66AC700014F9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFDF23F66AC700014F9C /* SceneDelegate.swift */; };
-		F4E8BFE223F66AC700014F9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFE123F66AC700014F9C /* ViewController.swift */; };
 		F4E8BFE523F66AC700014F9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4E8BFE323F66AC700014F9C /* Main.storyboard */; };
 		F4E8BFE823F66AC700014F9C /* AppStoreSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFE623F66AC700014F9C /* AppStoreSearch.xcdatamodeld */; };
 		F4E8BFEA23F66AC800014F9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4E8BFE923F66AC800014F9C /* Assets.xcassets */; };
 		F4E8BFED23F66AC800014F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4E8BFEB23F66AC800014F9C /* LaunchScreen.storyboard */; };
 		F4E8BFF923F66B7400014F9C /* SearchInputRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFF523F66B7400014F9C /* SearchInputRouter.swift */; };
-		F4E8BFFA23F66B7400014F9C /* SearchInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFF623F66B7400014F9C /* SearchInputViewController.swift */; };
 		F4E8BFFB23F66B7400014F9C /* SearchInputBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFF723F66B7400014F9C /* SearchInputBuilder.swift */; };
 		F4E8BFFC23F66B7400014F9C /* SearchInputInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFF823F66B7400014F9C /* SearchInputInteractor.swift */; };
 		F4F6770423F787B500C724EF /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F676EE23F787B500C724EF /* Dependency.swift */; };
@@ -68,10 +70,13 @@
 		F470C03B23F8DC5B00AC7A18 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
 		F470C03C23F8DC5B00AC7A18 /* RootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
 		F470C04123F8E41000AC7A18 /* AppComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
+		F470C06723F92C0800AC7A18 /* RootComponent+SearchInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RootComponent+SearchInput.swift"; sourceTree = "<group>"; };
+		F470C06A23F93DB300AC7A18 /* UINavigationController+ViewControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+ViewControllable.swift"; sourceTree = "<group>"; };
+		F470C06C23F93E3400AC7A18 /* UITabBarController+ViewControllable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+ViewControllable.swift"; sourceTree = "<group>"; };
+		F470C07723F9481C00AC7A18 /* SearchInputTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchInputTabbarController.swift; sourceTree = "<group>"; };
 		F4E8BFDA23F66AC700014F9C /* AppStoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4E8BFDD23F66AC700014F9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4E8BFDF23F66AC700014F9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F4E8BFE123F66AC700014F9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F4E8BFE423F66AC700014F9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F4E8BFE723F66AC700014F9C /* AppStoreSearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppStoreSearch.xcdatamodel; sourceTree = "<group>"; };
 		F4E8BFE923F66AC800014F9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -149,8 +154,18 @@
 				F470C03A23F8DC5B00AC7A18 /* RootViewController.swift */,
 				F470C03B23F8DC5B00AC7A18 /* RootBuilder.swift */,
 				F470C03C23F8DC5B00AC7A18 /* RootInteractor.swift */,
+				F470C06723F92C0800AC7A18 /* RootComponent+SearchInput.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		F470C06923F93D8600AC7A18 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F470C06A23F93DB300AC7A18 /* UINavigationController+ViewControllable.swift */,
+				F470C06C23F93E3400AC7A18 /* UITabBarController+ViewControllable.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		F4E8BFD123F66AC700014F9C = {
@@ -174,6 +189,7 @@
 		F4E8BFDC23F66AC700014F9C /* AppStoreSearch */ = {
 			isa = PBXGroup;
 			children = (
+				F470C06923F93D8600AC7A18 /* Extension */,
 				F4E8BFF423F66B3500014F9C /* SearchInput */,
 				F4F6772823F790D900C724EF /* SearchDetail */,
 				F470C03823F8DC2900AC7A18 /* Root */,
@@ -181,7 +197,6 @@
 				F4E8BFDD23F66AC700014F9C /* AppDelegate.swift */,
 				F470C04123F8E41000AC7A18 /* AppComponent.swift */,
 				F4E8BFDF23F66AC700014F9C /* SceneDelegate.swift */,
-				F4E8BFE123F66AC700014F9C /* ViewController.swift */,
 				F4E8BFE323F66AC700014F9C /* Main.storyboard */,
 				F4E8BFE923F66AC800014F9C /* Assets.xcassets */,
 				F4E8BFEB23F66AC800014F9C /* LaunchScreen.storyboard */,
@@ -197,6 +212,7 @@
 				F4F6771623F78E5800C724EF /* Cell */,
 				F4E8BFF523F66B7400014F9C /* SearchInputRouter.swift */,
 				F4E8BFF623F66B7400014F9C /* SearchInputViewController.swift */,
+				F470C07723F9481C00AC7A18 /* SearchInputTabbarController.swift */,
 				F4E8BFF723F66B7400014F9C /* SearchInputBuilder.swift */,
 				F4E8BFF823F66B7400014F9C /* SearchInputInteractor.swift */,
 			);
@@ -445,7 +461,6 @@
 				F470C03E23F8DC5B00AC7A18 /* RootViewController.swift in Sources */,
 				F4F6771323F787B500C724EF /* Worker.swift in Sources */,
 				F470C04023F8DC5B00AC7A18 /* RootInteractor.swift in Sources */,
-				F4E8BFE223F66AC700014F9C /* ViewController.swift in Sources */,
 				F4F6773923F7B8E900C724EF /* DescCell.swift in Sources */,
 				F4E8BFDE23F66AC700014F9C /* AppDelegate.swift in Sources */,
 				F4F6771023F787B500C724EF /* Workflow.swift in Sources */,
@@ -454,10 +469,11 @@
 				F470C04223F8E41000AC7A18 /* AppComponent.swift in Sources */,
 				F4E8BFE023F66AC700014F9C /* SceneDelegate.swift in Sources */,
 				F4F6770423F787B500C724EF /* Dependency.swift in Sources */,
+				F470C06B23F93DB300AC7A18 /* UINavigationController+ViewControllable.swift in Sources */,
 				F470C03D23F8DC5B00AC7A18 /* RootRouter.swift in Sources */,
 				F4F6773023F790F800C724EF /* SearchDetailInteractor.swift in Sources */,
-				F4E8BFFA23F66B7400014F9C /* SearchInputViewController.swift in Sources */,
 				F4E8BFFB23F66B7400014F9C /* SearchInputBuilder.swift in Sources */,
+				F470C06D23F93E3400AC7A18 /* UITabBarController+ViewControllable.swift in Sources */,
 				F4F6771123F787B500C724EF /* ViewableRouter.swift in Sources */,
 				F4F6771223F787B500C724EF /* ComponentizedBuilder.swift in Sources */,
 				F470C03F23F8DC5B00AC7A18 /* RootBuilder.swift in Sources */,
@@ -469,11 +485,13 @@
 				F4F6770A23F787B500C724EF /* Foundation+Extensions.swift in Sources */,
 				F4F6770F23F787B500C724EF /* Router.swift in Sources */,
 				F4F6770623F787B500C724EF /* PresentableInteractor.swift in Sources */,
+				F470C07B23F950C000AC7A18 /* SearchInputViewController.swift in Sources */,
 				F41F636723F7FC31004CE89F /* LinkCell.swift in Sources */,
 				F4E8BFF923F66B7400014F9C /* SearchInputRouter.swift in Sources */,
 				F4E8BFFC23F66B7400014F9C /* SearchInputInteractor.swift in Sources */,
 				F4F6772E23F790F800C724EF /* SearchDetailViewController.swift in Sources */,
 				F4F6770523F787B500C724EF /* Component.swift in Sources */,
+				F470C06823F92C0800AC7A18 /* RootComponent+SearchInput.swift in Sources */,
 				F4F6771D23F78E9800C724EF /* InputTextCell.swift in Sources */,
 				F4F6770923F787B500C724EF /* Interactor.swift in Sources */,
 				F4F6770E23F787B500C724EF /* LeakDetector.swift in Sources */,
