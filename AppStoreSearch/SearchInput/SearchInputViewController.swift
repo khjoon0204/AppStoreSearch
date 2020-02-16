@@ -11,10 +11,17 @@ import RxSwift
 import UIKit
 import RxCocoa
 
+enum ViewType: Int {
+    case latest // 최근검색어
+    case history // 검색히스토리
+    case list // 검색결과목록
+}
+
 protocol SearchInputPresentableListener: class {
     // TODO: Declare properties and methods that the view controller can invoke to perform
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
+    func fetchSearch(term: String, withSuccessHandler success: @escaping ([String:Any]) -> ())
 }
 
 final class SearchInputViewController: UIViewController, SearchInputPresentable, SearchInputViewControllable {
@@ -27,6 +34,10 @@ final class SearchInputViewController: UIViewController, SearchInputPresentable,
     @IBOutlet weak var historyTV: UITableView!
     @IBOutlet weak var listV0: UIView!
     @IBOutlet weak var listTV: UITableView!
+    
+//    private var cur_view: ViewType!
+    private var search_list: [String:Any]?
+    
     
     override func viewDidLoad() {
         addSearchController()
@@ -66,38 +77,64 @@ final class SearchInputViewController: UIViewController, SearchInputPresentable,
         historyTV.delegate = self
         historyTV.register(UINib(nibName: "LinkCell", bundle: nil), forCellReuseIdentifier: "LinkCell")
         
-        listTV.dataSource = self
-        listTV.delegate = self
+//        listTV.dataSource = self
+//        listTV.delegate = self
         listTV.register(UINib(nibName: "ItemCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
         
     }
     
+    private func bindingSearchList(){
+        let ob: Observable<[String:Any]> = Observable.of(search_list!)
+        ob.bind(to: listTV.rx.items(cellIdentifier: "ItemCell", cellType: ItemCell.self)) { (index, ele, cell) in
+            print(ele)
+        }.disposed(by: disposeBag)
+        
+        
+    }
     
     
+    private func viewChange(viewType: ViewType){
+        listV0.isHidden = true
+        latestV0.isHidden = true
+        historyV0.isHidden = true
+        switch viewType {
+        case .latest:
+            latestV0.isHidden = false
+            break
+        case .list:
+            listV0.isHidden = false
+            break
+        case .history:
+            historyV0.isHidden = false
+            break
+        }
+    }
+    
+    private let disposeBag = DisposeBag()
 }
 extension SearchInputViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("\(#function) \(searchText)")
+        if searchText == ""{
+            // TODO: Latest View 로 전환
+        }
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print(#function)
-        if let searchText = searchBar.text{fetchSearch(term: searchText)}
+        if let searchText = searchBar.text{
+            listener?.fetchSearch(term: searchText, withSuccessHandler: { (res) in
+                self.search_list = res
+                self.bindingSearchList()
+                self.viewChange(viewType: .list)
+            })
+        }
         
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         print(#function)
+        // TODO: 처음화면으로 전환
     }
     
-    func fetchSearch(term: String){
-        let term_enc = term.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
-        let url = URL(string: "https://itunes.apple.com/search?term=\(term_enc!)&media=software")!
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            let result = try? JSONSerialization.jsonObject(with: data!, options: [])
-            if let res = result as? [String:Any]{
-                print(res)
-            }
-        }.resume()
-    }
     
 }
 extension SearchInputViewController: UITableViewDataSource{
