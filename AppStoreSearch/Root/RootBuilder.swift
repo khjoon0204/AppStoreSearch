@@ -29,7 +29,6 @@ final class RootComponent: Component<RootDependency> {
 // MARK: - Builder
 
 protocol RootBuildable: Buildable {
-//    func build(withListener listener: RootListener) -> RootRouting
     func build() -> LaunchRouting
 }
 
@@ -40,22 +39,10 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
         super.init(dependency: dependency)
     }
 
-//    func build(withListener listener: RootListener) -> RootRouting {
-//        let viewController = RootViewController()
-//        let component = RootComponent(dependency: dependency, rootViewController: viewController)
-//        let interactor = RootInteractor(presenter: viewController)
-//        interactor.listener = listener
-//        return RootRouter(interactor: interactor, viewController: viewController)
-//    }
-    
     func build() -> LaunchRouting {
         let viewController = RootViewController()
-        let component = RootComponent(dependency: dependency,
-                                      rootViewController: viewController)
+        let component = RootComponent(dependency: dependency, rootViewController: viewController)
         let interactor = RootInteractor(presenter: viewController)
-        let searchInputBuilder = SearchInputBuilder(dependency: component)
-        return RootRouter(interactor: interactor,
-                          viewController: viewController,
-                          searchInputBuilder: searchInputBuilder)
+        return RootRouter(interactor: interactor, viewController: viewController)
     }
 }

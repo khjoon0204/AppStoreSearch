@@ -16,6 +16,12 @@ protocol SearchInputDependency: Dependency {
 final class SearchInputComponent: Component<SearchInputDependency> {
 
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    let searchInputViewController: SearchInputViewController
+    init(dependency: SearchInputDependency,
+         searchInputViewController: SearchInputViewController) {
+        self.searchInputViewController = searchInputViewController
+        super.init(dependency: dependency)
+    }
 }
 
 // MARK: - Builder
@@ -31,8 +37,9 @@ final class SearchInputBuilder: Builder<SearchInputDependency>, SearchInputBuild
     }
 
     func build(withListener listener: SearchInputListener) -> SearchInputRouting {
-        let component = SearchInputComponent(dependency: dependency)
         let viewController = SearchInputViewController()
+        let component = SearchInputComponent(dependency: dependency, searchInputViewController: viewController)
+        
         let interactor = SearchInputInteractor(presenter: viewController)
         interactor.listener = listener
         return SearchInputRouter(interactor: interactor, viewController: viewController)

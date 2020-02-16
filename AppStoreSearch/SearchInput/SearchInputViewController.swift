@@ -37,7 +37,7 @@ final class SearchInputViewController: UIViewController, SearchInputPresentable,
         
         let searchController = UISearchController()
         searchController.obscuresBackgroundDuringPresentation = true
-        searchController.searchBar.placeholder = "게임, 앱, 스토리 등"
+        searchController.searchBar.placeholder = "App Store"
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.delegate = self

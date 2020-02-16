@@ -15,7 +15,7 @@
 		F470C03F23F8DC5B00AC7A18 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C03B23F8DC5B00AC7A18 /* RootBuilder.swift */; };
 		F470C04023F8DC5B00AC7A18 /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C03C23F8DC5B00AC7A18 /* RootInteractor.swift */; };
 		F470C04223F8E41000AC7A18 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C04123F8E41000AC7A18 /* AppComponent.swift */; };
-		F470C04423F8EDCD00AC7A18 /* RootComponent+SearchInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C04323F8EDCD00AC7A18 /* RootComponent+SearchInput.swift */; };
+		F470C04423F8EDCD00AC7A18 /* SearchInputComponent+LatestInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C04323F8EDCD00AC7A18 /* SearchInputComponent+LatestInput.swift */; };
 		F470C04C23F8F10700AC7A18 /* SearchListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C04823F8F10600AC7A18 /* SearchListRouter.swift */; };
 		F470C04D23F8F10700AC7A18 /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C04923F8F10600AC7A18 /* SearchListViewController.swift */; };
 		F470C04E23F8F10700AC7A18 /* SearchListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C04A23F8F10700AC7A18 /* SearchListBuilder.swift */; };
@@ -28,6 +28,8 @@
 		F470C05D23F8F12400AC7A18 /* LatestInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C05923F8F12400AC7A18 /* LatestInputViewController.swift */; };
 		F470C05E23F8F12400AC7A18 /* LatestInputBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C05A23F8F12400AC7A18 /* LatestInputBuilder.swift */; };
 		F470C05F23F8F12400AC7A18 /* LatestInputInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C05B23F8F12400AC7A18 /* LatestInputInteractor.swift */; };
+		F470C06123F906B300AC7A18 /* SearchInputComponent+SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C06023F906B300AC7A18 /* SearchInputComponent+SearchHistory.swift */; };
+		F470C06323F9070400AC7A18 /* SearchInputComponent+SearchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C06223F9070400AC7A18 /* SearchInputComponent+SearchList.swift */; };
 		F4E8BFDE23F66AC700014F9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFDD23F66AC700014F9C /* AppDelegate.swift */; };
 		F4E8BFE023F66AC700014F9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFDF23F66AC700014F9C /* SceneDelegate.swift */; };
 		F4E8BFE223F66AC700014F9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFE123F66AC700014F9C /* ViewController.swift */; };
@@ -81,7 +83,7 @@
 		F470C03B23F8DC5B00AC7A18 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
 		F470C03C23F8DC5B00AC7A18 /* RootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
 		F470C04123F8E41000AC7A18 /* AppComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
-		F470C04323F8EDCD00AC7A18 /* RootComponent+SearchInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RootComponent+SearchInput.swift"; sourceTree = "<group>"; };
+		F470C04323F8EDCD00AC7A18 /* SearchInputComponent+LatestInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SearchInputComponent+LatestInput.swift"; sourceTree = "<group>"; };
 		F470C04823F8F10600AC7A18 /* SearchListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListRouter.swift; sourceTree = "<group>"; };
 		F470C04923F8F10600AC7A18 /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		F470C04A23F8F10700AC7A18 /* SearchListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListBuilder.swift; sourceTree = "<group>"; };
@@ -94,6 +96,8 @@
 		F470C05923F8F12400AC7A18 /* LatestInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestInputViewController.swift; sourceTree = "<group>"; };
 		F470C05A23F8F12400AC7A18 /* LatestInputBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestInputBuilder.swift; sourceTree = "<group>"; };
 		F470C05B23F8F12400AC7A18 /* LatestInputInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestInputInteractor.swift; sourceTree = "<group>"; };
+		F470C06023F906B300AC7A18 /* SearchInputComponent+SearchHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SearchInputComponent+SearchHistory.swift"; sourceTree = "<group>"; };
+		F470C06223F9070400AC7A18 /* SearchInputComponent+SearchList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SearchInputComponent+SearchList.swift"; sourceTree = "<group>"; };
 		F4E8BFDA23F66AC700014F9C /* AppStoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4E8BFDD23F66AC700014F9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4E8BFDF23F66AC700014F9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,7 +179,6 @@
 				F470C03A23F8DC5B00AC7A18 /* RootViewController.swift */,
 				F470C03B23F8DC5B00AC7A18 /* RootBuilder.swift */,
 				F470C03C23F8DC5B00AC7A18 /* RootInteractor.swift */,
-				F470C04323F8EDCD00AC7A18 /* RootComponent+SearchInput.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -262,6 +265,9 @@
 				F4E8BFF623F66B7400014F9C /* SearchInputViewController.swift */,
 				F4E8BFF723F66B7400014F9C /* SearchInputBuilder.swift */,
 				F4E8BFF823F66B7400014F9C /* SearchInputInteractor.swift */,
+				F470C04323F8EDCD00AC7A18 /* SearchInputComponent+LatestInput.swift */,
+				F470C06023F906B300AC7A18 /* SearchInputComponent+SearchHistory.swift */,
+				F470C06223F9070400AC7A18 /* SearchInputComponent+SearchList.swift */,
 			);
 			path = SearchInput;
 			sourceTree = "<group>";
@@ -515,12 +521,14 @@
 				F4F6771023F787B500C724EF /* Workflow.swift in Sources */,
 				F4F6770B23F787B500C724EF /* Presenter.swift in Sources */,
 				F470C05723F8F11600AC7A18 /* SearchHistoryInteractor.swift in Sources */,
+				F470C06323F9070400AC7A18 /* SearchInputComponent+SearchList.swift in Sources */,
 				F4F6772F23F790F800C724EF /* SearchDetailBuilder.swift in Sources */,
 				F470C04223F8E41000AC7A18 /* AppComponent.swift in Sources */,
 				F4E8BFE023F66AC700014F9C /* SceneDelegate.swift in Sources */,
 				F4F6770423F787B500C724EF /* Dependency.swift in Sources */,
 				F470C04F23F8F10700AC7A18 /* SearchListInteractor.swift in Sources */,
 				F470C03D23F8DC5B00AC7A18 /* RootRouter.swift in Sources */,
+				F470C06123F906B300AC7A18 /* SearchInputComponent+SearchHistory.swift in Sources */,
 				F470C05D23F8F12400AC7A18 /* LatestInputViewController.swift in Sources */,
 				F4F6773023F790F800C724EF /* SearchDetailInteractor.swift in Sources */,
 				F4E8BFFA23F66B7400014F9C /* SearchInputViewController.swift in Sources */,
@@ -547,7 +555,7 @@
 				F4F6772E23F790F800C724EF /* SearchDetailViewController.swift in Sources */,
 				F4F6770523F787B500C724EF /* Component.swift in Sources */,
 				F470C04D23F8F10700AC7A18 /* SearchListViewController.swift in Sources */,
-				F470C04423F8EDCD00AC7A18 /* RootComponent+SearchInput.swift in Sources */,
+				F470C04423F8EDCD00AC7A18 /* SearchInputComponent+LatestInput.swift in Sources */,
 				F470C04C23F8F10700AC7A18 /* SearchListRouter.swift in Sources */,
 				F470C05E23F8F12400AC7A18 /* LatestInputBuilder.swift in Sources */,
 				F4F6771D23F78E9800C724EF /* InputTextCell.swift in Sources */,

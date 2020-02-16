@@ -20,7 +20,6 @@ final class RootViewController: UITabBarController, RootPresentable, RootViewCon
     
     weak var listener: RootPresentableListener?
     override func viewDidLoad() {
-//        view.backgroundColor = UIColor.green
     }
     
     
