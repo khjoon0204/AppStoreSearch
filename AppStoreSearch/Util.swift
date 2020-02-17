@@ -23,3 +23,8 @@ enum ApiError: Error
   case CannotUpdate(String)
   case CannotDelete(String)
 }
+
+func isNil( _ val: Any?) -> String{
+    if let v = val{return v as! String}
+    return ""
+}

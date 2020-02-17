@@ -5,9 +5,8 @@
 //  Created by N17430 on 14/02/2020.
 //  Copyright © 2020 hjoon. All rights reserved.
 //
-
-import RxSwift
 import UIKit
+import RxSwift
 import RxCocoa
 
 enum ViewType: Int {
@@ -27,70 +26,42 @@ class SearchInputViewController: UIViewController{
     
     weak var listener: SearchTabbarPresentableListener?
     
-//    private var cur_view: ViewType!
-    private var search_list: [String:Any]?
-    private var search_obs: Observable<Search>?
+    var search_obs = BehaviorRelay<[Search]>(value: [])
     
     var searchController: UISearchController!
     
     override func viewDidLoad() {
         addSearchController()
-        setupTableView()
-        
+        setupTableViews()
+        bindTableViews()
     }
     
     private func addSearchController(){
         
         searchController = UISearchController()
-        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "App Store"
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.delegate = self
-        
-        
-//        let searchResults = searchController.searchBar.searchTextField.rx.text.orEmpty
-//        .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
-//        .distinctUntilChanged()
-//        .flatMapLatest { (query) -> Observable<Any> in
-//            if query.isEmpty {
-//                return .just([])
-//            }
-//        }
-//        .observeOn(MainScheduler.instance)
-        
-        
-        
+         
     }
     
-    private func setupTableView() {
-        latestTV.dataSource = self
-        latestTV.delegate = self
+    private func setupTableViews() {
         latestTV.register(UINib(nibName: "TitleCell", bundle: nil), forCellReuseIdentifier: "TitleCell")
         latestTV.register(UINib(nibName: "InputTextCell", bundle: nil), forCellReuseIdentifier: "InputTextCell")
-                
-        historyTV.dataSource = self
-        historyTV.delegate = self
         historyTV.register(UINib(nibName: "LinkCell", bundle: nil), forCellReuseIdentifier: "LinkCell")
-        
-//        listTV.dataSource = self
-//        listTV.delegate = self
         listTV.register(UINib(nibName: "ItemCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
+    }
+    
+    private func bindTableViews(){
+        search_obs.bind(to: listTV.rx.items(cellIdentifier: "ItemCell", cellType: ItemCell.self)) { (index, ele, cell) in
+            let i = ele.item
+            cell.trackName.text = "\(isNil(i["trackName"]))"
+        }
+        .disposed(by: bag)
         
     }
-    
-    private func bindingSearchList(){
-        let ob: Observable<[String:Any]> = Observable.of(search_list!)        
-        ob.bind(to: listTV.rx.items(cellIdentifier: "ItemCell", cellType: ItemCell.self)) { (index, ele, cell) in
-            if let res = ele.value as? Array<[String:Any]>, ele.key == "results"{
-                print(res.first!["trackName"])
-            }
-            
-        }
-        .disposed(by: disposeBag)
-                
-    }
-    
     
     private func viewChange(viewType: ViewType){
         listV0.isHidden = true
@@ -109,48 +80,34 @@ class SearchInputViewController: UIViewController{
         }
     }
     
-    private let disposeBag = DisposeBag()
+    private let bag = DisposeBag()
 }
+
 extension SearchInputViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("\(#function) \(searchText)")
         if searchText == ""{
-            // TODO: Latest View 로 전환
-            self.searchController?.isActive = false
+            viewChange(viewType: .latest)
+        }
+        else{
+            viewChange(viewType: .history)
         }
     }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print(#function)
         if let searchText = searchBar.text{
             listener?.fetchSearch(term: searchText, withSuccessHandler: { (res) in
-                self.search_list = res
-                DispatchQueue.main.async {
-                    self.bindingSearchList()
-                    self.viewChange(viewType: .list)
-                }
-
+                self.search_obs.accept(Search.parseJSON(res))
+                DispatchQueue.main.async {self.viewChange(viewType: .list)}
             })
         }
-        
     }
 
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         print(#function)
         // TODO: 처음화면으로 전환
+        viewChange(viewType: .latest)
     }
-    
-    
-}
-extension SearchInputViewController: UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-}
-extension SearchInputViewController: UITableViewDelegate{
-
+     
 }
