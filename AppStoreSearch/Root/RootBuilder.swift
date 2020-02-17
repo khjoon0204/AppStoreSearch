@@ -45,10 +45,8 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
         let component = RootComponent(dependency: dependency, rootViewController: viewController)
         let interactor = RootInteractor(presenter: viewController)
         let searchTabbarBuilder = SearchTabbarBuilder(dependency: component)
-        let testBuilder = TestBuilder(dependency: component)
         return RootRouter(interactor: interactor,
                           viewController: viewController,
-                          searchTabbarBuilder: searchTabbarBuilder,
-        testBuilder: testBuilder)
+                          searchTabbarBuilder: searchTabbarBuilder)
     }
 }

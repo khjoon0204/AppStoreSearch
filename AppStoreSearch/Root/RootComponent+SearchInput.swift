@@ -29,16 +29,3 @@ extension RootComponent: SearchTabbarDependency {
 //    }
 }
 
-
-protocol RootDependencyTest: Dependency {
-
-    // TODO: Declare dependencies needed from the parent scope of Root to provide dependencies
-    // for the SearchTabbar scope.
-}
-
-extension RootComponent: TestDependency {
-
-    var testViewController: TestViewControllable {
-        return rootViewController
-    }
-}

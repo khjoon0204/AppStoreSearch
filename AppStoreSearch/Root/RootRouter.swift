@@ -8,7 +8,7 @@
 
 
 
-protocol RootInteractable: Interactable, SearchTabbarListener, TestListener {
+protocol RootInteractable: Interactable, SearchTabbarListener{
     var router: RootRouting? { get set }
     var listener: RootListener? { get set }
 }
@@ -24,9 +24,7 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     // TODO: Constructor inject child builder protocols to allow building children.
     init(interactor: RootInteractable,
                   viewController: RootViewControllable,
-                  searchTabbarBuilder: SearchTabbarBuildable,
-                  testBuilder: TestBuildable) {
-        self.testBuilder = testBuilder
+                  searchTabbarBuilder: SearchTabbarBuildable) {
         self.searchTabbarBuilder = searchTabbarBuilder
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
@@ -35,14 +33,6 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     override func didLoad() {
         super.didLoad()
         routToSearchTabbar()
-//        routToTest()
-    }
-    
-    func routToTest(){
-        let test = testBuilder.build(withListener: interactor)
-        self.test = test
-        attachChild(test)
-        viewController.present(viewController: test.viewControllable)
     }
     
     func routToSearchTabbar() {
@@ -57,6 +47,4 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     let searchTabbarBuilder: SearchTabbarBuildable
     var searchTabbar: ViewableRouting?
     
-    let testBuilder: TestBuildable
-    var test: ViewableRouting?
 }

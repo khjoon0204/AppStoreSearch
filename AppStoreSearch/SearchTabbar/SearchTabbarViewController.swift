@@ -21,6 +21,10 @@ final class SearchTabbarViewController: UITabBarController, SearchTabbarPresenta
     weak var listener: SearchTabbarPresentableListener?
     
     override func viewDidLoad() {
+        setupViewControllers()
+    }
+    
+    func setupViewControllers(){
         
         let nav = storyboard?.instantiateViewController(identifier: "SearchInputNavigationController") as! UINavigationController
         let vc = storyboard?.instantiateViewController(identifier: "SearchInputViewController") as! SearchInputViewController
@@ -28,5 +32,6 @@ final class SearchTabbarViewController: UITabBarController, SearchTabbarPresenta
         setViewControllers([nav], animated: false)
         
     }
+    
     
 }

@@ -17,17 +17,8 @@ enum ViewType: Int {
     case list // 검색결과목록
 }
 
-protocol SearchInputPresentableListener: class {
-    // TODO: Declare properties and methods that the view controller can invoke to perform
-    // business logic, such as signIn(). This protocol is implemented by the corresponding
-    // interactor class.
-    func fetchSearch(term: String, withSuccessHandler success: @escaping ([String:Any]) -> ())
-}
+class SearchInputViewController: UIViewController{
 
-final class SearchInputViewController: UITabBarController, SearchInputPresentable, SearchInputViewControllable {
-
-    weak var listener: SearchInputPresentableListener?
-    
     @IBOutlet weak var latestV0: UIView!
     @IBOutlet weak var latestTV: UITableView!
     @IBOutlet weak var historyV0: UIView!
@@ -40,8 +31,10 @@ final class SearchInputViewController: UITabBarController, SearchInputPresentabl
     
     
     override func viewDidLoad() {
-//        addSearchController()
-//        setupTableView()
+        addSearchController()
+        setupTableView()
+        
+        
     }
     
     private func addSearchController(){
@@ -122,11 +115,11 @@ extension SearchInputViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print(#function)
         if let searchText = searchBar.text{
-            listener?.fetchSearch(term: searchText, withSuccessHandler: { (res) in
-                self.search_list = res
-                self.bindingSearchList()
-                self.viewChange(viewType: .list)
-            })
+//            listener?.fetchSearch(term: searchText, withSuccessHandler: { (res) in
+//                self.search_list = res
+//                self.bindingSearchList()
+//                self.viewChange(viewType: .list)
+//            })
         }
         
     }

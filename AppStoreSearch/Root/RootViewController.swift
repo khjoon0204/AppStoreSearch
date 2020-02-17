@@ -39,6 +39,6 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
 
 // MARK: SearchTabbarViewControllable
 
-extension RootViewController: SearchTabbarViewControllable, TestViewControllable {
+extension RootViewController: SearchTabbarViewControllable {
 
 }

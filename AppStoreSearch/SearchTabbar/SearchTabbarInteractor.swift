@@ -43,4 +43,18 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
         super.willResignActive()
         // TODO: Pause any business logic.
     }
+    
+    func fetchSearch(term: String, withSuccessHandler success: @escaping ([String:Any]) -> ()){
+        let term_enc = term.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
+        print("term_enc=\(term_enc!)")
+        let url = URL(string: "https://itunes.apple.com/search?term=\(term_enc!)&media=software&limit=1")!
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            let result = try? JSONSerialization.jsonObject(with: data!, options: [])
+            if let res = result as? [String:Any]{
+                print(res)
+                success(res)
+            }
+        }.resume()
+    }
+    
 }
