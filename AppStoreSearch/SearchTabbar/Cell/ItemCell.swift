@@ -31,4 +31,8 @@ class ItemCell: UITableViewCell {
         
     }
     
+    override func prepareForReuse() {
+        // TODO: 재사용시 초기화 처리
+    }
+    
 }

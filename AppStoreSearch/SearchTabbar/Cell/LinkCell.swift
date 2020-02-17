@@ -22,4 +22,7 @@ class LinkCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func prepareForReuse() {
+        // TODO: 재사용시 초기화 처리
+    }
 }

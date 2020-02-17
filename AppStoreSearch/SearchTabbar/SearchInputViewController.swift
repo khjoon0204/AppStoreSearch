@@ -6,7 +6,6 @@
 //  Copyright © 2020 hjoon. All rights reserved.
 //
 
-
 import RxSwift
 import UIKit
 import RxCocoa
@@ -26,20 +25,23 @@ class SearchInputViewController: UIViewController{
     @IBOutlet weak var listV0: UIView!
     @IBOutlet weak var listTV: UITableView!
     
+    weak var listener: SearchTabbarPresentableListener?
+    
 //    private var cur_view: ViewType!
     private var search_list: [String:Any]?
+    private var search_obs: Observable<Search>?
     
+    var searchController: UISearchController!
     
     override func viewDidLoad() {
         addSearchController()
         setupTableView()
         
-        
     }
     
     private func addSearchController(){
         
-        let searchController = UISearchController()
+        searchController = UISearchController()
         searchController.obscuresBackgroundDuringPresentation = true
         searchController.searchBar.placeholder = "App Store"
         navigationItem.searchController = searchController
@@ -56,6 +58,7 @@ class SearchInputViewController: UIViewController{
 //            }
 //        }
 //        .observeOn(MainScheduler.instance)
+        
         
         
     }
@@ -77,12 +80,15 @@ class SearchInputViewController: UIViewController{
     }
     
     private func bindingSearchList(){
-        let ob: Observable<[String:Any]> = Observable.of(search_list!)
+        let ob: Observable<[String:Any]> = Observable.of(search_list!)        
         ob.bind(to: listTV.rx.items(cellIdentifier: "ItemCell", cellType: ItemCell.self)) { (index, ele, cell) in
-            print(ele)
-        }.disposed(by: disposeBag)
-        
-        
+            if let res = ele.value as? Array<[String:Any]>, ele.key == "results"{
+                print(res.first!["trackName"])
+            }
+            
+        }
+        .disposed(by: disposeBag)
+                
     }
     
     
@@ -110,19 +116,25 @@ extension SearchInputViewController: UISearchBarDelegate{
         print("\(#function) \(searchText)")
         if searchText == ""{
             // TODO: Latest View 로 전환
+            self.searchController?.isActive = false
         }
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print(#function)
         if let searchText = searchBar.text{
-//            listener?.fetchSearch(term: searchText, withSuccessHandler: { (res) in
-//                self.search_list = res
-//                self.bindingSearchList()
-//                self.viewChange(viewType: .list)
-//            })
+            listener?.fetchSearch(term: searchText, withSuccessHandler: { (res) in
+                self.search_list = res
+                DispatchQueue.main.async {
+                    self.bindingSearchList()
+                    self.viewChange(viewType: .list)
+                }
+
+            })
         }
         
     }
+
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         print(#function)
         // TODO: 처음화면으로 전환
