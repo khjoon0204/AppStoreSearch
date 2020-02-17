@@ -19,14 +19,12 @@ protocol RootPresentableListener: class {
 
 final class RootViewController: UIViewController, RootPresentable, RootViewControllable {
     
-    
-    
     weak var listener: RootPresentableListener?
     
     override func viewDidLoad() {
         print(#function)
         
-        view.backgroundColor = UIColor.green
+        view.backgroundColor = UIColor.white
     }
     
     func presentSearchInput() {
@@ -40,6 +38,7 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
     }
     
     func present(viewController: ViewControllable) {
+        viewController.uiviewController.modalPresentationStyle = .fullScreen
         present(viewController.uiviewController, animated: true, completion: nil)
     }
     
@@ -47,6 +46,6 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
 
 // MARK: SearchInputViewControllable
 
-extension RootViewController: SearchInputViewControllable {
+extension RootViewController: SearchInputViewControllable, TestViewControllable {
 
 }

@@ -14,9 +14,18 @@
 //  limitations under the License.
 //
 
-class AppComponent: Component<EmptyDependency>, RootDependency {
+import Foundation
+import RxSwift
 
-    init() {
+final class AppComponent: Component<EmptyDependency>, RootDependency {
+    let application: UIApplication
+    let launchOptions: [UIApplication.LaunchOptionsKey : Any]?
+    
+    init(application: UIApplication, launchOptions: [UIApplication.LaunchOptionsKey : Any]?) {
+
+        self.application   = application
+        self.launchOptions = launchOptions
+
         super.init(dependency: EmptyComponent())
     }
 }

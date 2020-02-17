@@ -6,7 +6,7 @@
 //  Copyright © 2020 hjoon. All rights reserved.
 //
 
-
+import UIKit
 
 protocol RootDependency: Dependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
@@ -40,12 +40,15 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
     }
 
     func build() -> LaunchRouting {
-        let viewController = RootViewController()
+//        let viewController = RootViewController()
+        let viewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "RootViewController") as! RootViewController
         let component = RootComponent(dependency: dependency, rootViewController: viewController)
         let interactor = RootInteractor(presenter: viewController)
         let searchInputBuilder = SearchInputBuilder(dependency: component)
+        let testBuilder = TestBuilder(dependency: component)
         return RootRouter(interactor: interactor,
                           viewController: viewController,
-                          searchInputBuilder: searchInputBuilder)
+                          searchInputBuilder: searchInputBuilder,
+        testBuilder: testBuilder)
     }
 }

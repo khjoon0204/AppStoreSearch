@@ -188,7 +188,7 @@ public extension Disposable {
     ///
     /// - parameter worker: The `Worker` to dispose the subscription based on.
     @discardableResult
-    func disposeOnStop(_ worker: Worker) -> Disposable {
+    public func disposeOnStop(_ worker: Worker) -> Disposable {
         if let compositeDisposable = worker.disposable {
             _ = compositeDisposable.insert(self)
         } else {

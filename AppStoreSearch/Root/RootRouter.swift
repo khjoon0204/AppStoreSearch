@@ -8,7 +8,7 @@
 
 
 
-protocol RootInteractable: Interactable, SearchInputListener {
+protocol RootInteractable: Interactable, SearchInputListener, TestListener {
     var router: RootRouting? { get set }
     var listener: RootListener? { get set }
 }
@@ -21,13 +21,12 @@ protocol RootViewControllable: ViewControllable {
 
 final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
     
-    let searchInputBuilder: SearchInputBuildable
-    var searchInput: ViewableRouting?
-
     // TODO: Constructor inject child builder protocols to allow building children.
     init(interactor: RootInteractable,
                   viewController: RootViewControllable,
-                  searchInputBuilder: SearchInputBuildable) {
+                  searchInputBuilder: SearchInputBuildable,
+                  testBuilder: TestBuildable) {
+        self.testBuilder = testBuilder
         self.searchInputBuilder = searchInputBuilder
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
@@ -35,7 +34,15 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     
     override func didLoad() {
         super.didLoad()
-        routToSearchInput()
+//        routToSearchInput()
+//        routToTest()
+    }
+    
+    func routToTest(){
+        let test = testBuilder.build(withListener: interactor)
+        self.test = test
+        attachChild(test)
+        viewController.present(viewController: test.viewControllable)
     }
     
     func routToSearchInput() {
@@ -48,4 +55,9 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     
     // MARK: - Private
     
+    let searchInputBuilder: SearchInputBuildable
+    var searchInput: ViewableRouting?
+    
+    let testBuilder: TestBuildable
+    var test: ViewableRouting?
 }

@@ -22,7 +22,7 @@ public protocol LaunchRouting: ViewableRouting {
     /// Launches the router tree.
     ///
     /// - parameter window: The application window to launch from.
-    func launch(from window: UIWindow)
+    func launchFromWindow(_ window: UIWindow)
 }
 
 /// The application root router base class, that acts as the root of the router tree.
@@ -39,7 +39,7 @@ open class LaunchRouter<InteractorType, ViewControllerType>: ViewableRouter<Inte
     /// Launches the router tree.
     ///
     /// - parameter window: The window to launch the router tree in.
-    public final func launch(from window: UIWindow) {
+    public final func launchFromWindow(_ window: UIWindow) {
         window.rootViewController = viewControllable.uiviewController
         window.makeKeyAndVisible()
 

@@ -14,8 +14,6 @@
 //  limitations under the License.
 //
 
-import Foundation
-
 /// The base class for all components.
 ///
 /// A component defines private properties a RIB provides to its internal `Router`, `Interactor`, `Presenter` and
@@ -23,6 +21,7 @@ import Foundation
 ///
 /// A component subclass implementation should conform to child 'Dependency' protocols, defined by all of its immediate
 /// children.
+import Foundation
 open class Component<DependencyType>: Dependency {
 
     /// The dependency of this `Component`.
@@ -49,11 +48,7 @@ open class Component<DependencyType>: Dependency {
             lock.unlock()
         }
 
-        // Additional nil coalescing is needed to mitigate a Swift bug appearing in Xcode 10.
-        // see https://bugs.swift.org/browse/SR-8704.
-        // Without this measure, calling `shared` from a function that returns an optional type
-        // will always pass the check below and return nil if the instance is not initialized.
-        if let instance = (sharedInstances[__function] as? T?) ?? nil {
+        if let instance = sharedInstances[__function] as? T {
             return instance
         }
 
@@ -67,6 +62,7 @@ open class Component<DependencyType>: Dependency {
 
     private var sharedInstances = [String: Any]()
     private let lock = NSRecursiveLock()
+    
 }
 
 /// The special empty component.

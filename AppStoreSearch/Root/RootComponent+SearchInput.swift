@@ -28,3 +28,17 @@ extension RootComponent: SearchInputDependency {
         return rootViewController
     }
 }
+
+
+protocol RootDependencyTest: Dependency {
+
+    // TODO: Declare dependencies needed from the parent scope of Root to provide dependencies
+    // for the SearchInput scope.
+}
+
+extension RootComponent: TestDependency {
+
+    var testViewController: TestViewControllable {
+        return rootViewController
+    }
+}
