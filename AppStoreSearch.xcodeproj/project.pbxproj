@@ -29,6 +29,10 @@
 		F44DE57C23FA22B5006532D7 /* ViewableRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DE56C23FA22B5006532D7 /* ViewableRouter.swift */; };
 		F44DE57D23FA22B5006532D7 /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DE56E23FA22B5006532D7 /* Worker.swift */; };
 		F44DE57E23FA22B5006532D7 /* ViewControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DE56F23FA22B5006532D7 /* ViewControllable.swift */; };
+		F44DE58423FA261A006532D7 /* SearchTabbarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DE58023FA261A006532D7 /* SearchTabbarRouter.swift */; };
+		F44DE58523FA261A006532D7 /* SearchTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DE58123FA261A006532D7 /* SearchTabbarViewController.swift */; };
+		F44DE58623FA261A006532D7 /* SearchTabbarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DE58223FA261A006532D7 /* SearchTabbarBuilder.swift */; };
+		F44DE58723FA261A006532D7 /* SearchTabbarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DE58323FA261A006532D7 /* SearchTabbarInteractor.swift */; };
 		F470C03D23F8DC5B00AC7A18 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C03923F8DC5B00AC7A18 /* RootRouter.swift */; };
 		F470C03E23F8DC5B00AC7A18 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C03A23F8DC5B00AC7A18 /* RootViewController.swift */; };
 		F470C03F23F8DC5B00AC7A18 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C03B23F8DC5B00AC7A18 /* RootBuilder.swift */; };
@@ -85,6 +89,10 @@
 		F44DE56C23FA22B5006532D7 /* ViewableRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewableRouter.swift; sourceTree = "<group>"; };
 		F44DE56E23FA22B5006532D7 /* Worker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
 		F44DE56F23FA22B5006532D7 /* ViewControllable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllable.swift; sourceTree = "<group>"; };
+		F44DE58023FA261A006532D7 /* SearchTabbarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabbarRouter.swift; sourceTree = "<group>"; };
+		F44DE58123FA261A006532D7 /* SearchTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabbarViewController.swift; sourceTree = "<group>"; };
+		F44DE58223FA261A006532D7 /* SearchTabbarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabbarBuilder.swift; sourceTree = "<group>"; };
+		F44DE58323FA261A006532D7 /* SearchTabbarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabbarInteractor.swift; sourceTree = "<group>"; };
 		F470C03923F8DC5B00AC7A18 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		F470C03A23F8DC5B00AC7A18 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		F470C03B23F8DC5B00AC7A18 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
@@ -229,6 +237,17 @@
 			path = Worker;
 			sourceTree = "<group>";
 		};
+		F44DE57F23FA2603006532D7 /* SearchTabbar */ = {
+			isa = PBXGroup;
+			children = (
+				F44DE58023FA261A006532D7 /* SearchTabbarRouter.swift */,
+				F44DE58123FA261A006532D7 /* SearchTabbarViewController.swift */,
+				F44DE58223FA261A006532D7 /* SearchTabbarBuilder.swift */,
+				F44DE58323FA261A006532D7 /* SearchTabbarInteractor.swift */,
+			);
+			path = SearchTabbar;
+			sourceTree = "<group>";
+		};
 		F470C03823F8DC2900AC7A18 /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +290,7 @@
 		F4E8BFDC23F66AC700014F9C /* AppStoreSearch */ = {
 			isa = PBXGroup;
 			children = (
+				F44DE57F23FA2603006532D7 /* SearchTabbar */,
 				F44DE54F23FA1660006532D7 /* Test */,
 				F470C06923F93D8600AC7A18 /* Extension */,
 				F4E8BFF423F66B3500014F9C /* SearchInput */,
@@ -465,16 +485,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F44DE58523FA261A006532D7 /* SearchTabbarViewController.swift in Sources */,
 				F470C03E23F8DC5B00AC7A18 /* RootViewController.swift in Sources */,
 				F470C04023F8DC5B00AC7A18 /* RootInteractor.swift in Sources */,
 				F4F6773923F7B8E900C724EF /* DescCell.swift in Sources */,
 				F4E8BFDE23F66AC700014F9C /* AppDelegate.swift in Sources */,
 				F44DE57D23FA22B5006532D7 /* Worker.swift in Sources */,
+				F44DE58723FA261A006532D7 /* SearchTabbarInteractor.swift in Sources */,
 				F44DE55723FA1673006532D7 /* TestViewController.swift in Sources */,
 				F4F6772F23F790F800C724EF /* SearchDetailBuilder.swift in Sources */,
 				F44DE57E23FA22B5006532D7 /* ViewControllable.swift in Sources */,
 				F44DE57A23FA22B5006532D7 /* Router.swift in Sources */,
 				F44DE57423FA22B5006532D7 /* Interactor.swift in Sources */,
+				F44DE58623FA261A006532D7 /* SearchTabbarBuilder.swift in Sources */,
 				F44DE57723FA22B5006532D7 /* LaunchRouter.swift in Sources */,
 				F470C04223F8E41000AC7A18 /* AppComponent.swift in Sources */,
 				F470C06B23F93DB300AC7A18 /* UINavigationController+ViewControllable.swift in Sources */,
@@ -500,6 +523,7 @@
 				F44DE55923FA1673006532D7 /* TestInteractor.swift in Sources */,
 				F4E8BFFC23F66B7400014F9C /* SearchInputInteractor.swift in Sources */,
 				F44DE57823FA22B5006532D7 /* Executor.swift in Sources */,
+				F44DE58423FA261A006532D7 /* SearchTabbarRouter.swift in Sources */,
 				F44DE57323FA22B5006532D7 /* Builder.swift in Sources */,
 				F4F6772E23F790F800C724EF /* SearchDetailViewController.swift in Sources */,
 				F470C06823F92C0800AC7A18 /* RootComponent+SearchInput.swift in Sources */,

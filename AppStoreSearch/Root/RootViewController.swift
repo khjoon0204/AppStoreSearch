@@ -24,28 +24,21 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
     override func viewDidLoad() {
         print(#function)
         
-        view.backgroundColor = UIColor.white
+//        view.backgroundColor = UIColor.white
     }
     
-    func presentSearchInput() {
-
-        let searchInputTabbarC = storyboard?.instantiateViewController(identifier: "SearchInputTabbarController") as! UITabBarController
-
-        searchInputTabbarC.modalTransitionStyle = .crossDissolve
-        present(searchInputTabbarC, animated: true) {
-
-        }
-    }
     
     func present(viewController: ViewControllable) {
         viewController.uiviewController.modalPresentationStyle = .fullScreen
+        viewController.uiviewController.modalTransitionStyle = .crossDissolve
         present(viewController.uiviewController, animated: true, completion: nil)
     }
     
+    
 }
 
-// MARK: SearchInputViewControllable
+// MARK: SearchTabbarViewControllable
 
-extension RootViewController: SearchInputViewControllable, TestViewControllable {
+extension RootViewController: SearchTabbarViewControllable, TestViewControllable {
 
 }

@@ -14,26 +14,26 @@
 //  limitations under the License.
 //
 
-/// The dependencies needed from the parent scope of Root to provide for the SearchInput scope.
+/// The dependencies needed from the parent scope of Root to provide for the SearchTabbar scope.
 // TODO: Update RootDependency protocol to inherit this protocol.
-protocol RootDependencySearchInput: Dependency {
+protocol RootDependencySearchTabbar: Dependency {
 
     // TODO: Declare dependencies needed from the parent scope of Root to provide dependencies
-    // for the SearchInput scope.
+    // for the SearchTabbar scope.
 }
 
-extension RootComponent: SearchInputDependency {
+extension RootComponent: SearchTabbarDependency {
 
-    var searchInputViewController: SearchInputViewControllable {
-        return rootViewController
-    }
+//    var searchTabbarViewController: SearchTabbarViewControllable {
+//        return rootViewController
+//    }
 }
 
 
 protocol RootDependencyTest: Dependency {
 
     // TODO: Declare dependencies needed from the parent scope of Root to provide dependencies
-    // for the SearchInput scope.
+    // for the SearchTabbar scope.
 }
 
 extension RootComponent: TestDependency {

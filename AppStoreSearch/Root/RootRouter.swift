@@ -8,7 +8,7 @@
 
 
 
-protocol RootInteractable: Interactable, SearchInputListener, TestListener {
+protocol RootInteractable: Interactable, SearchTabbarListener, TestListener {
     var router: RootRouting? { get set }
     var listener: RootListener? { get set }
 }
@@ -16,7 +16,7 @@ protocol RootInteractable: Interactable, SearchInputListener, TestListener {
 protocol RootViewControllable: ViewControllable {
     // TODO: Declare methods the router invokes to manipulate the view hierarchy.
     func present(viewController: ViewControllable)
-    func presentSearchInput()
+
 }
 
 final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
@@ -24,17 +24,17 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     // TODO: Constructor inject child builder protocols to allow building children.
     init(interactor: RootInteractable,
                   viewController: RootViewControllable,
-                  searchInputBuilder: SearchInputBuildable,
+                  searchTabbarBuilder: SearchTabbarBuildable,
                   testBuilder: TestBuildable) {
         self.testBuilder = testBuilder
-        self.searchInputBuilder = searchInputBuilder
+        self.searchTabbarBuilder = searchTabbarBuilder
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
     
     override func didLoad() {
         super.didLoad()
-//        routToSearchInput()
+        routToSearchTabbar()
 //        routToTest()
     }
     
@@ -45,18 +45,17 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         viewController.present(viewController: test.viewControllable)
     }
     
-    func routToSearchInput() {
-        let searchInput = searchInputBuilder.build(withListener: interactor)
-        self.searchInput = searchInput
-        attachChild(searchInput)
-//        viewController.presentSearchInput()
-        viewController.present(viewController: searchInput.viewControllable)
+    func routToSearchTabbar() {
+        let searchTabbar = searchTabbarBuilder.build(withListener: interactor)
+        self.searchTabbar = searchTabbar
+        attachChild(searchTabbar)
+        viewController.present(viewController: searchTabbar.viewControllable)
     }
     
     // MARK: - Private
     
-    let searchInputBuilder: SearchInputBuildable
-    var searchInput: ViewableRouting?
+    let searchTabbarBuilder: SearchTabbarBuildable
+    var searchTabbar: ViewableRouting?
     
     let testBuilder: TestBuildable
     var test: ViewableRouting?

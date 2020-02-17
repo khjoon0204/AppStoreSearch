@@ -44,11 +44,11 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
         let viewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "RootViewController") as! RootViewController
         let component = RootComponent(dependency: dependency, rootViewController: viewController)
         let interactor = RootInteractor(presenter: viewController)
-        let searchInputBuilder = SearchInputBuilder(dependency: component)
+        let searchTabbarBuilder = SearchTabbarBuilder(dependency: component)
         let testBuilder = TestBuilder(dependency: component)
         return RootRouter(interactor: interactor,
                           viewController: viewController,
-                          searchInputBuilder: searchInputBuilder,
+                          searchTabbarBuilder: searchTabbarBuilder,
         testBuilder: testBuilder)
     }
 }

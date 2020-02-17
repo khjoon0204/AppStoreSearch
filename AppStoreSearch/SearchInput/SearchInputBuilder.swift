@@ -6,7 +6,7 @@
 //  Copyright © 2020 hjoon. All rights reserved.
 //
 
-
+import UIKit
 
 protocol SearchInputDependency: Dependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
@@ -37,7 +37,8 @@ final class SearchInputBuilder: Builder<SearchInputDependency>, SearchInputBuild
     }
 
     func build(withListener listener: SearchInputListener) -> SearchInputRouting {
-        let viewController = SearchInputViewController()
+//        let viewController = SearchInputViewController()
+        let viewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "SearchInputViewController") as! SearchInputViewController
         let component = SearchInputComponent(dependency: dependency, searchInputViewController: viewController)
         
         let interactor = SearchInputInteractor(presenter: viewController)

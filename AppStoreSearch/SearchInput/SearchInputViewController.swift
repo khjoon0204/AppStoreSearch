@@ -44,7 +44,6 @@ final class SearchInputViewController: UIViewController, SearchInputPresentable,
 //        setupTableView()
         
         
-        view.backgroundColor = UIColor.yellow
     }
     
     private func addSearchController(){

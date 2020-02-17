@@ -14,15 +14,6 @@
                     <view key="view" contentMode="scaleToFill" id="iZf-8w-cRc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Root" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuN-Do-7QT">
-                                <rect key="frame" x="138" y="301" width="100" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="M0J-Zy-IId"/>
                     </view>
@@ -31,10 +22,10 @@
             </objects>
             <point key="canvasLocation" x="1100" y="140"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Search Tabbar View Controller-->
         <scene sceneID="D4G-CD-7ec">
             <objects>
-                <tabBarController id="bA2-nP-ehx" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="SearchTabbarViewController" id="bA2-nP-ehx" customClass="SearchTabbarViewController" customModule="AppStoreSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="PXd-8m-zqD">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -51,16 +42,16 @@
         <!--검색-->
         <scene sceneID="dxx-FN-GxM">
             <objects>
-                <viewController id="Abe-Ka-TNH" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchInputViewController" id="Abe-Ka-TNH" customClass="SearchInputViewController" customModule="AppStoreSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qrv-gz-Np2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDo-8E-Hfi">
-                                <rect key="frame" x="0.0" y="148.33333333333331" width="375" height="580.66666666666674"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X5y-p8-dtc">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="580.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="734"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </tableView>
                                 </subviews>
@@ -73,10 +64,10 @@
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iux-MZ-RkS">
-                                <rect key="frame" x="0.0" y="148.33333333333331" width="375" height="580.66666666666674"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iyl-Kl-sje">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="580.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="734"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </tableView>
                                 </subviews>
@@ -89,10 +80,10 @@
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vn3-17-NJI">
-                                <rect key="frame" x="0.0" y="148.33333333333331" width="375" height="580.66666666666674"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tIA-bu-3Of">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="580.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="734"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </tableView>
                                 </subviews>
@@ -144,7 +135,7 @@
         <!--Search-->
         <scene sceneID="zBB-J4-aae">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8ph-g9-Za7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SearchInputNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="8ph-g9-Za7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" image="search" id="eRn-OC-TY4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="xOm-nr-ax1">
@@ -152,9 +143,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Abe-Ka-TNH" kind="relationship" relationship="rootViewController" id="26b-cS-tPF"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogH-ai-f3C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
