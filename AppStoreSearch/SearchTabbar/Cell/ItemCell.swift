@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ItemCellDelegate {
+    func pressReceive(cell: ItemCell)
+}
+
 class ItemCell: UITableViewCell {
     @IBOutlet weak var artwork60: UIImageView!
     @IBOutlet weak var trackName: UILabel!
@@ -15,7 +19,8 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var screenShot1: UIImageView!
     @IBOutlet weak var screenShot2: UIImageView!
     @IBOutlet weak var screenShot3: UIImageView!
-    
+        
+    var dele: ItemCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +33,7 @@ class ItemCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func pressReceive(_ sender: UIButton) {
-        
+        dele?.pressReceive(cell: self)
     }
     
     override func prepareForReuse() {

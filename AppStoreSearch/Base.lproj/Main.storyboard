@@ -55,6 +55,21 @@
             </objects>
             <point key="canvasLocation" x="3640.8000000000002" y="136.69950738916256"/>
         </scene>
+        <!--Search Detail View Controller-->
+        <scene sceneID="wEQ-IV-KGL">
+            <objects>
+                <viewController storyboardIdentifier="SearchDetailViewController" id="qfV-fk-2Jj" customClass="SearchDetailViewController" customModule="AppStoreSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CVW-ju-O82">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="pBq-B7-800"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5l0-KX-cII" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4476" y="137"/>
+        </scene>
         <!--Search-->
         <scene sceneID="zBB-J4-aae">
             <objects>

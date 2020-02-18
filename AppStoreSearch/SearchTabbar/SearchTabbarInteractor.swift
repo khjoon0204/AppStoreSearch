@@ -12,6 +12,7 @@ import CoreData
 
 protocol SearchTabbarRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    func routeToSearchDetail(id: Int)
 }
 
 protocol SearchTabbarPresentable: Presentable {
@@ -26,7 +27,7 @@ protocol SearchTabbarListener: class {
 final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentable>, SearchTabbarInteractable, SearchTabbarPresentableListener {
     
     
-
+    
     weak var router: SearchTabbarRouting?
     weak var listener: SearchTabbarListener?
     
@@ -47,10 +48,6 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
-    }
-    
-    func routeToSearchDetail() {
-        
     }
     
     
@@ -133,4 +130,8 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
         }
     }
     
+    // MARK: - To Route
+    func routeToSearchDetail(id: Int) {
+        router?.routeToSearchDetail(id: id)
+    }
 }

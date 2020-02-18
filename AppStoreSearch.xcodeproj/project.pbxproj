@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		590C101ABF6AEBB71431F50E /* Pods_AppStoreSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADB8B0414B7AE57B1F36E4E /* Pods_AppStoreSearch.framework */; };
+		F41306CB23FBF14E0031DE71 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41306CA23FBF14E0031DE71 /* CALayer+Extension.swift */; };
+		F41306CE23FC0ED80031DE71 /* SearchTabbar+SearchDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41306CC23FC01250031DE71 /* SearchTabbar+SearchDetail.swift */; };
 		F41F636723F7FC31004CE89F /* LinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F636523F7FC31004CE89F /* LinkCell.swift */; };
 		F41F636823F7FC31004CE89F /* LinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F41F636623F7FC31004CE89F /* LinkCell.xib */; };
 		F44AB7EF23FBA617003527A2 /* TitleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AB7EC23FBA617003527A2 /* TitleSection.swift */; };
@@ -64,6 +66,8 @@
 		A9215DFEBCBC6E0E0DC5F4D1 /* Pods-AppStoreSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreSearch.release.xcconfig"; path = "Target Support Files/Pods-AppStoreSearch/Pods-AppStoreSearch.release.xcconfig"; sourceTree = "<group>"; };
 		AADB8B0414B7AE57B1F36E4E /* Pods_AppStoreSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStoreSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE143AA636C40EB184FB581 /* Pods-AppStoreSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreSearch.debug.xcconfig"; path = "Target Support Files/Pods-AppStoreSearch/Pods-AppStoreSearch.debug.xcconfig"; sourceTree = "<group>"; };
+		F41306CA23FBF14E0031DE71 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
+		F41306CC23FC01250031DE71 /* SearchTabbar+SearchDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SearchTabbar+SearchDetail.swift"; sourceTree = "<group>"; };
 		F41F636523F7FC31004CE89F /* LinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCell.swift; sourceTree = "<group>"; };
 		F41F636623F7FC31004CE89F /* LinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkCell.xib; sourceTree = "<group>"; };
 		F44AB7EC23FBA617003527A2 /* TitleSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleSection.swift; sourceTree = "<group>"; };
@@ -147,14 +151,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F44AB7EB23FBA5FA003527A2 /* Sections */ = {
+		F41306C923FBF1370031DE71 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F41306CA23FBF14E0031DE71 /* CALayer+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F44AB7EB23FBA5FA003527A2 /* Section */ = {
 			isa = PBXGroup;
 			children = (
 				F44AB7ED23FBA617003527A2 /* Section.swift */,
 				F44AB7EE23FBA617003527A2 /* InputTextSection.swift */,
 				F44AB7EC23FBA617003527A2 /* TitleSection.swift */,
 			);
-			path = Sections;
+			path = Section;
 			sourceTree = "<group>";
 		};
 		F44DE55A23FA22B5006532D7 /* RIBs */ = {
@@ -230,10 +242,11 @@
 		F44DE57F23FA2603006532D7 /* SearchTabbar */ = {
 			isa = PBXGroup;
 			children = (
-				F44AB7EB23FBA5FA003527A2 /* Sections */,
+				F44AB7EB23FBA5FA003527A2 /* Section */,
 				F4F6771623F78E5800C724EF /* Cell */,
 				F44DE58223FA261A006532D7 /* SearchTabbarBuilder.swift */,
 				F44DE58023FA261A006532D7 /* SearchTabbarRouter.swift */,
+				F41306CC23FC01250031DE71 /* SearchTabbar+SearchDetail.swift */,
 				F44DE58323FA261A006532D7 /* SearchTabbarInteractor.swift */,
 				F44DE58123FA261A006532D7 /* SearchTabbarViewController.swift */,
 				F4E8BFF623F66B7400014F9C /* SearchInputViewController.swift */,
@@ -261,13 +274,6 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
-		F470C06923F93D8600AC7A18 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		F4E8BFD123F66AC700014F9C = {
 			isa = PBXGroup;
 			children = (
@@ -289,11 +295,11 @@
 		F4E8BFDC23F66AC700014F9C /* AppStoreSearch */ = {
 			isa = PBXGroup;
 			children = (
-				F44DE58823FA5348006532D7 /* Model */,
 				F44DE57F23FA2603006532D7 /* SearchTabbar */,
 				F4F6772823F790D900C724EF /* SearchDetail */,
 				F470C03823F8DC2900AC7A18 /* Root */,
-				F470C06923F93D8600AC7A18 /* Extension */,
+				F44DE58823FA5348006532D7 /* Model */,
+				F41306C923FBF1370031DE71 /* Extension */,
 				F4F676BD23F785AF00C724EF /* Library */,
 				F4E8BFDD23F66AC700014F9C /* AppDelegate.swift */,
 				F470C04123F8E41000AC7A18 /* AppComponent.swift */,
@@ -335,9 +341,9 @@
 			children = (
 				F4F6773623F7B88600C724EF /* Cell */,
 				F4F6772923F790F800C724EF /* SearchDetailRouter.swift */,
-				F4F6772A23F790F800C724EF /* SearchDetailViewController.swift */,
 				F4F6772B23F790F800C724EF /* SearchDetailBuilder.swift */,
 				F4F6772C23F790F800C724EF /* SearchDetailInteractor.swift */,
+				F4F6772A23F790F800C724EF /* SearchDetailViewController.swift */,
 			);
 			path = SearchDetail;
 			sourceTree = "<group>";
@@ -511,7 +517,9 @@
 				F470C06823F92C0800AC7A18 /* RootComponent+SearchInput.swift in Sources */,
 				F4F6771D23F78E9800C724EF /* InputTextCell.swift in Sources */,
 				F44AB7F023FBA617003527A2 /* Section.swift in Sources */,
+				F41306CE23FC0ED80031DE71 /* SearchTabbar+SearchDetail.swift in Sources */,
 				F4F6772D23F790F800C724EF /* SearchDetailRouter.swift in Sources */,
+				F41306CB23FBF14E0031DE71 /* CALayer+Extension.swift in Sources */,
 				F44DE57023FA22B5006532D7 /* Dependency.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

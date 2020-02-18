@@ -29,18 +29,24 @@ final class SearchDetailInteractor: PresentableInteractor<SearchDetailPresentabl
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    override init(presenter: SearchDetailPresentable) {
+    init(presenter: SearchDetailPresentable, id: Int) {
         super.init(presenter: presenter)
         presenter.listener = self
+        self.id = id
     }
 
     override func didBecomeActive() {
         super.didBecomeActive()
         // TODO: Implement business logic here.
+        print("SearchDetailInteractor id=\(id)")
     }
 
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
     }
+    
+    // MARK: - Private
+
+    private var id: Int = -1
 }

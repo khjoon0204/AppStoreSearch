@@ -16,8 +16,8 @@ enum ViewType: Int {
     case list // 검색결과목록
 }
 
-class SearchInputViewController: UIViewController{
-
+class SearchInputViewController: UIViewController, ItemCellDelegate{
+    
     weak var listener: SearchTabbarPresentableListener?
     
     var search_obs = BehaviorRelay<[Search]>(value: [])
@@ -28,13 +28,13 @@ class SearchInputViewController: UIViewController{
     var searchController: UISearchController!
     
     lazy var latestCV: UICollectionView = {
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: latestCVLayout)
-        cv.backgroundColor = .systemBackground
-        cv.alwaysBounceVertical = true
-        cv.register(UINib(nibName: "TitleCell", bundle: nil), forCellWithReuseIdentifier: "TitleCell")
-        cv.register(UINib(nibName: "InputTextCell", bundle: nil), forCellWithReuseIdentifier: "InputTextCell")
+        let v = UICollectionView(frame: .zero, collectionViewLayout: latestCVLayout)
+        v.backgroundColor = .systemBackground
+        v.alwaysBounceVertical = true
+        v.register(UINib(nibName: "TitleCell", bundle: nil), forCellWithReuseIdentifier: "TitleCell")
+        v.register(UINib(nibName: "InputTextCell", bundle: nil), forCellWithReuseIdentifier: "InputTextCell")
 
-        return cv
+        return v
     }()
     
     lazy var latestCVLayout: UICollectionViewLayout = {
@@ -44,18 +44,19 @@ class SearchInputViewController: UIViewController{
         return layout
     }()
     lazy var historyTV: UITableView = {
-        let tv = UITableView(frame: .zero)
-        tv.backgroundColor = .systemBackground
-        tv.alwaysBounceVertical = true
-        tv.register(UINib(nibName: "LinkCell", bundle: nil), forCellReuseIdentifier: "LinkCell")
-        return tv
+        let v = UITableView(frame: .zero)
+        v.backgroundColor = .systemBackground
+        v.alwaysBounceVertical = true
+        v.register(UINib(nibName: "LinkCell", bundle: nil), forCellReuseIdentifier: "LinkCell")
+        return v
     }()
     lazy var listTV: UITableView = {
-        let tv = UITableView(frame: .zero)
-        tv.backgroundColor = .systemBackground
-        tv.alwaysBounceVertical = true
-        tv.register(UINib(nibName: "ItemCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
-        return tv
+        let v = UITableView(frame: .zero)
+        v.backgroundColor = .systemBackground
+        v.alwaysBounceVertical = true
+        v.separatorStyle = .none        
+        v.register(UINib(nibName: "ItemCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
+        return v
     }()
     
     
@@ -68,63 +69,11 @@ class SearchInputViewController: UIViewController{
         bindHistoryTV()
         bindListTV()
         
+        viewChange(viewType: .latest)
+        
     }
     override func viewWillLayoutSubviews() {
         self.latestCV.collectionViewLayout.invalidateLayout()
-    }
-    
-    func bindLatestCV(){
-        
-        latest_obs.bind(to: latestCV.rx.items) { (cv, idx, obj) -> UICollectionViewCell in
-            if cv.dequeueReusableCell(withReuseIdentifier: "TitleCell", for: IndexPath(row: idx, section: 0)) is TitleCell{
-                return self.latest_obs.value[idx].configureCell(collectionView: cv, indexPath: IndexPath(row: idx, section: 0))
-            }
-            if cv.dequeueReusableCell(withReuseIdentifier: "InputTextCell", for: IndexPath(row: idx, section: 0)) is InputTextCell{
-                return self.latest_obs.value[idx].configureCell(collectionView: cv, indexPath: IndexPath(row: idx, section: 0))
-            }
-            return UICollectionViewCell()
-        }.disposed(by: bag)
-        latestCV.rx.modelSelected(Section.self).asDriver().drive(onNext: { (section) in
-            if let sec_input = section as? InputTextSection{
-                self.searchController.searchBar.text = sec_input.title
-            }
-        }).disposed(by: bag)
-        
-        listener?.fetchLatest(complete: { (objs) in
-            let sections = objs.map{InputTextSection(title: $0.value(forKey: "input_text") as? String ?? "")}
-            self.latest_obs.accept(self.latest_obs.value + sections)
-        })
-        
-        
-    }
-    
-    func bindHistoryTV(){
-        
-        
-        history_obs.bind(to: historyTV.rx.items(cellIdentifier: "LinkCell", cellType: LinkCell.self)) { (idx, obj, cell) in
-            cell.btn.setTitle(obj.value(forKey: "title") as? String ?? "", for: .normal)
-        }.disposed(by: bag)
-        
-        
-        listener?.fetchHistory(complete: { (objs) in
-            self.history_obs.accept(objs)
-        })
-    }
-    
-    func bindListTV(){
-        
-        search_obs.bind(to: listTV.rx.items(cellIdentifier: "ItemCell", cellType: ItemCell.self)) { (idx, ele, cell) in
-            let i = ele.item
-            cell.trackName.text = "\(isNil(i["trackName"]))"
-        }.disposed(by: bag)
-        
-        listTV.rx.modelSelected(Search.self).asDriver().drive(onNext: { search in
-            let i = search.item
-            self.listener?.saveHistory(title: "\(isNil(i["trackName"]))", id: "\(isNil(i["trackId"]))", complete: { (objs) in
-                self.history_obs.accept(objs + self.history_obs.value)
-            })
-        }).disposed(by: bag)
-             
     }
     
     private func addSearchController(){
@@ -158,7 +107,7 @@ class SearchInputViewController: UIViewController{
         }.disposed(by: bag)
         
         searchBar.rx.text.changed.bind{_ in
-//            print(searchBar.text)
+            //            print(searchBar.text)
             if searchBar.text == ""{
                 self.viewChange(viewType: .latest)
             }
@@ -170,12 +119,91 @@ class SearchInputViewController: UIViewController{
         
     }
     
-    func pinToParent(v: UIView){
-        NSLayoutConstraint.activate([
-        v.topAnchor.constraint(equalTo: view.topAnchor),
-        v.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-        v.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        v.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
+    // MARK: - RX Binding
+    func bindLatestCV(){
+        
+        latest_obs.bind(to: latestCV.rx.items) { (cv, idx, obj) -> UICollectionViewCell in
+            if cv.dequeueReusableCell(withReuseIdentifier: "TitleCell", for: IndexPath(row: idx, section: 0)) is TitleCell{
+                return self.latest_obs.value[idx].configureCell(collectionView: cv, indexPath: IndexPath(row: idx, section: 0))
+            }
+            if cv.dequeueReusableCell(withReuseIdentifier: "InputTextCell", for: IndexPath(row: idx, section: 0)) is InputTextCell{
+                return self.latest_obs.value[idx].configureCell(collectionView: cv, indexPath: IndexPath(row: idx, section: 0))
+            }
+            return UICollectionViewCell()
+        }.disposed(by: bag)
+        latestCV.rx.modelSelected(Section.self).asDriver().drive(onNext: { (section) in
+            if let sec_input = section as? InputTextSection{
+                self.searchController.searchBar.text = sec_input.title
+                
+            }
+        }).disposed(by: bag)
+        
+        listener?.fetchLatest(complete: { (objs) in
+            let sections = objs.map{InputTextSection(title: $0.value(forKey: "input_text") as? String ?? "")}
+            self.latest_obs.accept(self.latest_obs.value + sections)
+        })
+        
+    }
+    
+    func triggerSearch(){
+        let obs = Observable.of(searchController.searchBar.text)
+    }
+    
+    func bindHistoryTV(){
+        
+        
+        history_obs.bind(to: historyTV.rx.items(cellIdentifier: "LinkCell", cellType: LinkCell.self)) { (idx, obj, cell) in
+            cell.btn.setTitle(obj.value(forKey: "title") as? String ?? "", for: .normal)
+        }.disposed(by: bag)
+        historyTV.rx.modelSelected(NSManagedObject.self).asDriver().drive(onNext: { obj in
+            let trackId = isInt(obj.value(forKey: "trackId"))
+            // TODO: - route to SearchDetail
+            self.listener?.routeToSearchDetail(id: trackId)
+        }).disposed(by: bag)
+        
+        listener?.fetchHistory(complete: { (objs) in
+            self.history_obs.accept(objs)
+        })
+    }
+    
+    func bindListTV(){
+        
+        search_obs.bind(to: listTV.rx.items(cellIdentifier: "ItemCell", cellType: ItemCell.self)) { (idx, ele, cell) in
+            let i = ele.item
+            cell.dele = self
+            if let artwork = URL(string: isStr(i["artworkUrl100"])),
+                let scrns = i["screenshotUrls"] as? [String],
+                let scrn1 = URL(string: scrns[0]),
+                let scrn2 = URL(string: scrns[1]),
+                let scrn3 = URL(string: scrns[2]){
+                self.loadURLImage(url: artwork) { (data, img) in
+                    cell.artwork60.image = img
+                }
+                self.loadURLImage(url: scrn1) { (data, img) in
+                    cell.screenShot1.image = img
+                }
+                self.loadURLImage(url: scrn2) { (data, img) in
+                    cell.screenShot2.image = img
+                }
+                self.loadURLImage(url: scrn3) { (data, img) in
+                    cell.screenShot3.image = img
+                }
+            }
+            cell.trackName.text = "\(isStr(i["trackName"]))"
+            cell.trackName.tag = idx
+            // TODO: - User Rating set..
+        }.disposed(by: bag)
+        
+        listTV.rx.modelSelected(Search.self).asDriver().drive(onNext: { search in
+            let i = search.item
+            self.listener?.saveHistory(title: "\(isStr(i["trackName"]))", id: "\(isStr(i["trackId"]))", complete: { (objs) in
+                self.history_obs.accept(objs + self.history_obs.value)
+            })
+            // TODO: - route to SearchDetail
+            let trackId = isInt(i["trackId"])
+            self.listener?.routeToSearchDetail(id: trackId)
+        }).disposed(by: bag)
+             
     }
     
     private func viewChange(viewType: ViewType){
@@ -200,4 +228,35 @@ class SearchInputViewController: UIViewController{
     }
 
     private let bag = DisposeBag()
+    
+    // MARK: - Item Cell Delegate
+    func pressReceive(cell: ItemCell) {
+//        let i = search_obs.value[cell.trackName.tag].item
+        
+    }
+    
+
+    // MARK: - Util
+    
+    func loadURLImage(url: URL, completion: @escaping ((Data, UIImage) -> ())) {
+        DispatchQueue.global().async { [weak self] in // strong circular retain 막기 위함
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        completion(data, image)
+                    }
+                }
+            }
+        }
+    }
+    
+    func pinToParent(v: UIView){
+        NSLayoutConstraint.activate([
+        v.topAnchor.constraint(equalTo: view.topAnchor),
+        v.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        v.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        v.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
+    }
+    
 }
+

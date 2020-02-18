@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="356" id="KGk-i7-Jjw" customClass="ItemCell" customModule="AppStoreSearch" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="356" id="KGk-i7-Jjw" customClass="ItemCell" customModule="AppStoreSearch" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="356"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -25,6 +25,17 @@
                                     <constraint firstAttribute="height" constant="60" id="5Di-CX-ph2"/>
                                     <constraint firstAttribute="width" constant="60" id="wap-bH-3Jq"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yPn-2S-mP3">
                                 <rect key="frame" x="70" y="0.0" width="128" height="69"/>
@@ -93,13 +104,17 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTj-wE-OdY">
-                                <rect key="frame" x="208" y="20.666666666666664" width="72" height="28"/>
+                                <rect key="frame" x="208" y="19.666666666666664" width="72" height="30"/>
                                 <color key="backgroundColor" systemColor="secondarySystemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="CIR-RU-0EQ"/>
-                                    <constraint firstAttribute="height" constant="28" id="Ceu-5o-gvJ"/>
+                                    <constraint firstAttribute="height" constant="30" id="Ceu-5o-gvJ"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="받기"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="15"/>
@@ -128,12 +143,45 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qk2-jd-Zad">
                                 <rect key="frame" x="0.0" y="0.0" width="88" height="232"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AHk-ek-4rK">
                                 <rect key="frame" x="96" y="0.0" width="88" height="232"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Njq-cM-MxX">
                                 <rect key="frame" x="192" y="0.0" width="88" height="232"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
                         <constraints>

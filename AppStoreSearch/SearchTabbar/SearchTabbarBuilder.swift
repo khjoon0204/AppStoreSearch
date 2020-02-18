@@ -11,11 +11,13 @@ import UIKit
 protocol SearchTabbarDependency: Dependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
     // created by this RIB.
+    
 }
 
 final class SearchTabbarComponent: Component<SearchTabbarDependency> {
 
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    
 }
 
 // MARK: - Builder
@@ -26,6 +28,7 @@ protocol SearchTabbarBuildable: Buildable {
 
 final class SearchTabbarBuilder: Builder<SearchTabbarDependency>, SearchTabbarBuildable {
 
+    
     override init(dependency: SearchTabbarDependency) {
         super.init(dependency: dependency)
     }
@@ -33,9 +36,9 @@ final class SearchTabbarBuilder: Builder<SearchTabbarDependency>, SearchTabbarBu
     func build(withListener listener: SearchTabbarListener) -> SearchTabbarRouting {
         let viewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "SearchTabbarViewController") as! SearchTabbarViewController
         let component = SearchTabbarComponent(dependency: dependency)
-        
         let interactor = SearchTabbarInteractor(presenter: viewController)
         interactor.listener = listener
-        return SearchTabbarRouter(interactor: interactor, viewController: viewController)
+        let searchDetailBuilder = SearchDetailBuilder(dependency: component)
+        return SearchTabbarRouter(interactor: interactor, viewController: viewController, searchDetailBuilder: searchDetailBuilder)
     }
 }

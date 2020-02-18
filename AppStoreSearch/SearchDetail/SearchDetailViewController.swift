@@ -19,4 +19,8 @@ protocol SearchDetailPresentableListener: class {
 final class SearchDetailViewController: UIViewController, SearchDetailPresentable, SearchDetailViewControllable {
 
     weak var listener: SearchDetailPresentableListener?
+
+    
+    
+    
 }

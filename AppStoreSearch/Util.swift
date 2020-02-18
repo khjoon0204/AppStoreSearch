@@ -24,8 +24,13 @@ enum ApiError: Error
   case CannotDelete(String)
 }
 
-func isNil( _ val: Any?) -> String{
+func isStr( _ val: Any?) -> String{
     if let v = val as? String{return v}
     if let v = val as? NSNumber{return "\(v.intValue)"}
     return ""
+}
+
+func isInt( _ val: Any?) -> Int{
+    if let v = val as? NSNumber{return v.intValue}
+    return -1
 }
