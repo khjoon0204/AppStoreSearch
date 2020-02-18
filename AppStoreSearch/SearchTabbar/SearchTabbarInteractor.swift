@@ -8,6 +8,7 @@
 
 
 import RxSwift
+import CoreData
 
 protocol SearchTabbarRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
@@ -23,9 +24,13 @@ protocol SearchTabbarListener: class {
 }
 
 final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentable>, SearchTabbarInteractable, SearchTabbarPresentableListener {
+    
+    
 
     weak var router: SearchTabbarRouting?
     weak var listener: SearchTabbarListener?
+    
+    let app = UIApplication.shared.delegate as! AppDelegate
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
@@ -44,6 +49,14 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
         // TODO: Pause any business logic.
     }
     
+    func routeToSearchDetail() {
+        
+    }
+    
+    
+    
+    // MARK: - Core Data
+    
     func fetchSearch(term: String, withSuccessHandler success: @escaping ([String:Any]) -> ()){
         let term_enc = term.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         print("term_enc=\(term_enc!)")
@@ -56,6 +69,62 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
             }
             else{ApiError.fetchSearch("검색결과 가져오기 실패: \(error?.localizedDescription)")}
         }.resume()
+    }
+    
+    func fetchHistory(complete: @escaping ([NSManagedObject]) -> ()){
+
+        let managedContext = app.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SearchHistory")
+
+        do {
+            let objs = try managedContext.fetch(fetchRequest)
+            complete(objs)
+//            history_obs.accept(obj)
+        } catch let error as NSError {
+            CoreDataError.CannotFetch("히스토리 데이터를 가져올 수 없습니다 \(error), \(error.userInfo)")
+        }
+    }
+    func fetchLatest(complete: @escaping ([NSManagedObject]) -> ()){
+
+        let managedContext = app.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LatestInput")
+
+        do {
+            let objs = try managedContext.fetch(fetchRequest)
+            complete(objs)
+        } catch let error as NSError {
+            CoreDataError.CannotFetch("최근검색 데이터를 가져올 수 없습니다 \(error), \(error.userInfo)")
+        }
+    }
+    func saveHistory(title: String, id: String, complete: @escaping ([NSManagedObject]) -> ()) {
+        let managedContext = app.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "SearchHistory", in: managedContext)!
+        let obj = NSManagedObject(entity: entity, insertInto: managedContext)
+        obj.setValue(Date(), forKey: "date_create")
+        obj.setValue(title, forKeyPath: "title")
+        obj.setValue(id, forKeyPath: "trackId")
+        
+        do {
+            try managedContext.save()
+            complete([obj])
+        } catch let error as NSError {
+            CoreDataError.CannotUpdate("히스토리 데이터를 저장할 수 없습니다 \(error), \(error.userInfo)")
+        }
+    }
+    
+    func saveLatest(text: String, complete: @escaping ([NSManagedObject]) -> ()) {
+        let managedContext = app.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "LatestInput", in: managedContext)!
+        let obj = NSManagedObject(entity: entity, insertInto: managedContext)
+        obj.setValue(Date(), forKey: "date_create")
+        obj.setValue(text, forKeyPath: "input_text")
+        
+        do {
+            try managedContext.save()
+            complete([obj])
+        } catch let error as NSError {
+            CoreDataError.CannotUpdate("최근검색 데이터를 저장할 수 없습니다 \(error), \(error.userInfo)")
+        }
     }
     
 }

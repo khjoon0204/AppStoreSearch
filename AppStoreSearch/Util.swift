@@ -25,6 +25,6 @@ enum ApiError: Error
 }
 
 func isNil( _ val: Any?) -> String{
-    if let v = val{return v as! String}
+    if let v = val as? String{return v}
     return ""
 }

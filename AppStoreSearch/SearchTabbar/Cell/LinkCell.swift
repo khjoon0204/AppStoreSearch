@@ -24,5 +24,6 @@ class LinkCell: UITableViewCell {
     
     override func prepareForReuse() {
         // TODO: 재사용시 초기화 처리
+        btn.setTitle("", for: .normal)
     }
 }

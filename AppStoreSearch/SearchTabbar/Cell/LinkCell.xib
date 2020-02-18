@@ -16,14 +16,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Pg-vH-eyZ">
-                        <rect key="frame" x="0.0" y="11" width="76" height="22"/>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Pg-vH-eyZ">
+                        <rect key="frame" x="0.0" y="11" width="320" height="22"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                        </accessibility>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <state key="normal" title="Button" image="search">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XnD-qn-I5z">
-                        <rect key="frame" x="0.0" y="43.5" width="320" height="0.5"/>
+                        <rect key="frame" x="15" y="43.5" width="305" height="0.5"/>
                         <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="w6u-bc-xbM"/>
@@ -31,8 +37,9 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="XnD-qn-I5z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="1Gx-83-WAM"/>
+                    <constraint firstItem="XnD-qn-I5z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="1Gx-83-WAM"/>
                     <constraint firstAttribute="trailing" secondItem="XnD-qn-I5z" secondAttribute="trailing" id="888-kd-uGg"/>
+                    <constraint firstAttribute="trailing" secondItem="3Pg-vH-eyZ" secondAttribute="trailing" id="8sO-bq-OFM"/>
                     <constraint firstItem="3Pg-vH-eyZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BI4-ex-1nR"/>
                     <constraint firstItem="3Pg-vH-eyZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Uxz-oY-pco"/>
                     <constraint firstAttribute="bottom" secondItem="XnD-qn-I5z" secondAttribute="bottom" id="mWV-Q1-A2l"/>

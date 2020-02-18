@@ -33,6 +33,12 @@ class ItemCell: UITableViewCell {
     
     override func prepareForReuse() {
         // TODO: 재사용시 초기화 처리
+        trackName.text = ""
+        userRating.text = ""
+        artwork60.image = UIImage()
+        screenShot1.image = UIImage()
+        screenShot2.image = UIImage()
+        screenShot3.image = UIImage()
     }
     
 }

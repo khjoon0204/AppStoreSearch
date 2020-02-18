@@ -7,10 +7,10 @@
     <entity name="SearchHistory" representedClassName="SearchHistory" syncable="YES" codeGenerationType="class">
         <attribute name="date_create" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <attribute name="url" optional="YES" attributeType="String"/>
+        <attribute name="trackId" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="LatestInput" positionX="-63" positionY="-18" width="128" height="28"/>
-        <element name="SearchHistory" positionX="-54" positionY="-9" width="128" height="28"/>
+        <element name="SearchHistory" positionX="-54" positionY="-9" width="128" height="88"/>
     </elements>
 </model>
