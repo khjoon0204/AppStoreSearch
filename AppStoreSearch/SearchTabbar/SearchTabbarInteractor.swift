@@ -77,9 +77,12 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SearchHistory")
 
         do {
-            let objs = try managedContext.fetch(fetchRequest)
+            var objs = try managedContext.fetch(fetchRequest)
+            objs.sort { (obj1, obj2) -> Bool in
+                return obj1.value(forKey: "date_create") as! Date > obj2.value(forKey: "date_create") as! Date
+            }
             complete(objs)
-//            history_obs.accept(obj)
+
         } catch let error as NSError {
             CoreDataError.CannotFetch("히스토리 데이터를 가져올 수 없습니다 \(error), \(error.userInfo)")
         }
@@ -90,7 +93,10 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LatestInput")
 
         do {
-            let objs = try managedContext.fetch(fetchRequest)
+            var objs = try managedContext.fetch(fetchRequest)
+            objs.sort { (obj1, obj2) -> Bool in
+                return obj1.value(forKey: "date_create") as! Date > obj2.value(forKey: "date_create") as! Date
+            }
             complete(objs)
         } catch let error as NSError {
             CoreDataError.CannotFetch("최근검색 데이터를 가져올 수 없습니다 \(error), \(error.userInfo)")

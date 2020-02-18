@@ -26,5 +26,6 @@ enum ApiError: Error
 
 func isNil( _ val: Any?) -> String{
     if let v = val as? String{return v}
+    if let v = val as? NSNumber{return "\(v.intValue)"}
     return ""
 }

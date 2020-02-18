@@ -46,6 +46,9 @@ class SearchInputViewController: UIViewController{
             let sections = objs.map{InputTextSection(title: $0.value(forKey: "input_text") as? String ?? "")}
             self.latest_obs.accept(self.latest_obs.value + sections)
         })
+        listener?.fetchHistory(complete: { (objs) in
+            self.history_obs.accept(objs)
+        })
         
     }
     override func viewWillLayoutSubviews() {
@@ -76,7 +79,7 @@ class SearchInputViewController: UIViewController{
                 })
                 self.listener?.saveLatest(text: searchText, complete: { (objs) in
                     let sections = objs.map{InputTextSection(title: $0.value(forKey: "input_text") as? String ?? "")}
-                    self.latest_obs.accept(self.latest_obs.value + sections)
+                    self.latest_obs.accept([self.latest_obs.value.first!] + sections + self.latest_obs.value.dropFirst())
                     
                 })
             }
@@ -135,7 +138,7 @@ class SearchInputViewController: UIViewController{
         listTV.rx.modelSelected(Search.self).asDriver().drive(onNext: { search in
             let i = search.item
             self.listener?.saveHistory(title: "\(isNil(i["trackName"]))", id: "\(isNil(i["trackId"]))", complete: { (objs) in
-                self.history_obs.accept(self.history_obs.value + objs)
+                self.history_obs.accept(objs + self.history_obs.value)
             })
         }).disposed(by: bag)
                 

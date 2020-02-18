@@ -34,11 +34,14 @@ final class SearchTabbarViewController: UITabBarController, SearchTabbarPresenta
     
     func setupViewControllers(){
         
-        let nav = storyboard?.instantiateViewController(identifier: "SearchInputNavigationController") as! UINavigationController
-        let vc = storyboard?.instantiateViewController(identifier: "SearchInputViewController") as! SearchInputViewController
-        vc.listener = listener
-        nav.viewControllers = [vc]
-        setViewControllers([nav], animated: false)
+//        let nav = storyboard?.instantiateViewController(identifier: "SearchInputNavigationController") as! UINavigationController
+//        let vc = storyboard?.instantiateViewController(identifier: "SearchInputViewController") as! SearchInputViewController
+//        vc.listener = listener
+//        nav.viewControllers = [vc]
+//        setViewControllers([nav], animated: false)
+        
+        let searchInputVC = (viewControllers?.first as! UINavigationController).viewControllers.first as! SearchInputViewController
+        searchInputVC.listener = listener
         
     }
     
