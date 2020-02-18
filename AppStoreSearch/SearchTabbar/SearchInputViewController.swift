@@ -19,10 +19,10 @@ enum ViewType: Int {
 class SearchInputViewController: UIViewController{
 
     @IBOutlet weak var latestV0: UIView!
-    @IBOutlet weak var latestCV: UICollectionView!
+//    @IBOutlet weak var latestCV: UICollectionView!
     @IBOutlet weak var latestHeight: NSLayoutConstraint!
     @IBOutlet weak var historyV0: UIView!
-    @IBOutlet weak var historyTV: UITableView!
+//    @IBOutlet weak var historyTV: UITableView!
     @IBOutlet weak var historyHeight: NSLayoutConstraint!
     @IBOutlet weak var listV0: UIView!
     @IBOutlet weak var listTV: UITableView!
@@ -39,9 +39,9 @@ class SearchInputViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         addSearchController()
-        setupTableViews()
+//        setupTableViews()
+        change(viewType: .latest)
         listener?.fetchLatest(complete: { (objs) in
             let sections = objs.map{InputTextSection(title: $0.value(forKey: "input_text") as? String ?? "")}
             self.latest_obs.accept(self.latest_obs.value + sections)
@@ -54,6 +54,50 @@ class SearchInputViewController: UIViewController{
     override func viewWillLayoutSubviews() {
         self.latestCV.collectionViewLayout.invalidateLayout()
     }
+    lazy var latestCV: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: latestCVLayout)
+        collectionView.backgroundColor = .systemBackground
+        collectionView.alwaysBounceVertical = true
+
+        collectionView.register(UINib(nibName: String(describing: TitleCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: TitleCell.self))
+        collectionView.register(UINib(nibName: String(describing: InputTextCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: InputTextCell.self))
+
+        return collectionView
+    }()
+    lazy var historyTV: UITableView = {
+        let v = UITableView(frame: .zero)
+        v.backgroundColor = .systemBackground
+        v.alwaysBounceVertical = true
+        v.register(UINib(nibName: "LinkCell", bundle: nil), forCellReuseIdentifier: "LinkCell")
+        return v
+    }()
+    
+    func pinToParent(v: UIView){
+        NSLayoutConstraint.activate([
+        v.topAnchor.constraint(equalTo: view.topAnchor),
+        v.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        v.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        v.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
+    }
+    
+    private func change(viewType: ViewType){
+        view.subviews.first?.removeFromSuperview()
+        switch viewType {
+        case .latest:
+            latestCV.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(latestCV)
+            pinToParent(v: latestCV)
+            break
+        case .list:
+            self.listHeight.priority = UILayoutPriority(rawValue: 250)
+            break
+        case .history:
+            historyTV.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(historyTV)
+            pinToParent(v: historyTV)
+            break
+        }
+    }
     
     private func addSearchController(){
         
@@ -64,11 +108,34 @@ class SearchInputViewController: UIViewController{
         navigationItem.hidesSearchBarWhenScrolling = false
         
         
+        
+        
+        
+        latest_obs.bind(to: latestCV.rx.items) { (cv, idx, obj) -> UICollectionViewCell in
+            if cv.dequeueReusableCell(withReuseIdentifier: "TitleCell", for: IndexPath(row: idx, section: 0)) is TitleCell{
+                return self.latest_obs.value[idx].configureCell(collectionView: cv, indexPath: IndexPath(row: idx, section: 0))
+            }
+            if cv.dequeueReusableCell(withReuseIdentifier: "InputTextCell", for: IndexPath(row: idx, section: 0)) is InputTextCell{
+                return self.latest_obs.value[idx].configureCell(collectionView: cv, indexPath: IndexPath(row: idx, section: 0))
+            }
+            return UICollectionViewCell()
+        }.disposed(by: bag)
+        latestCV.rx.modelSelected(Section.self).asDriver().drive(onNext: { (section) in
+            if let sec_input = section as? InputTextSection{
+                self.searchController.searchBar.text = sec_input.title
+            }
+        }).disposed(by: bag)
+        history_obs.bind(to: historyTV.rx.items(cellIdentifier: "LinkCell", cellType: LinkCell.self)) { (idx, obj, cell) in
+            cell.btn.setTitle(obj.value(forKey: "title") as? String ?? "", for: .normal)
+        }.disposed(by: bag)
+        
+        
+        
         /// Binding
         let searchBar = searchController.searchBar
         
         searchBar.rx.cancelButtonClicked.bind{
-            self.viewChange(viewType: .latest)
+            self.change(viewType: .latest)
         }.disposed(by: bag)
         
         searchBar.rx.searchButtonClicked.bind{
@@ -88,10 +155,10 @@ class SearchInputViewController: UIViewController{
         searchBar.rx.text.changed.bind{_ in
 //            print(searchBar.text)
             if searchBar.text == ""{
-                self.viewChange(viewType: .latest)
+                self.change(viewType: .latest)
             }
             else{
-                self.viewChange(viewType: .history)
+                self.change(viewType: .history)
             }
         }.disposed(by: bag)
         
@@ -109,7 +176,7 @@ class SearchInputViewController: UIViewController{
         latestCV.collectionViewLayout = latestCVLayout
         latestCV.register(UINib(nibName: "TitleCell", bundle: nil), forCellWithReuseIdentifier: "TitleCell")
         latestCV.register(UINib(nibName: "InputTextCell", bundle: nil), forCellWithReuseIdentifier: "InputTextCell")
-        historyTV.register(UINib(nibName: "LinkCell", bundle: nil), forCellReuseIdentifier: "LinkCell")
+        
         listTV.register(UINib(nibName: "ItemCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
         
         /// Binding
@@ -142,9 +209,7 @@ class SearchInputViewController: UIViewController{
             })
         }).disposed(by: bag)
                 
-        history_obs.bind(to: historyTV.rx.items(cellIdentifier: "LinkCell", cellType: LinkCell.self)) { (idx, obj, cell) in
-            cell.btn.setTitle(obj.value(forKey: "title") as? String ?? "", for: .normal)
-        }.disposed(by: bag)
+        
         
     }
     
