@@ -11,7 +11,7 @@ import UIKit
 
 extension CALayer{
     
-    var borderUIColor: UIColor {
+    @objc var borderUIColor: UIColor {
         set {
             self.borderColor = newValue.cgColor
         }

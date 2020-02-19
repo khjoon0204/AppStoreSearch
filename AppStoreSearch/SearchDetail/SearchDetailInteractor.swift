@@ -23,7 +23,7 @@ protocol SearchDetailListener: class {
 }
 
 final class SearchDetailInteractor: PresentableInteractor<SearchDetailPresentable>, SearchDetailInteractable, SearchDetailPresentableListener {
-
+    
     weak var router: SearchDetailRouting?
     weak var listener: SearchDetailListener?
 
@@ -49,4 +49,19 @@ final class SearchDetailInteractor: PresentableInteractor<SearchDetailPresentabl
     // MARK: - Private
 
     private var id: Int = -1
+    
+    func fetchLookup(id: Int, withSuccessHandler success: @escaping ([String : Any]) -> ()) {
+        // https://itunes.apple.com/lookup?id=909253
+        let url = URL(string: "https://itunes.apple.com/lookup?id=\(id)")!
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            let result = try? JSONSerialization.jsonObject(with: data!, options: [])
+            if let res = result as? [String:Any]{
+                //                print(res)
+                success(res)
+            }
+            else{ApiError.fetchSearch("검색결과 가져오기 실패: \(error?.localizedDescription)")}
+        }.resume()
+    }
+        
+    
 }

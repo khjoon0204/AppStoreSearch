@@ -51,22 +51,22 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
     }
     
     
-    
-    // MARK: - Core Data
-    
     func fetchSearch(term: String, withSuccessHandler success: @escaping ([String:Any]) -> ()){
         let term_enc = term.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         print("term_enc=\(term_enc!)")
-        let url = URL(string: "https://itunes.apple.com/search?term=\(term_enc!)&media=software&limit=3")!
+        let url = URL(string: "https://itunes.apple.com/search?term=\(term_enc!)&media=software")!
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             let result = try? JSONSerialization.jsonObject(with: data!, options: [])
             if let res = result as? [String:Any]{
-//                print(res)
+                //                print(res)
                 success(res)
             }
-            else{ApiError.fetchSearch("검색결과 가져오기 실패: \(error?.localizedDescription)")}
+            else{print(ApiError.fetchSearch("검색결과 가져오기 실패: \(error?.localizedDescription ?? "")"))}
         }.resume()
     }
+    
+    // MARK: - Core Data
+    
     
     func fetchHistory(complete: @escaping ([NSManagedObject]) -> ()){
 
@@ -81,7 +81,7 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
             complete(objs)
 
         } catch let error as NSError {
-            CoreDataError.CannotFetch("히스토리 데이터를 가져올 수 없습니다 \(error), \(error.userInfo)")
+            print(CoreDataError.CannotFetch("히스토리 데이터를 가져올 수 없습니다 \(error), \(error.userInfo)"))
         }
     }
     func fetchLatest(complete: @escaping ([NSManagedObject]) -> ()){
@@ -97,7 +97,7 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
             let first10 = Array(objs.prefix(10))
             complete(first10)
         } catch let error as NSError {
-            CoreDataError.CannotFetch("최근검색 데이터를 가져올 수 없습니다 \(error), \(error.userInfo)")
+            print(CoreDataError.CannotFetch("최근검색 데이터를 가져올 수 없습니다 \(error), \(error.userInfo)"))
         }
     }
     func saveHistory(title: String, id: String, complete: @escaping ([NSManagedObject]) -> ()) {
@@ -112,7 +112,7 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
             try managedContext.save()
             complete([obj])
         } catch let error as NSError {
-            CoreDataError.CannotUpdate("히스토리 데이터를 저장할 수 없습니다 \(error), \(error.userInfo)")
+            print(CoreDataError.CannotUpdate("히스토리 데이터를 저장할 수 없습니다 \(error), \(error.userInfo)"))
         }
     }
     
@@ -127,7 +127,7 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
             try managedContext.save()
             complete([obj])
         } catch let error as NSError {
-            CoreDataError.CannotUpdate("최근검색 데이터를 저장할 수 없습니다 \(error), \(error.userInfo)")
+            print(CoreDataError.CannotUpdate("최근검색 데이터를 저장할 수 없습니다 \(error), \(error.userInfo)"))
         }
     }
     
