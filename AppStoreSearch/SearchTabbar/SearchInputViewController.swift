@@ -93,17 +93,7 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
         }.disposed(by: bag)
         
         searchBar.rx.searchButtonClicked.bind{
-            if let searchText = searchBar.text{
-                self.listener?.fetchSearch(term: searchText, withSuccessHandler: { (res) in
-                    self.search_obs.accept(Search.parseJSON(res))
-                    DispatchQueue.main.async {self.viewChange(viewType: .list)}
-                })
-                self.listener?.saveLatest(text: searchText, complete: { (objs) in
-                    let sections = objs.map{InputTextSection(title: $0.value(forKey: "input_text") as? String ?? "")}
-                    self.latest_obs.accept([self.latest_obs.value.first!] + sections + self.latest_obs.value.dropFirst())
-                    
-                })
-            }
+            self.clickSearch()
         }.disposed(by: bag)
         
         searchBar.rx.text.changed.bind{_ in
@@ -116,7 +106,21 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
             }
         }.disposed(by: bag)
         
-        
+    }
+    
+    func clickSearch(){
+        if let searchText = searchController.searchBar.text{
+            self.listener?.fetchSearch(term: searchText, withSuccessHandler: { (res) in
+                self.search_obs.accept(Search.parseJSON(res))
+                DispatchQueue.main.async {self.viewChange(viewType: .list)}
+            })
+            self.listener?.saveLatest(text: searchText, complete: { (objs) in
+                let sections = objs.map{InputTextSection(title: $0.value(forKey: "input_text") as? String ?? "")}
+                let first10 = Array(([self.latest_obs.value.first!] + sections + self.latest_obs.value.dropFirst()).prefix(11)) // 헤더포함
+                self.latest_obs.accept(first10)
+                
+            })
+        }
     }
     
     // MARK: - RX Binding
@@ -134,7 +138,7 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
         latestCV.rx.modelSelected(Section.self).asDriver().drive(onNext: { (section) in
             if let sec_input = section as? InputTextSection{
                 self.searchController.searchBar.text = sec_input.title
-                
+                self.clickSearch()
             }
         }).disposed(by: bag)
         
@@ -145,9 +149,6 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
         
     }
     
-    func triggerSearch(){
-        let obs = Observable.of(searchController.searchBar.text)
-    }
     
     func bindHistoryTV(){
         
@@ -172,21 +173,19 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
             let i = ele.item
             cell.dele = self
             if let artwork = URL(string: isStr(i["artworkUrl100"])),
-                let scrns = i["screenshotUrls"] as? [String],
-                let scrn1 = URL(string: scrns[0]),
-                let scrn2 = URL(string: scrns[1]),
-                let scrn3 = URL(string: scrns[2]){
+                let scrns = i["screenshotUrls"] as? [String]{
                 self.loadURLImage(url: artwork) { (data, img) in
                     cell.artwork60.image = img
                 }
-                self.loadURLImage(url: scrn1) { (data, img) in
-                    cell.screenShot1.image = img
-                }
-                self.loadURLImage(url: scrn2) { (data, img) in
-                    cell.screenShot2.image = img
-                }
-                self.loadURLImage(url: scrn3) { (data, img) in
-                    cell.screenShot3.image = img
+                /// TODO: - UIImageView 들 -> CollectionView 로 바꾸기? 이미지갯수가 정해지지않고 들어온다
+                for scrn in scrns {
+                    if let url = URL(string: scrn){
+                        self.loadURLImage(url: url) { (data, img) in
+                            if(cell.screenShot1.image?.size == .none){cell.screenShot1.image = img}
+                            if(cell.screenShot2.image?.size == .none){cell.screenShot2.image = img}
+                            if(cell.screenShot3.image?.size == .none){cell.screenShot3.image = img}
+                        }
+                    }
                 }
             }
             cell.trackName.text = "\(isStr(i["trackName"]))"

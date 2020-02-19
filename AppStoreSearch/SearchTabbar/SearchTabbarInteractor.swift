@@ -94,7 +94,8 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
             objs.sort { (obj1, obj2) -> Bool in
                 return obj1.value(forKey: "date_create") as! Date > obj2.value(forKey: "date_create") as! Date
             }
-            complete(objs)
+            let first10 = Array(objs.prefix(10))
+            complete(first10)
         } catch let error as NSError {
             CoreDataError.CannotFetch("최근검색 데이터를 가져올 수 없습니다 \(error), \(error.userInfo)")
         }
