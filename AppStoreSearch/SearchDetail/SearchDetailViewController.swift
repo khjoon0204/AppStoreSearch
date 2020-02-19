@@ -29,7 +29,14 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
         v.backgroundColor = .systemBackground
         v.alwaysBounceVertical = true
         v.separatorStyle = .none
+        
         v.register(UINib(nibName: "DescCell", bundle: nil), forCellReuseIdentifier: "DescCell")
+        v.register(UINib(nibName: "MoreCell", bundle: nil), forCellReuseIdentifier: "MoreCell")
+        v.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: "ReviewCell")
+        v.register(UINib(nibName: "NewCell", bundle: nil), forCellReuseIdentifier: "NewCell")
+        v.register(UINib(nibName: "InfoCell", bundle: nil), forCellReuseIdentifier: "InfoCell")
+        v.register(UINib(nibName: "HelperCell", bundle: nil), forCellReuseIdentifier: "HelperCell")
+        
         return v
     }()
     override func viewDidLoad() {
@@ -48,9 +55,8 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
     func bindTV(){
         
         search_obs.bind(to: tableView.rx.items) { (tv, idx, ele) -> UITableViewCell in
+            let i = ele.item
             if let cell = tv.dequeueReusableCell(withIdentifier: "DescCell", for: IndexPath(row: idx, section: 0)) as? DescCell{
-                let i = ele.item
-                
                 if let artwork = URL(string: isStr(i["artworkUrl512"])),
                     let scrns = i["screenshotUrls"] as? [String]{
                     self.loadURLImage(url: artwork) { (data, img) in
@@ -63,6 +69,26 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
                 cell.trackName.tag = idx
                 
                 // TODO: - User Rating set..
+                return cell
+            }
+            if let cell = tv.dequeueReusableCell(withIdentifier: "MoreCell", for: IndexPath(row: idx, section: 0)) as? MoreCell{
+
+                return cell
+            }
+            if let cell = tv.dequeueReusableCell(withIdentifier: "ReviewCell", for: IndexPath(row: idx, section: 0)) as? ReviewCell{
+
+                return cell
+            }
+            if let cell = tv.dequeueReusableCell(withIdentifier: "NewCell", for: IndexPath(row: idx, section: 0)) as? NewCell{
+
+                return cell
+            }
+            if let cell = tv.dequeueReusableCell(withIdentifier: "InfoCell", for: IndexPath(row: idx, section: 0)) as? InfoCell{
+
+                return cell
+            }
+            if let cell = tv.dequeueReusableCell(withIdentifier: "HelperCell", for: IndexPath(row: idx, section: 0)) as? HelperCell{
+
                 return cell
             }
             return UITableViewCell()
@@ -91,3 +117,4 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
         v.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
     }
 }
+
