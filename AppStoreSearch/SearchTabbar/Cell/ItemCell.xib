@@ -56,43 +56,43 @@
                                         <rect key="frame" x="0.0" y="49" width="128" height="20"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PEo-bz-c1U">
-                                                <rect key="frame" x="0.0" y="0.33333333333333215" width="20" height="19.666666666666668"/>
+                                                <rect key="frame" x="0.0" y="0.33333333333333215" width="15" height="19.666666666666668"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="Z7q-f6-zFX"/>
+                                                    <constraint firstAttribute="width" constant="15" id="Z7q-f6-zFX"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mRY-NJ-ITV">
-                                                <rect key="frame" x="20" y="0.33333333333333215" width="20" height="19.666666666666668"/>
+                                                <rect key="frame" x="15" y="0.33333333333333215" width="15" height="19.666666666666668"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="17T-2e-sGV"/>
+                                                    <constraint firstAttribute="width" constant="15" id="17T-2e-sGV"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="S2P-9C-yGD">
-                                                <rect key="frame" x="40" y="0.33333333333333215" width="20" height="19.666666666666668"/>
+                                                <rect key="frame" x="30" y="0.33333333333333215" width="15" height="19.666666666666668"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="GId-80-8Em"/>
+                                                    <constraint firstAttribute="width" constant="15" id="GId-80-8Em"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BQH-62-ULz">
-                                                <rect key="frame" x="60" y="0.33333333333333215" width="20" height="19.666666666666668"/>
+                                                <rect key="frame" x="45" y="0.33333333333333215" width="15" height="19.666666666666668"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="zg2-yp-awY"/>
+                                                    <constraint firstAttribute="width" constant="15" id="zg2-yp-awY"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.lefthalf.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="628-Y6-ETy">
-                                                <rect key="frame" x="80" y="0.33333333333333215" width="20" height="19.666666666666668"/>
+                                                <rect key="frame" x="60" y="0.33333333333333215" width="15" height="19.666666666666668"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="2XA-uO-Ojn"/>
+                                                    <constraint firstAttribute="width" constant="15" id="2XA-uO-Ojn"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="6.5천" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eai-x5-LLZ">
-                                                <rect key="frame" x="100" y="0.0" width="28" height="20"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <rect key="frame" x="75" y="0.0" width="53" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -113,7 +113,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="받기"/>
                                 <state key="highlighted">
-                                    <color key="titleColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

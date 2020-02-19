@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - Error
 /// handler 용 type 정의
@@ -26,6 +27,7 @@ enum ApiError: Error
 {
     case parseJSON(String)
     case fetchSearch(String)
+    case fetchLookup(String)
 }
 
 

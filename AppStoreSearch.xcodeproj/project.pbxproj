@@ -43,6 +43,9 @@
 		F470C04223F8E41000AC7A18 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C04123F8E41000AC7A18 /* AppComponent.swift */; };
 		F470C06823F92C0800AC7A18 /* RootComponent+SearchInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C06723F92C0800AC7A18 /* RootComponent+SearchInput.swift */; };
 		F470C07B23F950C000AC7A18 /* SearchInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFF623F66B7400014F9C /* SearchInputViewController.swift */; };
+		F4E021F323FCF6F70088E788 /* DescScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E021F123FCF6F70088E788 /* DescScreenCell.swift */; };
+		F4E021F423FCF6F70088E788 /* DescScreenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4E021F223FCF6F70088E788 /* DescScreenCell.xib */; };
+		F4E021F623FD00A20088E788 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E021F523FD00A20088E788 /* NSObject+Extension.swift */; };
 		F4E8BFDE23F66AC700014F9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFDD23F66AC700014F9C /* AppDelegate.swift */; };
 		F4E8BFE523F66AC700014F9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4E8BFE323F66AC700014F9C /* Main.storyboard */; };
 		F4E8BFE823F66AC700014F9C /* AppStoreSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4E8BFE623F66AC700014F9C /* AppStoreSearch.xcdatamodeld */; };
@@ -100,6 +103,9 @@
 		F470C03C23F8DC5B00AC7A18 /* RootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
 		F470C04123F8E41000AC7A18 /* AppComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
 		F470C06723F92C0800AC7A18 /* RootComponent+SearchInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RootComponent+SearchInput.swift"; sourceTree = "<group>"; };
+		F4E021F123FCF6F70088E788 /* DescScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescScreenCell.swift; sourceTree = "<group>"; };
+		F4E021F223FCF6F70088E788 /* DescScreenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescScreenCell.xib; sourceTree = "<group>"; };
+		F4E021F523FD00A20088E788 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		F4E8BFDA23F66AC700014F9C /* AppStoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4E8BFDD23F66AC700014F9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4E8BFE423F66AC700014F9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -155,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				F41306CA23FBF14E0031DE71 /* CALayer+Extension.swift */,
+				F4E021F523FD00A20088E788 /* NSObject+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -274,6 +281,13 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		F4E021FA23FD23850088E788 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		F4E8BFD123F66AC700014F9C = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +314,7 @@
 				F470C03823F8DC2900AC7A18 /* Root */,
 				F44DE58823FA5348006532D7 /* Model */,
 				F41306C923FBF1370031DE71 /* Extension */,
+				F4E021FA23FD23850088E788 /* Service */,
 				F4F676BD23F785AF00C724EF /* Library */,
 				F4E8BFDD23F66AC700014F9C /* AppDelegate.swift */,
 				F470C04123F8E41000AC7A18 /* AppComponent.swift */,
@@ -353,6 +368,8 @@
 			children = (
 				F4F6773723F7B8E900C724EF /* DescCell.swift */,
 				F4F6773823F7B8E900C724EF /* DescCell.xib */,
+				F4E021F123FCF6F70088E788 /* DescScreenCell.swift */,
+				F4E021F223FCF6F70088E788 /* DescScreenCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -424,6 +441,7 @@
 				F4E8BFEA23F66AC800014F9C /* Assets.xcassets in Resources */,
 				F4F6773A23F7B8E900C724EF /* DescCell.xib in Resources */,
 				F4E8BFE523F66AC700014F9C /* Main.storyboard in Resources */,
+				F4E021F423FCF6F70088E788 /* DescScreenCell.xib in Resources */,
 				F4F6771E23F78E9800C724EF /* InputTextCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,6 +513,7 @@
 				F470C03D23F8DC5B00AC7A18 /* RootRouter.swift in Sources */,
 				F4F6773023F790F800C724EF /* SearchDetailInteractor.swift in Sources */,
 				F44DE57C23FA22B5006532D7 /* ViewableRouter.swift in Sources */,
+				F4E021F623FD00A20088E788 /* NSObject+Extension.swift in Sources */,
 				F470C03F23F8DC5B00AC7A18 /* RootBuilder.swift in Sources */,
 				F44AB7F123FBA617003527A2 /* InputTextSection.swift in Sources */,
 				F4E8BFE823F66AC700014F9C /* AppStoreSearch.xcdatamodeld in Sources */,
@@ -520,6 +539,7 @@
 				F41306CE23FC0ED80031DE71 /* SearchTabbar+SearchDetail.swift in Sources */,
 				F4F6772D23F790F800C724EF /* SearchDetailRouter.swift in Sources */,
 				F41306CB23FBF14E0031DE71 /* CALayer+Extension.swift in Sources */,
+				F4E021F323FCF6F70088E788 /* DescScreenCell.swift in Sources */,
 				F44DE57023FA22B5006532D7 /* Dependency.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

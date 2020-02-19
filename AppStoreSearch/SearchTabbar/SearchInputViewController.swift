@@ -181,12 +181,20 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
                 for scrn in scrns {
                     if let url = URL(string: scrn){
                         self.loadURLImage(url: url) { (data, img) in
-                            if(cell.screenShot1.image?.size == .none){cell.screenShot1.image = img}
-                            if(cell.screenShot2.image?.size == .none){cell.screenShot2.image = img}
-                            if(cell.screenShot3.image?.size == .none){cell.screenShot3.image = img}
+                            if(cell.screenShot1.image?.size == CGSize.zero){
+                                cell.screenShot1.image = img
+                            }
+                            if(cell.screenShot2.image?.size == CGSize.zero){
+                                cell.screenShot2.image = img
+                            }
+                            if(cell.screenShot3.image?.size == CGSize.zero){
+                                cell.screenShot3.image = img
+                            }
                         }
                     }
                 }
+                
+                
             }
             cell.trackName.text = "\(isStr(i["trackName"]))"
             cell.trackName.tag = idx
@@ -236,19 +244,7 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
     
 
     // MARK: - Util
-    
-    func loadURLImage(url: URL, completion: @escaping ((Data, UIImage) -> ())) {
-        DispatchQueue.global().async { [weak self] in // strong circular retain 막기 위함
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        completion(data, image)
-                    }
-                }
-            }
-        }
-    }
-    
+
     func pinToParent(v: UIView){
         NSLayoutConstraint.activate([
         v.topAnchor.constraint(equalTo: view.topAnchor),
@@ -256,6 +252,8 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
         v.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         v.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
     }
+
+    
     
 }
 

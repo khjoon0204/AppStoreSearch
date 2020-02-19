@@ -50,7 +50,7 @@ final class SearchDetailInteractor: PresentableInteractor<SearchDetailPresentabl
 
     private var id: Int = -1
     
-    func fetchLookup(id: Int, withSuccessHandler success: @escaping ([String : Any]) -> ()) {
+    func fetchLookup(withSuccessHandler success: @escaping ([String : Any]) -> ()) {
         // https://itunes.apple.com/lookup?id=909253
         let url = URL(string: "https://itunes.apple.com/lookup?id=\(id)")!
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -59,7 +59,7 @@ final class SearchDetailInteractor: PresentableInteractor<SearchDetailPresentabl
                 //                print(res)
                 success(res)
             }
-            else{ApiError.fetchSearch("검색결과 가져오기 실패: \(error?.localizedDescription)")}
+            else{print(ApiError.fetchLookup("상품상세결과 가져오기 실패: \(error?.localizedDescription)"))}
         }.resume()
     }
         
