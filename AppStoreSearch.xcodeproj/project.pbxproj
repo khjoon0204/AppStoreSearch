@@ -36,6 +36,16 @@
 		F44DE58723FA261A006532D7 /* SearchTabbarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DE58323FA261A006532D7 /* SearchTabbarInteractor.swift */; };
 		F44DE58A23FA5357006532D7 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DE58923FA5357006532D7 /* Search.swift */; };
 		F44DE59C23FA80B0006532D7 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DE59B23FA80B0006532D7 /* Util.swift */; };
+		F45777A523FD4E71005969C4 /* MoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45777A323FD4E71005969C4 /* MoreCell.swift */; };
+		F45777A623FD4E71005969C4 /* MoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45777A423FD4E71005969C4 /* MoreCell.xib */; };
+		F45777A923FD4E85005969C4 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45777A723FD4E85005969C4 /* ReviewCell.swift */; };
+		F45777AA23FD4E85005969C4 /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45777A823FD4E85005969C4 /* ReviewCell.xib */; };
+		F45777AD23FD4EB8005969C4 /* NewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45777AB23FD4EB8005969C4 /* NewCell.swift */; };
+		F45777AE23FD4EB8005969C4 /* NewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45777AC23FD4EB8005969C4 /* NewCell.xib */; };
+		F45777B123FD4EC9005969C4 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45777AF23FD4EC9005969C4 /* InfoCell.swift */; };
+		F45777B223FD4EC9005969C4 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45777B023FD4EC9005969C4 /* InfoCell.xib */; };
+		F45777B523FD4F0A005969C4 /* HelperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45777B323FD4F0A005969C4 /* HelperCell.swift */; };
+		F45777B623FD4F0A005969C4 /* HelperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45777B423FD4F0A005969C4 /* HelperCell.xib */; };
 		F470C03D23F8DC5B00AC7A18 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C03923F8DC5B00AC7A18 /* RootRouter.swift */; };
 		F470C03E23F8DC5B00AC7A18 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C03A23F8DC5B00AC7A18 /* RootViewController.swift */; };
 		F470C03F23F8DC5B00AC7A18 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470C03B23F8DC5B00AC7A18 /* RootBuilder.swift */; };
@@ -97,6 +107,16 @@
 		F44DE58323FA261A006532D7 /* SearchTabbarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabbarInteractor.swift; sourceTree = "<group>"; };
 		F44DE58923FA5357006532D7 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		F44DE59B23FA80B0006532D7 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		F45777A323FD4E71005969C4 /* MoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCell.swift; sourceTree = "<group>"; };
+		F45777A423FD4E71005969C4 /* MoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreCell.xib; sourceTree = "<group>"; };
+		F45777A723FD4E85005969C4 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		F45777A823FD4E85005969C4 /* ReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
+		F45777AB23FD4EB8005969C4 /* NewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCell.swift; sourceTree = "<group>"; };
+		F45777AC23FD4EB8005969C4 /* NewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCell.xib; sourceTree = "<group>"; };
+		F45777AF23FD4EC9005969C4 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		F45777B023FD4EC9005969C4 /* InfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
+		F45777B323FD4F0A005969C4 /* HelperCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperCell.swift; sourceTree = "<group>"; };
+		F45777B423FD4F0A005969C4 /* HelperCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelperCell.xib; sourceTree = "<group>"; };
 		F470C03923F8DC5B00AC7A18 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		F470C03A23F8DC5B00AC7A18 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		F470C03B23F8DC5B00AC7A18 /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
@@ -370,6 +390,16 @@
 				F4F6773823F7B8E900C724EF /* DescCell.xib */,
 				F4E021F123FCF6F70088E788 /* DescScreenCell.swift */,
 				F4E021F223FCF6F70088E788 /* DescScreenCell.xib */,
+				F45777A323FD4E71005969C4 /* MoreCell.swift */,
+				F45777A423FD4E71005969C4 /* MoreCell.xib */,
+				F45777A723FD4E85005969C4 /* ReviewCell.swift */,
+				F45777A823FD4E85005969C4 /* ReviewCell.xib */,
+				F45777AB23FD4EB8005969C4 /* NewCell.swift */,
+				F45777AC23FD4EB8005969C4 /* NewCell.xib */,
+				F45777AF23FD4EC9005969C4 /* InfoCell.swift */,
+				F45777B023FD4EC9005969C4 /* InfoCell.xib */,
+				F45777B323FD4F0A005969C4 /* HelperCell.swift */,
+				F45777B423FD4F0A005969C4 /* HelperCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -435,12 +465,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4F6771923F78E9000C724EF /* TitleCell.xib in Resources */,
+				F45777B623FD4F0A005969C4 /* HelperCell.xib in Resources */,
 				F4E8BFED23F66AC800014F9C /* LaunchScreen.storyboard in Resources */,
 				F4F6773523F7954400C724EF /* ItemCell.xib in Resources */,
 				F41F636823F7FC31004CE89F /* LinkCell.xib in Resources */,
 				F4E8BFEA23F66AC800014F9C /* Assets.xcassets in Resources */,
 				F4F6773A23F7B8E900C724EF /* DescCell.xib in Resources */,
+				F45777AE23FD4EB8005969C4 /* NewCell.xib in Resources */,
+				F45777AA23FD4E85005969C4 /* ReviewCell.xib in Resources */,
+				F45777A623FD4E71005969C4 /* MoreCell.xib in Resources */,
 				F4E8BFE523F66AC700014F9C /* Main.storyboard in Resources */,
+				F45777B223FD4EC9005969C4 /* InfoCell.xib in Resources */,
 				F4E021F423FCF6F70088E788 /* DescScreenCell.xib in Resources */,
 				F4F6771E23F78E9800C724EF /* InputTextCell.xib in Resources */,
 			);
@@ -504,18 +539,22 @@
 				F44DE58723FA261A006532D7 /* SearchTabbarInteractor.swift in Sources */,
 				F44DE59C23FA80B0006532D7 /* Util.swift in Sources */,
 				F4F6772F23F790F800C724EF /* SearchDetailBuilder.swift in Sources */,
+				F45777B123FD4EC9005969C4 /* InfoCell.swift in Sources */,
 				F44DE57E23FA22B5006532D7 /* ViewControllable.swift in Sources */,
 				F44DE57A23FA22B5006532D7 /* Router.swift in Sources */,
 				F44DE57423FA22B5006532D7 /* Interactor.swift in Sources */,
 				F44DE58623FA261A006532D7 /* SearchTabbarBuilder.swift in Sources */,
+				F45777A923FD4E85005969C4 /* ReviewCell.swift in Sources */,
 				F44DE57723FA22B5006532D7 /* LaunchRouter.swift in Sources */,
 				F470C04223F8E41000AC7A18 /* AppComponent.swift in Sources */,
 				F470C03D23F8DC5B00AC7A18 /* RootRouter.swift in Sources */,
 				F4F6773023F790F800C724EF /* SearchDetailInteractor.swift in Sources */,
 				F44DE57C23FA22B5006532D7 /* ViewableRouter.swift in Sources */,
 				F4E021F623FD00A20088E788 /* NSObject+Extension.swift in Sources */,
+				F45777A523FD4E71005969C4 /* MoreCell.swift in Sources */,
 				F470C03F23F8DC5B00AC7A18 /* RootBuilder.swift in Sources */,
 				F44AB7F123FBA617003527A2 /* InputTextSection.swift in Sources */,
+				F45777AD23FD4EB8005969C4 /* NewCell.swift in Sources */,
 				F4E8BFE823F66AC700014F9C /* AppStoreSearch.xcdatamodeld in Sources */,
 				F44AB7EF23FBA617003527A2 /* TitleSection.swift in Sources */,
 				F4F6771A23F78E9000C724EF /* TitleCell.swift in Sources */,
@@ -532,6 +571,7 @@
 				F44DE58423FA261A006532D7 /* SearchTabbarRouter.swift in Sources */,
 				F44DE58A23FA5357006532D7 /* Search.swift in Sources */,
 				F44DE57323FA22B5006532D7 /* Builder.swift in Sources */,
+				F45777B523FD4F0A005969C4 /* HelperCell.swift in Sources */,
 				F4F6772E23F790F800C724EF /* SearchDetailViewController.swift in Sources */,
 				F470C06823F92C0800AC7A18 /* RootComponent+SearchInput.swift in Sources */,
 				F4F6771D23F78E9800C724EF /* InputTextCell.swift in Sources */,
