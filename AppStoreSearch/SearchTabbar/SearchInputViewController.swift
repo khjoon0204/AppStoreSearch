@@ -177,23 +177,23 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
                 self.loadURLImage(url: artwork) { (data, img) in
                     cell.artwork60.image = img
                 }
-                /// TODO: - UIImageView 들 -> CollectionView 로 바꾸기? 이미지갯수가 정해지지않고 들어온다
-                for scrn in scrns {
-                    if let url = URL(string: scrn){
-                        self.loadURLImage(url: url) { (data, img) in
-                            if(cell.screenShot1.image?.size == CGSize.zero){
-                                cell.screenShot1.image = img
-                            }
-                            if(cell.screenShot2.image?.size == CGSize.zero){
-                                cell.screenShot2.image = img
-                            }
-                            if(cell.screenShot3.image?.size == CGSize.zero){
-                                cell.screenShot3.image = img
-                            }
-                        }
+                // array.indices.contains(index)
+                if scrns.indices.contains(0), let scrn1 = URL(string: scrns[0]){
+                    self.loadURLImage(url: scrn1) { (data, img) in
+                        cell.screenShot1.image = img
                     }
                 }
-                
+                if scrns.indices.contains(1), let scrn2 = URL(string: scrns[1]){
+                    self.loadURLImage(url: scrn2) { (data, img) in
+                        cell.screenShot2.image = img
+                    }
+                }
+                if scrns.indices.contains(2), let scrn3 = URL(string: scrns[2]){
+                    self.loadURLImage(url: scrn3) { (data, img) in
+                        cell.screenShot3.image = img
+                    }
+                }
+                   
                 
             }
             cell.trackName.text = "\(isStr(i["trackName"]))"

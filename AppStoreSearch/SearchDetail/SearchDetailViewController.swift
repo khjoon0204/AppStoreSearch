@@ -28,12 +28,13 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
         let v = UITableView(frame: .zero)
         v.backgroundColor = .systemBackground
         v.alwaysBounceVertical = true
+        v.separatorStyle = .none
         v.register(UINib(nibName: "DescCell", bundle: nil), forCellReuseIdentifier: "DescCell")
         return v
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationController?.navigationBar.prefersLargeTitles = false
+//        navigationController?.navigationBar.barStyle = .default
         bindTV()
         setupTV()
     }
