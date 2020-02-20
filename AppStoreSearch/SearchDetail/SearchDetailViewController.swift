@@ -39,9 +39,21 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
         
         return v
     }()
+    private var topH: CGFloat = 0.0
+    lazy var navAlphaV: UIView = {
+        if let navBar = navigationController?.navigationBar,
+            let subV = navBar.subviews.first{ // label 아래, uivisualeffectview 위에 있는 뷰.
+            self.topH = navBar.bounds.height
+            subV.alpha = 0.0
+            navBar.shadowImage = UIImage() // bottom line 없앰.
+            return subV
+        }
+        return UIView()
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationController?.navigationBar.barStyle = .default
+
         bindTV()
         setupTV()
     }
@@ -52,7 +64,15 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
         pinToParent(v: tableView)
     }
     
+    
     func bindTV(){
+        
+        tableView.rx.contentOffset.subscribe {
+            if let y = $0.element?.y{
+                self.navAlphaV.alpha = 1 + (y/self.topH)
+//                print(self.navAlphaV.alpha)
+            }
+        }.disposed(by: bag)
         
         search_obs.bind(to: tableView.rx.items) { (tv, idx, ele) -> UITableViewCell in
             let i = ele.item
@@ -100,6 +120,8 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
 //                self.clickSearch()
 //            }
 //        }).disposed(by: bag)
+        
+        
 
         listener?.fetchLookup(withSuccessHandler: { (objs) in
             self.search_obs.accept(Search.parseJSON(objs))

@@ -15,7 +15,7 @@ extension NSObject{
 
     func loadURLImage(url: URL, completion: @escaping ((Data, UIImage) -> ())) {
         DispatchQueue.global().async { [weak self] in // strong circular retain 막기 위함
-            if let data = try? Data(contentsOf: url) {
+            if let data = try? Data(contentsOf: url) { // TODO: - 데이터 가져오는지 test
                 if let image = UIImage(data: data) {
                     DispatchQueue.main.async {
                         completion(data, image)
