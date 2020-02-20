@@ -46,41 +46,43 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Bf-zI-w4P">
-                                <rect key="frame" x="0.0" y="50" width="280" height="25"/>
+                                <rect key="frame" x="0.0" y="50" width="280" height="14.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="버전 1.19.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGh-qU-Ztz">
-                                        <rect key="frame" x="0.0" y="4.5" width="58.5" height="16"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="54.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1주 전" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVx-ZM-g4z">
-                                        <rect key="frame" x="247" y="4.5" width="33" height="16"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <rect key="frame" x="250" y="0.0" width="30" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="5sQ-24-27i"/>
                                     <constraint firstItem="kGh-qU-Ztz" firstAttribute="centerY" secondItem="1Bf-zI-w4P" secondAttribute="centerY" id="JSQ-2G-mq4"/>
+                                    <constraint firstAttribute="bottom" secondItem="kGh-qU-Ztz" secondAttribute="bottom" id="NFP-qF-TnJ"/>
+                                    <constraint firstItem="kGh-qU-Ztz" firstAttribute="top" secondItem="1Bf-zI-w4P" secondAttribute="top" id="RW0-to-wcm"/>
                                     <constraint firstItem="aVx-ZM-g4z" firstAttribute="centerY" secondItem="1Bf-zI-w4P" secondAttribute="centerY" id="T0Z-LT-mzf"/>
                                     <constraint firstItem="kGh-qU-Ztz" firstAttribute="leading" secondItem="1Bf-zI-w4P" secondAttribute="leading" id="iCL-7h-s9P"/>
                                     <constraint firstAttribute="trailing" secondItem="aVx-ZM-g4z" secondAttribute="trailing" id="nJo-7E-cps"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8I-KK-LjA">
-                                <rect key="frame" x="0.0" y="75" width="280" height="61.5"/>
+                                <rect key="frame" x="0.0" y="64.5" width="280" height="69"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.19.1 안정성 개선 및 버그 수정" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JtK-wH-a4i">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="31.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <rect key="frame" x="0.0" y="10" width="280" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcU-o4-ILU">
-                                        <rect key="frame" x="237" y="31.5" width="43" height="30"/>
+                                        <rect key="frame" x="245" y="19" width="35" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="더 보기"/>
                                         <connections>
                                             <action selector="pressMore:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ywO-aZ-yOl"/>
@@ -90,11 +92,11 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="JtK-wH-a4i" secondAttribute="bottom" constant="30" id="0t7-L9-TAf"/>
-                                    <constraint firstAttribute="bottom" secondItem="GcU-o4-ILU" secondAttribute="bottom" id="KA7-dN-Wpg"/>
                                     <constraint firstAttribute="trailing" secondItem="GcU-o4-ILU" secondAttribute="trailing" id="Lg9-wl-gvr"/>
                                     <constraint firstItem="JtK-wH-a4i" firstAttribute="leading" secondItem="i8I-KK-LjA" secondAttribute="leading" id="RJQ-MW-zP0"/>
                                     <constraint firstAttribute="trailing" secondItem="JtK-wH-a4i" secondAttribute="trailing" id="W0L-yV-PRy"/>
-                                    <constraint firstItem="JtK-wH-a4i" firstAttribute="top" secondItem="i8I-KK-LjA" secondAttribute="top" id="lbB-Gt-2uM"/>
+                                    <constraint firstItem="JtK-wH-a4i" firstAttribute="top" secondItem="i8I-KK-LjA" secondAttribute="top" constant="10" id="lbB-Gt-2uM"/>
+                                    <constraint firstItem="GcU-o4-ILU" firstAttribute="bottom" secondItem="JtK-wH-a4i" secondAttribute="bottom" constant="7" id="tPo-DT-kCe"/>
                                 </constraints>
                             </view>
                         </subviews>

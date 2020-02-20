@@ -19,7 +19,7 @@ struct NewSection: TableViewSection {
     func configureCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "NewCell", for: indexPath) as? NewCell{
             
-            cell.lbVersion.text = lbVersion
+            cell.lbVersion.text = "버전 \(lbVersion)"
             cell.lbBeforeDay.text = lbBeforeDay
             cell.lbDesc.text = lbDesc
             

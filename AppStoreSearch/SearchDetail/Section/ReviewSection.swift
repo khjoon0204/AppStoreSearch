@@ -20,8 +20,8 @@ struct ReviewSection: TableViewSection {
     
     func configureCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as? ReviewCell{
-            cell.lbRating.text = lbRating
-            cell.lbAnswerCount.text = "\(lbAnswerCount)개의 평가" // TODO: Currency type 정하기(천 단위로 ',' 찍히는..)
+            cell.lbRating.text = String(format: "%.1f", isFloat(lbRating))
+            // cell.lbAnswerCount.text = "\(lbAnswerCount)개의 평가" // TODO: Currency type 정하기(천 단위로 ',' 찍히는..)
             // TODO: - answers Observable 데이터 넣고 next
             
             return cell

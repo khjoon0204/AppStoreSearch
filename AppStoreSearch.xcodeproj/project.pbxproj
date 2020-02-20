@@ -19,6 +19,7 @@
 		F426492023FE214100969EDB /* NewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426491F23FE214100969EDB /* NewSection.swift */; };
 		F426492223FE215400969EDB /* InfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426492123FE215300969EDB /* InfoSection.swift */; };
 		F426492423FE216600969EDB /* HelperSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426492323FE216600969EDB /* HelperSection.swift */; };
+		F426492623FE54AF00969EDB /* Int64+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426492523FE54AF00969EDB /* Int64+Extension.swift */; };
 		F44AB7EF23FBA617003527A2 /* TitleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AB7EC23FBA617003527A2 /* TitleSection.swift */; };
 		F44AB7F023FBA617003527A2 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AB7ED23FBA617003527A2 /* Section.swift */; };
 		F44AB7F123FBA617003527A2 /* InputTextSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AB7EE23FBA617003527A2 /* InputTextSection.swift */; };
@@ -96,6 +97,7 @@
 		F426491F23FE214100969EDB /* NewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSection.swift; sourceTree = "<group>"; };
 		F426492123FE215300969EDB /* InfoSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSection.swift; sourceTree = "<group>"; };
 		F426492323FE216600969EDB /* HelperSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperSection.swift; sourceTree = "<group>"; };
+		F426492523FE54AF00969EDB /* Int64+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+Extension.swift"; sourceTree = "<group>"; };
 		F44AB7EC23FBA617003527A2 /* TitleSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleSection.swift; sourceTree = "<group>"; };
 		F44AB7ED23FBA617003527A2 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		F44AB7EE23FBA617003527A2 /* InputTextSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTextSection.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				F41306CA23FBF14E0031DE71 /* CALayer+Extension.swift */,
 				F426491923FE204E00969EDB /* URL+Extension.swift */,
+				F426492523FE54AF00969EDB /* Int64+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				F44DE58A23FA5357006532D7 /* Search.swift in Sources */,
 				F44DE57323FA22B5006532D7 /* Builder.swift in Sources */,
 				F45777B523FD4F0A005969C4 /* HelperCell.swift in Sources */,
+				F426492623FE54AF00969EDB /* Int64+Extension.swift in Sources */,
 				F4F6772E23F790F800C724EF /* SearchDetailViewController.swift in Sources */,
 				F470C06823F92C0800AC7A18 /* RootComponent+SearchInput.swift in Sources */,
 				F4F6771D23F78E9800C724EF /* InputTextCell.swift in Sources */,

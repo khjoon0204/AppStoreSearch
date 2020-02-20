@@ -42,3 +42,13 @@ func isInt( _ val: Any?) -> Int{
     if let v = val as? NSNumber{return v.intValue}
     return -1
 }
+
+func isFloat( _ val: Any?) -> CGFloat{
+    if let v = (val as? NSString)?.floatValue{return CGFloat(v)}
+    return -1
+}
+
+func isInt64( _ val: Any?) -> Int64{
+    if let v = (val as? NSString)?.integerValue{return Int64(v)}
+    return -1
+}

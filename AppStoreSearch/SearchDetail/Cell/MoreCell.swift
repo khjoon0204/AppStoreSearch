@@ -10,8 +10,11 @@ import UIKit
 
 class MoreCell: UITableViewCell {
     @IBOutlet weak var txt: UILabel!
+    @IBOutlet weak var txtHidden: UILabel!
     @IBOutlet weak var btnDeveloper: UIButton!
     @IBOutlet weak var nameDeveloper: UILabel!
+    @IBOutlet weak var txtVHeight: NSLayoutConstraint!
+    @IBOutlet weak var btnMore: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +27,14 @@ class MoreCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func pressShowMore(_ sender: Any) {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
+            self.txt.numberOfLines = 0
+            // self.txtVHeight.constant = self.txtHidden.frame.height
+            self.btnMore.isHidden = true
+            
+        }) { (complete) in
+            
+        }
     }
     @IBAction func pressDeveloper(_ sender: Any) {
     }

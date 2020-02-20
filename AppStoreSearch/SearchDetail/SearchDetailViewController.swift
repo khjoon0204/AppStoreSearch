@@ -29,7 +29,6 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
         v.backgroundColor = .systemBackground
         v.alwaysBounceVertical = true
         v.separatorStyle = .none
-        
         v.register(UINib(nibName: "DescCell", bundle: nil), forCellReuseIdentifier: "DescCell")
         v.register(UINib(nibName: "MoreCell", bundle: nil), forCellReuseIdentifier: "MoreCell")
         v.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: "ReviewCell")
@@ -57,6 +56,7 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
         super.viewDidLoad()
         bindTV()
         setupTV()
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     func setupTV() {
@@ -76,7 +76,6 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
         }.disposed(by: bag)
         
         sec_obs.bind(to: tableView.rx.items) { (tv, idx, ele) -> UITableViewCell in
-//            let i = ele.item
             if tv.dequeueReusableCell(withIdentifier: "DescCell", for: IndexPath(row: idx, section: 0)) is DescCell{
                 return self.sec_obs.value[idx].configureCell(tableView: tv, indexPath: IndexPath(row: idx, section: 0))
             }
@@ -108,11 +107,11 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
         listener?.fetchLookup(withSuccessHandler: { (objs) in
             guard let i = Search.parseJSON(objs).first?.item else{return}
             self.sec_obs.accept([
-                DescSection(artWork: isStr(i["artWork"]), trackName: isStr(i["trackName"]), screenshotUrls: i["screenshotUrls"] as! [String]),
-                MoreSection(txt: isStr(i["txt"]), nameDeveloper: isStr(i["nameDeveloper"])),
-                ReviewSection(lbRating: isStr(i["lbRating"]), lbAnswerCount: isStr(i["lbAnswerCount"]), answers: []),
-                NewSection(lbVersion: isStr(i["lbVersion"]), lbBeforeDay: isStr(i["lbBeforeDay"]), lbDesc: isStr(i["lbDesc"])),
-                InfoSection(lbProvider: isStr(i["lbProvider"]), lbSize: isStr(i["lbSize"]), lbCategory: isStr(i["lbCategory"]), lbAge: isStr(i["lbAge"])),
+                DescSection(artWork: isStr(i["artworkUrl512"]), trackName: isStr(i["trackName"]), screenshotUrls: i["screenshotUrls"] as! [String]),
+                MoreSection(txt: isStr(i["description"]), nameDeveloper: isStr(i["artistName"])),
+                ReviewSection(lbRating: isStr(i["averageUserRating"]), lbAnswerCount: isStr(i["lbAnswerCount"]), answers: []),
+                NewSection(lbVersion: isStr(i["version"]), lbBeforeDay: isStr(i["lbBeforeDay"]), lbDesc: isStr(i["releaseNotes"])),
+                InfoSection(lbProvider: isStr(i["sellerName"]), lbSize: isInt64(i["fileSizeBytes"]).toMB(), lbCategory: isStr(i["primaryGenreName"]), lbAge: isStr(i["trackContentRating"])),
                 HelperSection()
             ])
         })
@@ -121,7 +120,6 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
     private let bag = DisposeBag()
     
     // MARK: - Util
-    
     func pinToParent(v: UIView){
         NSLayoutConstraint.activate([
             v.topAnchor.constraint(equalTo: view.topAnchor),
