@@ -48,8 +48,8 @@ class DescCell: UITableViewCell {
         let disposeBag = DisposeBag()
 
         url_obs
-            .bind(to: self.screenCV.rx.items(cellIdentifier: "DescScreenCell", cellType: DescScreenCell.self)) { (idx, url, cell) in
-                self.loadURLImage(url: url) { (data, image) in
+            .bind(to: self.screenCV.rx.items(cellIdentifier: "DescScreenCell", cellType: DescScreenCell.self)) { (idx, url, cell) in                
+                url.loadURLImage { (data, image) in
                     cell.iv.image = image
                 }
         }

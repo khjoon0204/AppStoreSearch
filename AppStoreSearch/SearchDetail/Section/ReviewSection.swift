@@ -14,7 +14,7 @@ struct ReviewSection: TableViewSection {
 
     init(lbRating: String, lbAnswerCount: String, answers: [String]) {
         self.lbRating = lbRating
-        self.lbRating = lbRating
+        self.lbAnswerCount = lbAnswerCount
         self.answers = answers
     }
     

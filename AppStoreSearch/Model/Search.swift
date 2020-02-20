@@ -15,8 +15,6 @@ struct Search {
 
     static func parseJSON(_ json: [String:Any]) -> [Search] {
         guard let res = json["results"] as? [[String:Any]] else { return [] }
-        return res.map { r in
-            return Search(item: r)
-        }
+        return res.map {return Search(item: $0)}
     }
 }

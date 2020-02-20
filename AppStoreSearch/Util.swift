@@ -9,10 +9,6 @@
 import Foundation
 import UIKit
 
-protocol <#name#> {
-    <#requirements#>
-}
-
 // MARK: - Error
 /// handler 용 type 정의
 typealias CoreDataErrorCompletionHandler = (CoreDataError) -> Void

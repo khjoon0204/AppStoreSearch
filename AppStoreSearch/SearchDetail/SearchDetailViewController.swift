@@ -19,10 +19,9 @@ protocol SearchDetailPresentableListener: class {
 }
 
 final class SearchDetailViewController: UIViewController, SearchDetailPresentable, SearchDetailViewControllable {
-
+    
     weak var listener: SearchDetailPresentableListener?
-
-//    var search_obs = BehaviorRelay<[Search]>(value: [])
+    
     var sec_obs = BehaviorRelay<[TableViewSection]>(value: []) // TODO: - Section 들 넣기
     
     lazy var tableView: UITableView = {
@@ -40,11 +39,13 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
         
         return v
     }()
-    private var topH: CGFloat = 0.0
+    
+    private var topH: CGFloat = -1
+    
     lazy var navAlphaV: UIView = {
         if let navBar = navigationController?.navigationBar,
-            let subV = navBar.subviews.first{ // label 아래, uivisualeffectview 위에 있는 뷰.
-            self.topH = navBar.bounds.height
+            let subV = navBar.subviews.first { // label 아래, uivisualeffectview 위에 있는 뷰.
+//            self.topH = navBar.bounds.height
             subV.alpha = 0.0
             navBar.shadowImage = UIImage() // bottom line 없앰.
             return subV
@@ -54,90 +55,79 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         bindTV()
         setupTV()
     }
     
-    func setupTV(){
+    func setupTV() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         pinToParent(v: tableView)
     }
     
-    
-    func bindTV(){
-        
+    func bindTV() {
         tableView.rx.contentOffset.subscribe {
             if let y = $0.element?.y{
-                self.navAlphaV.alpha = 1 + (y/self.topH)
-//                print(self.navAlphaV.alpha)
+                if self.topH == -1 && abs(y) > 0{self.topH = abs(y)}
+                let mod = 1 + (y/self.topH)
+                self.navAlphaV.alpha = mod > 1 ? 1 : mod
+//                                print(self.navAlphaV.alpha)
             }
         }.disposed(by: bag)
         
-        search_obs.bind(to: tableView.rx.items) { (tv, idx, ele) -> UITableViewCell in
-            let i = ele.item
-            if let cell = tv.dequeueReusableCell(withIdentifier: "DescCell", for: IndexPath(row: idx, section: 0)) as? DescCell{
-                if let artwork = URL(string: isStr(i["artworkUrl512"])),
-                    let scrns = i["screenshotUrls"] as? [String]{
-                    self.loadURLImage(url: artwork) { (data, img) in
-                        cell.artWork.image = img
-                    }
-                    cell.url_obs.accept(scrns.map{(URL(string: $0)!)})
-
-                }
-                cell.trackName.text = "\(isStr(i["trackName"]))"
-                cell.trackName.tag = idx
-                
-                // TODO: - User Rating set..
-                return cell
+        sec_obs.bind(to: tableView.rx.items) { (tv, idx, ele) -> UITableViewCell in
+//            let i = ele.item
+            if tv.dequeueReusableCell(withIdentifier: "DescCell", for: IndexPath(row: idx, section: 0)) is DescCell{
+                return self.sec_obs.value[idx].configureCell(tableView: tv, indexPath: IndexPath(row: idx, section: 0))
             }
-            if let cell = tv.dequeueReusableCell(withIdentifier: "MoreCell", for: IndexPath(row: idx, section: 0)) as? MoreCell{
-
-                return cell
+            if tv.dequeueReusableCell(withIdentifier: "MoreCell", for: IndexPath(row: idx, section: 0)) is MoreCell{
+                return self.sec_obs.value[idx].configureCell(tableView: tv, indexPath: IndexPath(row: idx, section: 0))
             }
-            if let cell = tv.dequeueReusableCell(withIdentifier: "ReviewCell", for: IndexPath(row: idx, section: 0)) as? ReviewCell{
-
-                return cell
+            if tv.dequeueReusableCell(withIdentifier: "ReviewCell", for: IndexPath(row: idx, section: 0)) is ReviewCell{
+                return self.sec_obs.value[idx].configureCell(tableView: tv, indexPath: IndexPath(row: idx, section: 0))
             }
-            if let cell = tv.dequeueReusableCell(withIdentifier: "NewCell", for: IndexPath(row: idx, section: 0)) as? NewCell{
-
-                return cell
+            if tv.dequeueReusableCell(withIdentifier: "NewCell", for: IndexPath(row: idx, section: 0)) is NewCell{
+                return self.sec_obs.value[idx].configureCell(tableView: tv, indexPath: IndexPath(row: idx, section: 0))
             }
-            if let cell = tv.dequeueReusableCell(withIdentifier: "InfoCell", for: IndexPath(row: idx, section: 0)) as? InfoCell{
-
-                return cell
+            if tv.dequeueReusableCell(withIdentifier: "InfoCell", for: IndexPath(row: idx, section: 0)) is InfoCell{
+                return self.sec_obs.value[idx].configureCell(tableView: tv, indexPath: IndexPath(row: idx, section: 0))
             }
-            if let cell = tv.dequeueReusableCell(withIdentifier: "HelperCell", for: IndexPath(row: idx, section: 0)) as? HelperCell{
-
-                return cell
+            if tv.dequeueReusableCell(withIdentifier: "HelperCell", for: IndexPath(row: idx, section: 0)) is HelperCell{
+                return self.sec_obs.value[idx].configureCell(tableView: tv, indexPath: IndexPath(row: idx, section: 0))
             }
             return UITableViewCell()
         }.disposed(by: bag)
         
-//        latestCV.rx.modelSelected(Section.self).asDriver().drive(onNext: { (section) in
-//            if let sec_input = section as? InputTextSection{
-//                self.searchController.searchBar.text = sec_input.title
-//                self.clickSearch()
-//            }
-//        }).disposed(by: bag)
+        //        latestCV.rx.modelSelected(Section.self).asDriver().drive(onNext: { (section) in
+        //            if let sec_input = section as? InputTextSection{
+        //                self.searchController.searchBar.text = sec_input.title
+        //                self.clickSearch()
+        //            }
+        //        }).disposed(by: bag)
         
-        
-
         listener?.fetchLookup(withSuccessHandler: { (objs) in
-            self.search_obs.accept(Search.parseJSON(objs))
+            guard let i = Search.parseJSON(objs).first?.item else{return}
+            self.sec_obs.accept([
+                DescSection(artWork: isStr(i["artWork"]), trackName: isStr(i["trackName"]), screenshotUrls: i["screenshotUrls"] as! [String]),
+                MoreSection(txt: isStr(i["txt"]), nameDeveloper: isStr(i["nameDeveloper"])),
+                ReviewSection(lbRating: isStr(i["lbRating"]), lbAnswerCount: isStr(i["lbAnswerCount"]), answers: []),
+                NewSection(lbVersion: isStr(i["lbVersion"]), lbBeforeDay: isStr(i["lbBeforeDay"]), lbDesc: isStr(i["lbDesc"])),
+                InfoSection(lbProvider: isStr(i["lbProvider"]), lbSize: isStr(i["lbSize"]), lbCategory: isStr(i["lbCategory"]), lbAge: isStr(i["lbAge"])),
+                HelperSection()
+            ])
         })
-        
     }
+    
     private let bag = DisposeBag()
+    
     // MARK: - Util
-
+    
     func pinToParent(v: UIView){
         NSLayoutConstraint.activate([
-        v.topAnchor.constraint(equalTo: view.topAnchor),
-        v.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-        v.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        v.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
+            v.topAnchor.constraint(equalTo: view.topAnchor),
+            v.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            v.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            v.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
     }
 }
 

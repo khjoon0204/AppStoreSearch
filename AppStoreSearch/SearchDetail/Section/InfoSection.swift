@@ -8,27 +8,25 @@ struct InfoSection: TableViewSection {
     let numberOfItems = 1
 
     /// json payload 매핑되는 곳
-    let artWork: String
-    let trackName: String
-    let url_obs: [String]
-    let screenshotUrls: [String]
+    let lbProvider: String
+    let lbSize: String
+    let lbCategory: String
+    let lbAge: String
 
-    init(artWork: String, trackName: String, url_obs: [String], screenshotUrls: [String]) {
-        self.artWork = artWork
-        self.trackName = trackName
-        self.url_obs = url_obs
-        self.screenshotUrls = screenshotUrls
+    init(lbProvider: String, lbSize: String, lbCategory: String, lbAge: String) {
+        self.lbProvider = lbProvider
+        self.lbSize = lbSize
+        self.lbCategory = lbCategory
+        self.lbAge = lbAge
     }
     
     func configureCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as? InfoCell{
-            if let artWorkUrl = URL(string: artWork){
-                artWorkUrl.loadURLImage { (data, image) in
-                    cell.artWork.image = image
-                }
-            }
-            cell.url_obs.accept(screenshotUrls.map{(URL(string: $0)!)})
-            cell.trackName.text = trackName
+            
+            cell.lbProvider.text = lbProvider
+            cell.lbSize.text = lbSize
+            cell.lbCategory.text = lbCategory
+            cell.lbAge.text = lbAge
             
             return cell
         }

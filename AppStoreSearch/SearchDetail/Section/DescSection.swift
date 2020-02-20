@@ -10,13 +10,11 @@ struct DescSection: TableViewSection {
     /// json payload 매핑되는 곳
     let artWork: String
     let trackName: String
-    let url_obs: [String]
     let screenshotUrls: [String]
 
-    init(artWork: String, trackName: String, url_obs: [String], screenshotUrls: [String]) {
+    init(artWork: String, trackName: String, screenshotUrls: [String]) {
         self.artWork = artWork
         self.trackName = trackName
-        self.url_obs = url_obs
         self.screenshotUrls = screenshotUrls
     }
     

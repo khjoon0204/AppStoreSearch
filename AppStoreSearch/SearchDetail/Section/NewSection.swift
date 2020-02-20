@@ -3,32 +3,25 @@ import RxSwift
 import RxCocoa
 
 struct NewSection: TableViewSection {
-    
-    
     let numberOfItems = 1
 
     /// json payload 매핑되는 곳
-    let artWork: String
-    let trackName: String
-    let url_obs: [String]
-    let screenshotUrls: [String]
+    let lbVersion: String
+    let lbBeforeDay: String
+    let lbDesc: String
 
-    init(artWork: String, trackName: String, url_obs: [String], screenshotUrls: [String]) {
-        self.artWork = artWork
-        self.trackName = trackName
-        self.url_obs = url_obs
-        self.screenshotUrls = screenshotUrls
+    init(lbVersion: String, lbBeforeDay: String, lbDesc: String) {
+        self.lbVersion = lbVersion
+        self.lbBeforeDay = lbBeforeDay
+        self.lbDesc = lbDesc
     }
     
     func configureCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "NewCell", for: indexPath) as? NewCell{
-            if let artWorkUrl = URL(string: artWork){
-                artWorkUrl.loadURLImage { (data, image) in
-                    cell.artWork.image = image
-                }
-            }
-            cell.url_obs.accept(screenshotUrls.map{(URL(string: $0)!)})
-            cell.trackName.text = trackName
+            
+            cell.lbVersion.text = lbVersion
+            cell.lbBeforeDay.text = lbBeforeDay
+            cell.lbDesc.text = lbDesc
             
             return cell
         }

@@ -59,8 +59,6 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
         return v
     }()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,9 +70,23 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
         viewChange(viewType: .latest)
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.subviews.first?.alpha = 1.0
+    }
     override func viewWillLayoutSubviews() {
         self.latestCV.collectionViewLayout.invalidateLayout()
     }
+    
+//    lazy var navAlphaV: UIView = {
+//        if let navBar = navigationController?.navigationBar,
+//            let subV = navBar.subviews.first { // label 아래, uivisualeffectview 위에 있는 뷰.
+//            self.topH = navBar.bounds.height
+//            subV.alpha = 0.0
+//            navBar.shadowImage = UIImage() // bottom line 없앰.
+//            return subV
+//        }
+//        return UIView()
+//    }()
     
     private func addSearchController(){
         
@@ -174,22 +186,22 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
             cell.dele = self
             if let artwork = URL(string: isStr(i["artworkUrl100"])),
                 let scrns = i["screenshotUrls"] as? [String]{
-                self.loadURLImage(url: artwork) { (data, img) in
+                artwork.loadURLImage { (data, img) in
                     cell.artwork60.image = img
                 }
                 // array.indices.contains(index)
                 if scrns.indices.contains(0), let scrn1 = URL(string: scrns[0]){
-                    self.loadURLImage(url: scrn1) { (data, img) in
+                    scrn1.loadURLImage { (data, img) in
                         cell.screenShot1.image = img
                     }
                 }
                 if scrns.indices.contains(1), let scrn2 = URL(string: scrns[1]){
-                    self.loadURLImage(url: scrn2) { (data, img) in
+                    scrn2.loadURLImage { (data, img) in
                         cell.screenShot2.image = img
                     }
                 }
                 if scrns.indices.contains(2), let scrn3 = URL(string: scrns[2]){
-                    self.loadURLImage(url: scrn3) { (data, img) in
+                    scrn3.loadURLImage { (data, img) in
                         cell.screenShot3.image = img
                     }
                 }
