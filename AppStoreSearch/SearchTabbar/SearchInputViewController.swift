@@ -49,6 +49,7 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
         let v = UITableView(frame: .zero)
         v.backgroundColor = .systemBackground
         v.alwaysBounceVertical = true
+        v.separatorStyle = .none 
         v.register(UINib(nibName: "LinkCell", bundle: nil), forCellReuseIdentifier: "LinkCell")
         return v
     }()
@@ -78,18 +79,7 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
     override func viewWillLayoutSubviews() {
         self.latestCV.collectionViewLayout.invalidateLayout()
     }
-    
-//    lazy var navAlphaV: UIView = {
-//        if let navBar = navigationController?.navigationBar,
-//            let subV = navBar.subviews.first { // label 아래, uivisualeffectview 위에 있는 뷰.
-//            self.topH = navBar.bounds.height
-//            subV.alpha = 0.0
-//            navBar.shadowImage = UIImage() // bottom line 없앰.
-//            return subV
-//        }
-//        return UIView()
-//    }()
-    
+
     private func addSearchController(){
         searchController = UISearchController()
         searchController.obscuresBackgroundDuringPresentation = false

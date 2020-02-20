@@ -21,23 +21,5 @@ extension URL{
             }
         }
     }
-    
-    
-    //    func loadURLImage(url: URL, completion: @escaping ((Observable<DownloadableImage>, Data, UIImage) -> ())) {
-    //        DispatchQueue.global().async { [weak self] in // strong circular retain 막기 위함
-    //            if let data = try? Data(contentsOf: url) {
-    //                if let image = UIImage(data: data) {
-    //                    DispatchQueue.main.async {
-    //                        let obs = Observable.of(image)
-    //                            .map { DownloadableImage.content(image: $0) }
-    //                            .startWith(.content(image: UIImage()))
-    //                        completion(obs, data, image)
-    //                    }
-    //                }
-    //            }
-    //        }
-    //
-    //    }
-    
-    
+     
 }
