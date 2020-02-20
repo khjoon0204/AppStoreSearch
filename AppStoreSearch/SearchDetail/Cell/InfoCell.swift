@@ -24,6 +24,7 @@ class InfoCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     @IBAction func pressCompatitable(_ sender: UIButton) {
     }
     @IBAction func pressDevWebsite(_ sender: Any) {

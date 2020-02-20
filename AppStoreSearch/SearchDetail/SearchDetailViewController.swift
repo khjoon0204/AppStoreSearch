@@ -24,6 +24,8 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
     
     var sec_obs = BehaviorRelay<[TableViewSection]>(value: []) // TODO: - Section 들 넣기
     
+    private let bag = DisposeBag()
+    
     lazy var tableView: UITableView = {
         let v = UITableView(frame: .zero)
         v.backgroundColor = .systemBackground
@@ -44,7 +46,6 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
     lazy var navAlphaV: UIView = {
         if let navBar = navigationController?.navigationBar,
             let subV = navBar.subviews.first { // label 아래, uivisualeffectview 위에 있는 뷰.
-//            self.topH = navBar.bounds.height
             subV.alpha = 0.0
             navBar.shadowImage = UIImage() // bottom line 없앰.
             return subV
@@ -62,7 +63,7 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
     func setupTV() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
-        pinToParent(v: tableView)
+        tableView.pinToParent()
     }
     
     func bindTV() {
@@ -71,7 +72,6 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
                 if self.topH == -1 && abs(y) > 0{self.topH = abs(y)}
                 let mod = 1 + (y/self.topH)
                 self.navAlphaV.alpha = mod > 1 ? 1 : mod
-//                                print(self.navAlphaV.alpha)
             }
         }.disposed(by: bag)
         
@@ -117,15 +117,6 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
         })
     }
     
-    private let bag = DisposeBag()
     
-    // MARK: - Util
-    func pinToParent(v: UIView){
-        NSLayoutConstraint.activate([
-            v.topAnchor.constraint(equalTo: view.topAnchor),
-            v.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            v.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            v.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
-    }
 }
 

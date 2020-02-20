@@ -8,8 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		590C101ABF6AEBB71431F50E /* Pods_AppStoreSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADB8B0414B7AE57B1F36E4E /* Pods_AppStoreSearch.framework */; };
+		DFD3701F485D7D10895CE5E8 /* Pods_AppStoreSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB809C0C6147ACFA0B12709A /* Pods_AppStoreSearchTests.framework */; };
 		F41306CB23FBF14E0031DE71 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41306CA23FBF14E0031DE71 /* CALayer+Extension.swift */; };
 		F41306CE23FC0ED80031DE71 /* SearchTabbar+SearchDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41306CC23FC01250031DE71 /* SearchTabbar+SearchDetail.swift */; };
+		F41552B823FE7CFD00EA37EC /* SearchTabbarInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41552B623FE7CFD00EA37EC /* SearchTabbarInteractorTests.swift */; };
+		F41552B923FE7CFD00EA37EC /* SearchTabbarRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41552B723FE7CFD00EA37EC /* SearchTabbarRouterTests.swift */; };
+		F41552BB23FE7FBA00EA37EC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41552BA23FE7FBA00EA37EC /* UIView+Extension.swift */; };
+		F41552BD23FE86FC00EA37EC /* SearchTabbarMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41552BC23FE86FC00EA37EC /* SearchTabbarMocks.swift */; };
+		F41552C623FE989100EA37EC /* SearchDetailMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41552C523FE989100EA37EC /* SearchDetailMocks.swift */; };
+		F41552C923FEA23B00EA37EC /* SearchDetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41552C723FEA23B00EA37EC /* SearchDetailInteractorTests.swift */; };
+		F41552CA23FEA23B00EA37EC /* SearchDetailRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41552C823FEA23B00EA37EC /* SearchDetailRouterTests.swift */; };
 		F41F636723F7FC31004CE89F /* LinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F636523F7FC31004CE89F /* LinkCell.swift */; };
 		F41F636823F7FC31004CE89F /* LinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F41F636623F7FC31004CE89F /* LinkCell.xib */; };
 		F426491823FE19AA00969EDB /* DescSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426491723FE19AA00969EDB /* DescSection.swift */; };
@@ -82,12 +90,32 @@
 		F4F6773A23F7B8E900C724EF /* DescCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4F6773823F7B8E900C724EF /* DescCell.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F426493023FE79CC00969EDB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4E8BFD223F66AC700014F9C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4E8BFD923F66AC700014F9C;
+			remoteInfo = AppStoreSearch;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		12ABDD68915E3840AE329C24 /* Pods-AppStoreSearchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreSearchTests.release.xcconfig"; path = "Target Support Files/Pods-AppStoreSearchTests/Pods-AppStoreSearchTests.release.xcconfig"; sourceTree = "<group>"; };
 		A9215DFEBCBC6E0E0DC5F4D1 /* Pods-AppStoreSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreSearch.release.xcconfig"; path = "Target Support Files/Pods-AppStoreSearch/Pods-AppStoreSearch.release.xcconfig"; sourceTree = "<group>"; };
 		AADB8B0414B7AE57B1F36E4E /* Pods_AppStoreSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStoreSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFF31F8A433B1AAC84693EE0 /* Pods-AppStoreSearchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreSearchTests.debug.xcconfig"; path = "Target Support Files/Pods-AppStoreSearchTests/Pods-AppStoreSearchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CB809C0C6147ACFA0B12709A /* Pods_AppStoreSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStoreSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE143AA636C40EB184FB581 /* Pods-AppStoreSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreSearch.debug.xcconfig"; path = "Target Support Files/Pods-AppStoreSearch/Pods-AppStoreSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		F41306CA23FBF14E0031DE71 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
 		F41306CC23FC01250031DE71 /* SearchTabbar+SearchDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SearchTabbar+SearchDetail.swift"; sourceTree = "<group>"; };
+		F41552B623FE7CFD00EA37EC /* SearchTabbarInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabbarInteractorTests.swift; sourceTree = "<group>"; };
+		F41552B723FE7CFD00EA37EC /* SearchTabbarRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabbarRouterTests.swift; sourceTree = "<group>"; };
+		F41552BA23FE7FBA00EA37EC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		F41552BC23FE86FC00EA37EC /* SearchTabbarMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabbarMocks.swift; sourceTree = "<group>"; };
+		F41552C523FE989100EA37EC /* SearchDetailMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailMocks.swift; sourceTree = "<group>"; };
+		F41552C723FEA23B00EA37EC /* SearchDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailInteractorTests.swift; sourceTree = "<group>"; };
+		F41552C823FEA23B00EA37EC /* SearchDetailRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailRouterTests.swift; sourceTree = "<group>"; };
 		F41F636523F7FC31004CE89F /* LinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCell.swift; sourceTree = "<group>"; };
 		F41F636623F7FC31004CE89F /* LinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkCell.xib; sourceTree = "<group>"; };
 		F426491723FE19AA00969EDB /* DescSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescSection.swift; sourceTree = "<group>"; };
@@ -98,6 +126,9 @@
 		F426492123FE215300969EDB /* InfoSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSection.swift; sourceTree = "<group>"; };
 		F426492323FE216600969EDB /* HelperSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperSection.swift; sourceTree = "<group>"; };
 		F426492523FE54AF00969EDB /* Int64+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+Extension.swift"; sourceTree = "<group>"; };
+		F426492B23FE79CC00969EDB /* AppStoreSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppStoreSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F426492D23FE79CC00969EDB /* AppStoreSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreSearchTests.swift; sourceTree = "<group>"; };
+		F426492F23FE79CC00969EDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F44AB7EC23FBA617003527A2 /* TitleSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleSection.swift; sourceTree = "<group>"; };
 		F44AB7ED23FBA617003527A2 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		F44AB7EE23FBA617003527A2 /* InputTextSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTextSection.swift; sourceTree = "<group>"; };
@@ -163,6 +194,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F426492823FE79CC00969EDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFD3701F485D7D10895CE5E8 /* Pods_AppStoreSearchTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4E8BFD723F66AC700014F9C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -179,6 +218,8 @@
 			children = (
 				DCE143AA636C40EB184FB581 /* Pods-AppStoreSearch.debug.xcconfig */,
 				A9215DFEBCBC6E0E0DC5F4D1 /* Pods-AppStoreSearch.release.xcconfig */,
+				AFF31F8A433B1AAC84693EE0 /* Pods-AppStoreSearchTests.debug.xcconfig */,
+				12ABDD68915E3840AE329C24 /* Pods-AppStoreSearchTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -187,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				AADB8B0414B7AE57B1F36E4E /* Pods_AppStoreSearch.framework */,
+				CB809C0C6147ACFA0B12709A /* Pods_AppStoreSearchTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -197,8 +239,29 @@
 				F41306CA23FBF14E0031DE71 /* CALayer+Extension.swift */,
 				F426491923FE204E00969EDB /* URL+Extension.swift */,
 				F426492523FE54AF00969EDB /* Int64+Extension.swift */,
+				F41552BA23FE7FBA00EA37EC /* UIView+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		F41552C223FE8BC000EA37EC /* SearchTabbar */ = {
+			isa = PBXGroup;
+			children = (
+				F41552BC23FE86FC00EA37EC /* SearchTabbarMocks.swift */,
+				F41552B623FE7CFD00EA37EC /* SearchTabbarInteractorTests.swift */,
+				F41552B723FE7CFD00EA37EC /* SearchTabbarRouterTests.swift */,
+			);
+			path = SearchTabbar;
+			sourceTree = "<group>";
+		};
+		F41552C323FE8BCB00EA37EC /* SearchDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F41552C523FE989100EA37EC /* SearchDetailMocks.swift */,
+				F41552C723FEA23B00EA37EC /* SearchDetailInteractorTests.swift */,
+				F41552C823FEA23B00EA37EC /* SearchDetailRouterTests.swift */,
+			);
+			path = SearchDetail;
 			sourceTree = "<group>";
 		};
 		F426491623FE192400969EDB /* Section */ = {
@@ -212,6 +275,17 @@
 				F426492323FE216600969EDB /* HelperSection.swift */,
 			);
 			path = Section;
+			sourceTree = "<group>";
+		};
+		F426492C23FE79CC00969EDB /* AppStoreSearchTests */ = {
+			isa = PBXGroup;
+			children = (
+				F41552C323FE8BCB00EA37EC /* SearchDetail */,
+				F41552C223FE8BC000EA37EC /* SearchTabbar */,
+				F426492D23FE79CC00969EDB /* AppStoreSearchTests.swift */,
+				F426492F23FE79CC00969EDB /* Info.plist */,
+			);
+			path = AppStoreSearchTests;
 			sourceTree = "<group>";
 		};
 		F44AB7EB23FBA5FA003527A2 /* Section */ = {
@@ -329,17 +403,11 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
-		F4E021FA23FD23850088E788 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		F4E8BFD123F66AC700014F9C = {
 			isa = PBXGroup;
 			children = (
 				F4E8BFDC23F66AC700014F9C /* AppStoreSearch */,
+				F426492C23FE79CC00969EDB /* AppStoreSearchTests */,
 				F4E8BFDB23F66AC700014F9C /* Products */,
 				399344B0307B14FBFB45E5F8 /* Pods */,
 				C5A2C5AC4857C799382310DE /* Frameworks */,
@@ -350,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				F4E8BFDA23F66AC700014F9C /* AppStoreSearch.app */,
+				F426492B23FE79CC00969EDB /* AppStoreSearchTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -362,7 +431,6 @@
 				F470C03823F8DC2900AC7A18 /* Root */,
 				F44DE58823FA5348006532D7 /* Model */,
 				F41306C923FBF1370031DE71 /* Extension */,
-				F4E021FA23FD23850088E788 /* Service */,
 				F4F676BD23F785AF00C724EF /* Library */,
 				F4E8BFDD23F66AC700014F9C /* AppDelegate.swift */,
 				F470C04123F8E41000AC7A18 /* AppComponent.swift */,
@@ -436,6 +504,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F426492A23FE79CC00969EDB /* AppStoreSearchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F426493423FE79CC00969EDB /* Build configuration list for PBXNativeTarget "AppStoreSearchTests" */;
+			buildPhases = (
+				8E38D1E987ABA0F755E27B67 /* [CP] Check Pods Manifest.lock */,
+				F426492723FE79CC00969EDB /* Sources */,
+				F426492823FE79CC00969EDB /* Frameworks */,
+				F426492923FE79CC00969EDB /* Resources */,
+				7D6CEB73C06FC7138F9AD62F /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F426493123FE79CC00969EDB /* PBXTargetDependency */,
+			);
+			name = AppStoreSearchTests;
+			productName = AppStoreSearchTests;
+			productReference = F426492B23FE79CC00969EDB /* AppStoreSearchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F4E8BFD923F66AC700014F9C /* AppStoreSearch */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4E8BFF123F66AC800014F9C /* Build configuration list for PBXNativeTarget "AppStoreSearch" */;
@@ -465,6 +553,10 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = hjoon;
 				TargetAttributes = {
+					F426492A23FE79CC00969EDB = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = F4E8BFD923F66AC700014F9C;
+					};
 					F4E8BFD923F66AC700014F9C = {
 						CreatedOnToolsVersion = 11.3;
 					};
@@ -484,11 +576,19 @@
 			projectRoot = "";
 			targets = (
 				F4E8BFD923F66AC700014F9C /* AppStoreSearch */,
+				F426492A23FE79CC00969EDB /* AppStoreSearchTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F426492923FE79CC00969EDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4E8BFD823F66AC700014F9C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -513,6 +613,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7D6CEB73C06FC7138F9AD62F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppStoreSearchTests/Pods-AppStoreSearchTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppStoreSearchTests/Pods-AppStoreSearchTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppStoreSearchTests/Pods-AppStoreSearchTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8C1A623F0AA6564BB388B94C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -528,6 +645,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppStoreSearch/Pods-AppStoreSearch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E38D1E987ABA0F755E27B67 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AppStoreSearchTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C709C8A82792D79BB94BF3D7 /* [CP] Check Pods Manifest.lock */ = {
@@ -555,6 +694,19 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F426492723FE79CC00969EDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F41552C623FE989100EA37EC /* SearchDetailMocks.swift in Sources */,
+				F41552B923FE7CFD00EA37EC /* SearchTabbarRouterTests.swift in Sources */,
+				F41552B823FE7CFD00EA37EC /* SearchTabbarInteractorTests.swift in Sources */,
+				F41552C923FEA23B00EA37EC /* SearchDetailInteractorTests.swift in Sources */,
+				F41552BD23FE86FC00EA37EC /* SearchTabbarMocks.swift in Sources */,
+				F41552CA23FEA23B00EA37EC /* SearchDetailRouterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4E8BFD623F66AC700014F9C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -577,6 +729,7 @@
 				F44DE57423FA22B5006532D7 /* Interactor.swift in Sources */,
 				F44DE58623FA261A006532D7 /* SearchTabbarBuilder.swift in Sources */,
 				F45777A923FD4E85005969C4 /* ReviewCell.swift in Sources */,
+				F41552BB23FE7FBA00EA37EC /* UIView+Extension.swift in Sources */,
 				F44DE57723FA22B5006532D7 /* LaunchRouter.swift in Sources */,
 				F470C04223F8E41000AC7A18 /* AppComponent.swift in Sources */,
 				F470C03D23F8DC5B00AC7A18 /* RootRouter.swift in Sources */,
@@ -622,6 +775,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F426493123FE79CC00969EDB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4E8BFD923F66AC700014F9C /* AppStoreSearch */;
+			targetProxy = F426493023FE79CC00969EDB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		F4E8BFE323F66AC700014F9C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -642,6 +803,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F426493223FE79CC00969EDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFF31F8A433B1AAC84693EE0 /* Pods-AppStoreSearchTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AppStoreSearchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hjoon.m.AppStoreSearchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppStoreSearch.app/AppStoreSearch";
+			};
+			name = Debug;
+		};
+		F426493323FE79CC00969EDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12ABDD68915E3840AE329C24 /* Pods-AppStoreSearchTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AppStoreSearchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hjoon.m.AppStoreSearchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppStoreSearch.app/AppStoreSearch";
+			};
+			name = Release;
+		};
 		F4E8BFEF23F66AC800014F9C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -797,6 +998,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F426493423FE79CC00969EDB /* Build configuration list for PBXNativeTarget "AppStoreSearchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F426493223FE79CC00969EDB /* Debug */,
+				F426493323FE79CC00969EDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F4E8BFD523F66AC700014F9C /* Build configuration list for PBXProject "AppStoreSearch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

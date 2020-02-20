@@ -13,6 +13,7 @@ class ReviewCell: UITableViewCell {
     @IBOutlet weak var lbRating: UILabel!
     @IBOutlet weak var lbAnswerCount: UILabel!
     @IBOutlet weak var answerCV: UICollectionView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

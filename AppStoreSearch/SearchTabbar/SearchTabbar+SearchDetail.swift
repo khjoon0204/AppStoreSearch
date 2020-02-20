@@ -25,7 +25,6 @@ protocol SearchTabbarDependencySearchDetail: Dependency {
 extension SearchTabbarComponent: SearchDetailDependency {
     var id: Int {
         return -1
-    }
-     
+    }     
 }
 

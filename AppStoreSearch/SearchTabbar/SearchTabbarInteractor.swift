@@ -25,9 +25,6 @@ protocol SearchTabbarListener: class {
 }
 
 final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentable>, SearchTabbarInteractable, SearchTabbarPresentableListener {
-    
-    
-    
     weak var router: SearchTabbarRouting?
     weak var listener: SearchTabbarListener?
     
@@ -50,7 +47,6 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
         // TODO: Pause any business logic.
     }
     
-    
     func fetchSearch(term: String, withSuccessHandler success: @escaping ([String:Any]) -> ()){
         let term_enc = term.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
         print("term_enc=\(term_enc!)")
@@ -66,29 +62,23 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
     }
     
     // MARK: - Core Data
-    
-    
     func fetchHistory(complete: @escaping ([NSManagedObject]) -> ()){
-
         let managedContext = app.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SearchHistory")
-
         do {
             var objs = try managedContext.fetch(fetchRequest)
             objs.sort { (obj1, obj2) -> Bool in
                 return obj1.value(forKey: "date_create") as! Date > obj2.value(forKey: "date_create") as! Date
             }
             complete(objs)
-
         } catch let error as NSError {
             print(CoreDataError.CannotFetch("히스토리 데이터를 가져올 수 없습니다 \(error), \(error.userInfo)"))
         }
     }
+    
     func fetchLatest(complete: @escaping ([NSManagedObject]) -> ()){
-
         let managedContext = app.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LatestInput")
-
         do {
             var objs = try managedContext.fetch(fetchRequest)
             objs.sort { (obj1, obj2) -> Bool in
@@ -100,6 +90,7 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
             print(CoreDataError.CannotFetch("최근검색 데이터를 가져올 수 없습니다 \(error), \(error.userInfo)"))
         }
     }
+    
     func saveHistory(title: String, id: String, complete: @escaping ([NSManagedObject]) -> ()) {
         let managedContext = app.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "SearchHistory", in: managedContext)!
@@ -107,7 +98,6 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
         obj.setValue(Date(), forKey: "date_create")
         obj.setValue(title, forKeyPath: "title")
         obj.setValue(id, forKeyPath: "trackId")
-        
         do {
             try managedContext.save()
             complete([obj])
@@ -122,7 +112,6 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
         let obj = NSManagedObject(entity: entity, insertInto: managedContext)
         obj.setValue(Date(), forKey: "date_create")
         obj.setValue(text, forKeyPath: "input_text")
-        
         do {
             try managedContext.save()
             complete([obj])
@@ -135,4 +124,5 @@ final class SearchTabbarInteractor: PresentableInteractor<SearchTabbarPresentabl
     func routeToSearchDetail(id: Int) {
         router?.routeToSearchDetail(id: id)
     }
+    
 }

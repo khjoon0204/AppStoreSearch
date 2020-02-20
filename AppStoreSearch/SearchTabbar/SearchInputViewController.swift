@@ -24,8 +24,9 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
     var history_obs = BehaviorRelay<[NSManagedObject]>(value: [])
     var latest_obs = BehaviorRelay<[Section]>(value: [TitleSection(title: "최근 검색어")])
     
-    
     var searchController: UISearchController!
+        
+    private let bag = DisposeBag()
     
     lazy var latestCV: UICollectionView = {
         let v = UICollectionView(frame: .zero, collectionViewLayout: latestCVLayout)
@@ -43,6 +44,7 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
         }
         return layout
     }()
+    
     lazy var historyTV: UITableView = {
         let v = UITableView(frame: .zero)
         v.backgroundColor = .systemBackground
@@ -50,6 +52,7 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
         v.register(UINib(nibName: "LinkCell", bundle: nil), forCellReuseIdentifier: "LinkCell")
         return v
     }()
+    
     lazy var listTV: UITableView = {
         let v = UITableView(frame: .zero)
         v.backgroundColor = .systemBackground
@@ -61,18 +64,17 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         addSearchController()
         bindLatestCV()
         bindHistoryTV()
         bindListTV()
-        
         viewChange(viewType: .latest)
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.subviews.first?.alpha = 1.0
     }
+    
     override func viewWillLayoutSubviews() {
         self.latestCV.collectionViewLayout.invalidateLayout()
     }
@@ -89,13 +91,11 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
 //    }()
     
     private func addSearchController(){
-        
         searchController = UISearchController()
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "App Store"
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        
         
         /// Binding
         let searchBar = searchController.searchBar
@@ -158,13 +158,9 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
             let sections = objs.map{InputTextSection(title: $0.value(forKey: "input_text") as? String ?? "")}
             self.latest_obs.accept(self.latest_obs.value + sections)
         })
-        
     }
     
-    
     func bindHistoryTV(){
-        
-        
         history_obs.bind(to: historyTV.rx.items(cellIdentifier: "LinkCell", cellType: LinkCell.self)) { (idx, obj, cell) in
             cell.btn.setTitle(obj.value(forKey: "title") as? String ?? "", for: .normal)
         }.disposed(by: bag)
@@ -180,7 +176,6 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
     }
     
     func bindListTV(){
-        
         search_obs.bind(to: listTV.rx.items(cellIdentifier: "ItemCell", cellType: ItemCell.self)) { (idx, ele, cell) in
             let i = ele.item
             cell.dele = self
@@ -205,8 +200,6 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
                         cell.screenShot3.image = img
                     }
                 }
-                   
-                
             }
             cell.trackName.text = "\(isStr(i["trackName"]))"
             cell.trackName.tag = idx
@@ -231,41 +224,26 @@ class SearchInputViewController: UIViewController, ItemCellDelegate{
         case .latest:
             latestCV.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(latestCV)
-            pinToParent(v: latestCV)
+            latestCV.pinToParent()
             break
         case .list:
             listTV.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(listTV)
-            pinToParent(v: listTV)
+            listTV.pinToParent()
             break
         case .history:
             historyTV.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(historyTV)
-            pinToParent(v: historyTV)
+            historyTV.pinToParent()
             break
         }
     }
-
-    private let bag = DisposeBag()
     
     // MARK: - Item Cell Delegate
     func pressReceive(cell: ItemCell) {
 //        let i = search_obs.value[cell.trackName.tag].item
         
     }
-    
 
-    // MARK: - Util
-
-    func pinToParent(v: UIView){
-        NSLayoutConstraint.activate([
-        v.topAnchor.constraint(equalTo: view.topAnchor),
-        v.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-        v.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        v.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
-    }
-
-    
-    
 }
 

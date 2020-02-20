@@ -39,6 +39,5 @@ final class SearchTabbarRouter: ViewableRouter<SearchTabbarInteractable, SearchT
         attachChild(searchDetail)
         viewController.push(viewController: searchDetail.viewControllable)
     }
-    
-    
+        
 }

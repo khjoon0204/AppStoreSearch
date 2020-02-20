@@ -13,6 +13,7 @@ class NewCell: UITableViewCell {
     @IBOutlet weak var lbVersion: UILabel!
     @IBOutlet weak var lbBeforeDay: UILabel!
     @IBOutlet weak var lbDesc: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

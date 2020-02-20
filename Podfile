@@ -14,5 +14,9 @@ end
 target 'AppStoreSearch' do
     pod_list
 end
-
+target 'AppStoreSearchTests' do
+    pod_list
+    pod 'Quick'
+    pod 'Nimble'
+end
 

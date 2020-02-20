@@ -29,8 +29,7 @@ class DescCell: UITableViewCell {
         // Initialization code
         
         screenCV.register(UINib(nibName: "DescScreenCell", bundle: nil), forCellWithReuseIdentifier: "DescScreenCell")
-        configureCV()
-        
+        configureCV()        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

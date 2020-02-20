@@ -3,8 +3,6 @@ import RxSwift
 import RxCocoa
 
 struct InfoSection: TableViewSection {
-    
-    
     let numberOfItems = 1
 
     /// json payload 매핑되는 곳

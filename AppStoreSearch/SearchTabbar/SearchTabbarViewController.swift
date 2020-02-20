@@ -22,11 +22,10 @@ protocol SearchTabbarPresentableListener: class {
     func fetchLatest(complete: @escaping ([NSManagedObject]) -> ())
     func saveLatest(text: String, complete: @escaping ([NSManagedObject]) -> ())
     func routeToSearchDetail(id: Int)
+    
 }
 
 final class SearchTabbarViewController: UITabBarController, SearchTabbarPresentable, SearchTabbarViewControllable {
-    
-    
 
     weak var listener: SearchTabbarPresentableListener?
     
@@ -34,11 +33,9 @@ final class SearchTabbarViewController: UITabBarController, SearchTabbarPresenta
         setupViewControllers()
     }
     
-    func setupViewControllers(){
-        
+    func setupViewControllers(){        
         let searchInputVC = (viewControllers?.first as! UINavigationController).viewControllers.first as! SearchInputViewController
         searchInputVC.listener = listener
-        
     }
     
     func push(viewController: ViewControllable) {
