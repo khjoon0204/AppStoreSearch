@@ -22,7 +22,7 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
     
     weak var listener: SearchDetailPresentableListener?
     
-    var sec_obs = BehaviorRelay<[TableViewSection]>(value: []) // TODO: - Section 들 넣기
+    var sec_obs = BehaviorRelay<[TableViewSection]>(value: [])
     
     private let bag = DisposeBag()
     
@@ -37,7 +37,6 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
         v.register(UINib(nibName: "NewCell", bundle: nil), forCellReuseIdentifier: "NewCell")
         v.register(UINib(nibName: "InfoCell", bundle: nil), forCellReuseIdentifier: "InfoCell")
         v.register(UINib(nibName: "HelperCell", bundle: nil), forCellReuseIdentifier: "HelperCell")
-        
         return v
     }()
     
@@ -57,7 +56,6 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
         super.viewDidLoad()
         bindTV()
         setupTV()
-        tableView.rowHeight = UITableView.automaticDimension
     }
     
     func setupTV() {
@@ -96,13 +94,6 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
             }
             return UITableViewCell()
         }.disposed(by: bag)
-        
-        //        latestCV.rx.modelSelected(Section.self).asDriver().drive(onNext: { (section) in
-        //            if let sec_input = section as? InputTextSection{
-        //                self.searchController.searchBar.text = sec_input.title
-        //                self.clickSearch()
-        //            }
-        //        }).disposed(by: bag)
         
         listener?.fetchLookup(withSuccessHandler: { (objs) in
             guard let i = Search.parseJSON(objs).first?.item else{return}

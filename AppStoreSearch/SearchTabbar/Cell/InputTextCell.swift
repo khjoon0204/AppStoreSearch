@@ -14,7 +14,6 @@ final class InputTextCell: UICollectionViewCell {
         }
     }
     override func prepareForReuse() {
-        // TODO: 재사용시 초기화 처리
         titleLabel.text = ""
     }
 }
