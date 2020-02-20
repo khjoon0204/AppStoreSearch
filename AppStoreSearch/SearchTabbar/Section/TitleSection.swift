@@ -20,8 +20,10 @@ struct TitleSection: Section {
     }
 
     func configureCell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: TitleCell.self), for: indexPath) as! TitleCell
-        cell.title = title
-        return cell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: TitleCell.self), for: indexPath) as? TitleCell{
+            cell.title = title
+            return cell
+        }
+        return UICollectionViewCell()
     }
 }

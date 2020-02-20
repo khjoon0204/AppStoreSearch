@@ -18,6 +18,12 @@ class DescCell: UITableViewCell {
     var bag: DisposeBag?
     var url_obs = BehaviorRelay<[URL]>(value: [])
     
+//    var title: String? {
+//        didSet {
+//            titleLabel.text = title
+//        }
+//    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

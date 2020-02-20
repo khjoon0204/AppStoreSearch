@@ -22,7 +22,8 @@ final class SearchDetailViewController: UIViewController, SearchDetailPresentabl
 
     weak var listener: SearchDetailPresentableListener?
 
-    var search_obs = BehaviorRelay<[Search]>(value: [])
+//    var search_obs = BehaviorRelay<[Search]>(value: [])
+    var sec_obs = BehaviorRelay<[TableViewSection]>(value: []) // TODO: - Section 들 넣기
     
     lazy var tableView: UITableView = {
         let v = UITableView(frame: .zero)

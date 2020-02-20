@@ -20,8 +20,12 @@ struct InputTextSection: Section {
     }
 
     func configureCell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: InputTextCell.self), for: indexPath) as! InputTextCell
-        cell.title = title
-        return cell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: InputTextCell.self), for: indexPath) as? InputTextCell{
+            cell.title = title
+            return cell
+            
+        }
+        
+        return UICollectionViewCell()
     }
 }
